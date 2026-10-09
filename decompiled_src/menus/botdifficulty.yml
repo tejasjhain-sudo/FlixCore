@@ -1,0 +1,56 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "&5&lSelect Bot Difficulty"
+  size: 27
+
+# Each item maps to a CPVP/PVP skill preset that gets applied to the bot.
+# Valid difficulty keys: easy, medium, hard, pro.
+items:
+  easy:
+    material: LIME_DYE
+    slot: 11
+    name: "&a&lEASY"
+    lore:
+      - "&7Aggression: &fLow"
+      - "&7Reactions:  &fSlow"
+      - "&7Crystals:   &fSlow placement"
+      - ""
+      - "&eClick to fight an &aEasy &ebot."
+
+  medium:
+    material: YELLOW_DYE
+    slot: 12
+    name: "&e&lMEDIUM"
+    lore:
+      - "&7Aggression: &fNormal"
+      - "&7Reactions:  &fNormal"
+      - "&7Crystals:   &fSteady placement"
+      - ""
+      - "&eClick to fight a &eMedium &ebot."
+
+  hard:
+    material: ORANGE_DYE
+    slot: 14
+    name: "&6&lHARD"
+    lore:
+      - "&7Aggression: &fHigh"
+      - "&7Reactions:  &fFast"
+      - "&7Crystals:   &fRapid placement"
+      - ""
+      - "&eClick to fight a &6Hard &ebot."
+
+  pro:
+    material: RED_DYE
+    slot: 15
+    name: "&c&lPRO"
+    lore:
+      - "&7Aggression: &fMaximum"
+      - "&7Reactions:  &fInstant"
+      - "&7Crystals:   &fFlawless"
+      - ""
+      - "&eClick to fight a &cPro &ebot."

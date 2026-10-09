@@ -1,0 +1,9 @@
+target/
+**/target/
+test_server/
+cache/
+libraries/
+versions/
+*.log
+.DS_Store
+.idea/

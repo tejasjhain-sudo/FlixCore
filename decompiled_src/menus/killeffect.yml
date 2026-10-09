@@ -1,0 +1,633 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&6&lKill Effects'
+  size: 54
+  navigation:
+    previous:
+      slot: 45
+      material: ARROW
+      display-name: '&ePrevious Page'
+      lore:
+        - '&7Page %menu_page%/%menu_total_pages%'
+    next:
+      slot: 53
+      material: ARROW
+      display-name: '&aNext Page'
+      lore:
+        - '&7Page %menu_page%/%menu_total_pages%'
+
+effects:
+  lightning:
+    slot: 10
+    material: END_ROD
+    display_name: '&e&lLightning Strike'
+    permission: 'flixcore.killeffect.lightning'
+    lore:
+      - ''
+      - '&7Strikes lightning at the'
+      - '&7defeated player location'
+      - ''
+      - '&7Status: &cNot Selected'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Strikes lightning at the'
+      - '&7defeated player location'
+      - ''
+      - '&7Status: &aSelected'
+      - ''
+      - '&eClick to deselect'
+    lore_no_permission:
+      - ''
+      - '&7Strikes lightning at the'
+      - '&7defeated player location'
+      - ''
+      - '&c✗ No Permission'
+
+  explosion:
+    slot: 11
+    material: TNT
+    display_name: '&c&lExplosion'
+    permission: 'flixcore.killeffect.explosion'
+    lore:
+      - ''
+      - '&7Creates an explosion effect'
+      - '&7at the defeated player'
+      - ''
+      - '&7Status: &cNot Selected'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Creates an explosion effect'
+      - '&7at the defeated player'
+      - ''
+      - '&7Status: &aSelected'
+      - ''
+      - '&eClick to deselect'
+    lore_no_permission:
+      - ''
+      - '&7Creates an explosion effect'
+      - '&7at the defeated player'
+      - ''
+      - '&c✗ No Permission'
+
+  firework:
+    slot: 12
+    material: FIREWORK_ROCKET
+    display_name: '&d&lFirework'
+    permission: 'flixcore.killeffect.firework'
+    lore:
+      - ''
+      - '&7Launches a colorful firework'
+      - '&7at your location'
+      - ''
+      - '&7Status: &cNot Selected'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Launches a colorful firework'
+      - '&7at your location'
+      - ''
+      - '&7Status: &aSelected'
+      - ''
+      - '&eClick to deselect'
+    lore_no_permission:
+      - ''
+      - '&7Launches a colorful firework'
+      - '&7at your location'
+      - ''
+      - '&c✗ No Permission'
+
+  flame:
+    slot: 14
+    material: BLAZE_POWDER
+    display_name: '&6&lFlame Burst'
+    permission: 'flixcore.killeffect.flame'
+    lore:
+      - ''
+      - '&7Creates a burst of flames'
+      - '&7around your character'
+      - ''
+      - '&7Status: &cNot Selected'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Creates a burst of flames'
+      - '&7around your character'
+      - ''
+      - '&7Status: &aSelected'
+      - ''
+      - '&eClick to deselect'
+    lore_no_permission:
+      - ''
+      - '&7Creates a burst of flames'
+      - '&7around your character'
+      - ''
+      - '&c✗ No Permission'
+
+  hearts:
+    slot: 16
+    material: RED_DYE
+    display_name: '&c&lHearts'
+    permission: 'flixcore.killeffect.hearts'
+    lore:
+      - ''
+      - '&7Shows heart particles'
+      - '&7around you'
+      - ''
+      - '&7Status: &cNot Selected'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Shows heart particles'
+      - '&7around you'
+      - ''
+      - '&7Status: &aSelected'
+      - ''
+      - '&eClick to deselect'
+    lore_no_permission:
+      - ''
+      - '&7Shows heart particles'
+      - '&7around you'
+      - ''
+      - '&c✗ No Permission'
+
+  blood:
+    slot: 15
+    material: REDSTONE
+    display_name: '&c&lBlood Splatter'
+    permission: 'flixcore.killeffect.blood'
+    lore:
+      - ''
+      - '&7Blood particles burst'
+      - '&7from the defeated player'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Blood particles burst'
+      - '&7from the defeated player'
+      - ''
+      - '&aCurrently Selected'
+
+  soul:
+    slot: 16
+    material: SOUL_LANTERN
+    display_name: '&b&lSoul Escape'
+    permission: 'flixcore.killeffect.soul'
+    lore:
+      - ''
+      - '&7Souls rise from the'
+      - '&7defeated player'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Souls rise from the'
+      - '&7defeated player'
+      - ''
+      - '&aCurrently Selected'
+
+  tornado:
+    slot: 19
+    material: FEATHER
+    display_name: '&f&lTornado'
+    permission: 'flixcore.killeffect.tornado'
+    lore:
+      - ''
+      - '&7A spinning tornado'
+      - '&7appears at death location'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7A spinning tornado'
+      - '&7appears at death location'
+      - ''
+      - '&aCurrently Selected'
+
+  snowstorm:
+    slot: 20
+    material: SNOWBALL
+    display_name: '&f&lSnowstorm'
+    permission: 'flixcore.killeffect.snowstorm'
+    lore:
+      - ''
+      - '&7Snowflakes fall from'
+      - '&7above the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Snowflakes fall from'
+      - '&7above the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  rainbow:
+    slot: 21
+    material: PRISMARINE_SHARD
+    display_name: '&c&lR&6&la&e&li&a&ln&b&lb&d&lo&5&lw'
+    permission: 'flixcore.killeffect.rainbow'
+    lore:
+      - ''
+      - '&7Colorful rainbow particles'
+      - '&7burst around you'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Colorful rainbow particles'
+      - '&7burst around you'
+      - ''
+      - '&aCurrently Selected'
+
+  enchant:
+    slot: 22
+    material: ENCHANTING_TABLE
+    display_name: '&d&lEnchantment'
+    permission: 'flixcore.killeffect.enchant'
+    lore:
+      - ''
+      - '&7Enchanting particles'
+      - '&7swirl around you'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Enchanting particles'
+      - '&7swirl around you'
+      - ''
+      - '&aCurrently Selected'
+
+  wither:
+    slot: 23
+    material: WITHER_SKELETON_SKULL
+    display_name: '&8&lWither'
+    permission: 'flixcore.killeffect.wither'
+    lore:
+      - ''
+      - '&7Dark wither flames'
+      - '&7consume the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Dark wither flames'
+      - '&7consume the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  dragon:
+    slot: 24
+    material: DRAGON_HEAD
+    display_name: '&5&lDragon Breath'
+    permission: 'flixcore.killeffect.dragon'
+    lore:
+      - ''
+      - '&7Purple dragon breath'
+      - '&7covers the death area'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Purple dragon breath'
+      - '&7covers the death area'
+      - ''
+      - '&aCurrently Selected'
+
+  portal:
+    slot: 25
+    material: OBSIDIAN
+    display_name: '&5&lPortal'
+    permission: 'flixcore.killeffect.portal'
+    lore:
+      - ''
+      - '&7Nether portal particles'
+      - '&7teleport them away'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Nether portal particles'
+      - '&7teleport them away'
+      - ''
+      - '&aCurrently Selected'
+
+  smoke:
+    slot: 28
+    material: CAMPFIRE
+    display_name: '&7&lSmoke Screen'
+    permission: 'flixcore.killeffect.smoke'
+    lore:
+      - ''
+      - '&7Heavy smoke billows'
+      - '&7from the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Heavy smoke billows'
+      - '&7from the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  totem:
+    slot: 29
+    material: TOTEM_OF_UNDYING
+    display_name: '&6&lTotem Pop'
+    permission: 'flixcore.killeffect.totem'
+    lore:
+      - ''
+      - '&7Totem particles explode'
+      - '&7from your victory'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Totem particles explode'
+      - '&7from your victory'
+      - ''
+      - '&aCurrently Selected'
+
+  sonic:
+    slot: 30
+    material: SCULK_SHRIEKER
+    display_name: '&3&lSonic Boom'
+    permission: 'flixcore.killeffect.sonic'
+    lore:
+      - ''
+      - '&7Warden sonic boom'
+      - '&7blasts the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Warden sonic boom'
+      - '&7blasts the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  music:
+    slot: 31
+    material: JUKEBOX
+    display_name: '&d&lMusic Notes'
+    permission: 'flixcore.killeffect.music'
+    lore:
+      - ''
+      - '&7Musical notes float'
+      - '&7around you'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Musical notes float'
+      - '&7around you'
+      - ''
+      - '&aCurrently Selected'
+
+  angryvillager:
+    slot: 32
+    material: IRON_AXE
+    display_name: '&c&lAngry Villager'
+    permission: 'flixcore.killeffect.angryvillager'
+    lore:
+      - ''
+      - '&7Angry clouds appear'
+      - '&7above the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Angry clouds appear'
+      - '&7above the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  happyvillager:
+    slot: 33
+    material: EMERALD
+    display_name: '&a&lHappy Villager'
+    permission: 'flixcore.killeffect.happyvillager'
+    lore:
+      - ''
+      - '&7Green sparkles celebrate'
+      - '&7your victory'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Green sparkles celebrate'
+      - '&7your victory'
+      - ''
+      - '&aCurrently Selected'
+
+  critical:
+    slot: 34
+    material: IRON_SWORD
+    display_name: '&f&lCritical Hit'
+    permission: 'flixcore.killeffect.critical'
+    lore:
+      - ''
+      - '&7Critical hit particles'
+      - '&7shower the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Critical hit particles'
+      - '&7shower the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  magic:
+    slot: 37
+    material: BREWING_STAND
+    display_name: '&5&lWitch Magic'
+    permission: 'flixcore.killeffect.magic'
+    lore:
+      - ''
+      - '&7Magical witch particles'
+      - '&7curse the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Magical witch particles'
+      - '&7curse the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  water:
+    slot: 38
+    material: WATER_BUCKET
+    display_name: '&b&lWater Splash'
+    permission: 'flixcore.killeffect.water'
+    lore:
+      - ''
+      - '&7Water splashes drench'
+      - '&7the defeated player'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Water splashes drench'
+      - '&7the defeated player'
+      - ''
+      - '&aCurrently Selected'
+
+  bubble:
+    slot: 39
+    material: PUFFERFISH
+    display_name: '&b&lBubble Pop'
+    permission: 'flixcore.killeffect.bubble'
+    lore:
+      - ''
+      - '&7Bubbles rise and pop'
+      - '&7from the victim'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Bubbles rise and pop'
+      - '&7from the victim'
+      - ''
+      - '&aCurrently Selected'
+
+  cloud:
+    slot: 40
+    material: WHITE_WOOL
+    display_name: '&f&lCloud Puff'
+    permission: 'flixcore.killeffect.cloud'
+    lore:
+      - ''
+      - '&7Fluffy clouds appear'
+      - '&7at the death spot'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Fluffy clouds appear'
+      - '&7at the death spot'
+      - ''
+      - '&aCurrently Selected'
+
+  slime:
+    slot: 41
+    material: SLIME_BALL
+    display_name: '&a&lSlime Splat'
+    permission: 'flixcore.killeffect.slime'
+    lore:
+      - ''
+      - '&7Slime splatters on'
+      - '&7the defeated player'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Slime splatters on'
+      - '&7the defeated player'
+      - ''
+      - '&aCurrently Selected'
+
+  cherry:
+    slot: 42
+    material: CHERRY_LEAVES
+    display_name: '&d&lCherry Blossoms'
+    permission: 'flixcore.killeffect.cherry'
+    lore:
+      - ''
+      - '&7Beautiful cherry petals'
+      - '&7fall around you'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Beautiful cherry petals'
+      - '&7fall around you'
+      - ''
+      - '&aCurrently Selected'
+
+  spark:
+    slot: 43
+    material: LIGHTNING_ROD
+    display_name: '&e&lElectric Spark'
+    permission: 'flixcore.killeffect.spark'
+    lore:
+      - ''
+      - '&7Electric sparks crackle'
+      - '&7around your victory'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Electric sparks crackle'
+      - '&7around your victory'
+      - ''
+      - '&aCurrently Selected'
+
+  note:
+    slot: 44
+    material: NOTE_BLOCK
+    display_name: '&e&lNote Melody'
+    permission: 'flixcore.killeffect.note'
+    lore:
+      - ''
+      - '&7Musical notes play'
+      - '&7a victory tune'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Musical notes play'
+      - '&7a victory tune'
+      - ''
+      - '&aCurrently Selected'
+
+  inferno:
+    slot: 17
+    material: MAGMA_BLOCK
+    display_name: '&6&lInferno'
+    permission: 'flixcore.killeffect.inferno'
+    lore:
+      - ''
+      - '&7Intense flames engulf'
+      - '&7the defeated player'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - ''
+      - '&7Intense flames engulf'
+      - '&7the defeated player'
+      - ''
+      - '&aCurrently Selected'
+
+  none:
+    slot: 49
+    material: BARRIER
+    display_name: '&7&lNo Effect'
+    permission: ''
+    lore:
+      - ''
+      - '&7Disables kill effects'
+      - ''
+      - '&7Status: &cNot Selected'
+      - ''
+      - '&eClick to disable effects'
+    lore_selected:
+      - ''
+      - '&7Disables kill effects'
+      - ''
+      - '&7Status: &aSelected'
+      - ''
+      - '&7No effect is active'

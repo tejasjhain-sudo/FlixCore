@@ -1,0 +1,311 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "&8&lTrail Effects"
+  size: 36
+  navigation:
+    previous:
+      slot: 27
+      material: ARROW
+      display-name: "&ePrevious Page"
+      lore:
+        - "&7Page %menu_page%/%menu_total_pages%"
+    next:
+      slot: 35
+      material: ARROW
+      display-name: "&aNext Page"
+      lore:
+        - "&7Page %menu_page%/%menu_total_pages%"
+
+trails:
+  none:
+    slot: 10
+    material: BARRIER
+    display_name: "&c&lNo Trail"
+    permission: ""
+    lore:
+      - "&7Disable your trail effect."
+    lore_selected:
+      - "&7Disable your trail effect."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Disable your trail effect."
+
+  flame:
+    slot: 11
+    material: BLAZE_POWDER
+    display_name: "&6&lFlame Trail"
+    permission: "flixcore.trail.flame"
+    lore:
+      - "&7Leave a trail of fire behind you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Leave a trail of fire behind you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Leave a trail of fire behind you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  heart:
+    slot: 12
+    material: RED_DYE
+    display_name: "&c&lHeart Trail"
+    permission: "flixcore.trail.heart"
+    lore:
+      - "&7Leave floating hearts behind you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Leave floating hearts behind you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Leave floating hearts behind you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  note:
+    slot: 13
+    material: NOTE_BLOCK
+    display_name: "&b&lMusic Trail"
+    permission: "flixcore.trail.note"
+    lore:
+      - "&7Musical notes follow you around."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Musical notes follow you around."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Musical notes follow you around."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  enchant:
+    slot: 14
+    material: ENCHANTING_TABLE
+    display_name: "&d&lEnchant Trail"
+    permission: "flixcore.trail.enchant"
+    lore:
+      - "&7Enchantment glyphs follow you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Enchantment glyphs follow you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Enchantment glyphs follow you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  soul:
+    slot: 15
+    material: SOUL_TORCH
+    display_name: "&b&lSoul Trail"
+    permission: "flixcore.trail.soul"
+    lore:
+      - "&7Soul fire flames follow your steps."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Soul fire flames follow your steps."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Soul fire flames follow your steps."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  cherry:
+    slot: 16
+    material: CHERRY_LEAVES
+    display_name: "&d&lCherry Blossom"
+    permission: "flixcore.trail.cherry"
+    lore:
+      - "&7Cherry blossom petals fall around you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Cherry blossom petals fall around you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Cherry blossom petals fall around you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  snowflake:
+    slot: 19
+    material: SNOW_BLOCK
+    display_name: "&f&lSnowflake Trail"
+    permission: "flixcore.trail.snowflake"
+    lore:
+      - "&7Snowflakes drift behind you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Snowflakes drift behind you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Snowflakes drift behind you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  rainbow:
+    slot: 20
+    material: PRISMARINE_SHARD
+    display_name: "&a&lRainbow Trail"
+    permission: "flixcore.trail.rainbow"
+    lore:
+      - "&7A shifting rainbow follows you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7A shifting rainbow follows you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7A shifting rainbow follows you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  cloud:
+    slot: 21
+    material: WHITE_WOOL
+    display_name: "&f&lCloud Trail"
+    permission: "flixcore.trail.cloud"
+    lore:
+      - "&7Walk on clouds."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Walk on clouds."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Walk on clouds."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  spark:
+    slot: 22
+    material: COPPER_INGOT
+    display_name: "&e&lSpark Trail"
+    permission: "flixcore.trail.spark"
+    lore:
+      - "&7Electric sparks at your feet."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Electric sparks at your feet."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Electric sparks at your feet."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  portal:
+    slot: 23
+    material: OBSIDIAN
+    display_name: "&5&lPortal Trail"
+    permission: "flixcore.trail.portal"
+    lore:
+      - "&7Nether portal particles swirl around you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Nether portal particles swirl around you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Nether portal particles swirl around you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  witch:
+    slot: 24
+    material: BREWING_STAND
+    display_name: "&d&lWitch Trail"
+    permission: "flixcore.trail.witch"
+    lore:
+      - "&7Magical potion particles follow you."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Magical potion particles follow you."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Magical potion particles follow you."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  slime:
+    slot: 25
+    material: SLIME_BALL
+    display_name: "&a&lSlime Trail"
+    permission: "flixcore.trail.slime"
+    lore:
+      - "&7Slime particles at your feet."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Slime particles at your feet."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Slime particles at your feet."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."

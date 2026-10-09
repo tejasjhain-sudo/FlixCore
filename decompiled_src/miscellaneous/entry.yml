@@ -1,0 +1,72 @@
+# Ballistic first-round duel entry
+#
+# When enabled, this entry runs once at the initial duel start. It takes
+# priority over match.start-elevator; disabled kits continue to use the
+# elevator (when enabled) or the normal arena teleport.
+#
+# The entry reuses each arena's existing elevator schematics and opens exactly
+# the same elevator shaft before launch. With match.start-elevator.radius: 1,
+# this is the same 3x3 area around each spawn, from the configured depth to the
+# spawn floor. The only difference is player movement: ballistic instead of
+# levitation/platform movement.
+#
+# Players wait in the open shaft while the normal duel countdown runs. As soon
+# as the countdown ends, both players launch. BOTH complete elevator
+# schematics are then restored with one direct full paste after the configured
+# delay; no layer-by-layer restoration is used.
+enabled: false
+
+# How far below each arena spawn the player starts.
+# This is capped to match.start-elevator.depth because that is the vertical
+# size stored in the existing elevator schematic.
+start-depth: 4
+
+# The manager tests flight durations from 8 ticks through this value and
+# chooses the duration whose natural Minecraft ballistic arc is closest to
+# arc-height. The calculated launch velocity still targets the exact spawn.
+maximum-duration-ticks: 30
+arc-height: 6.0
+
+# Directly paste both complete elevator schematics this many ticks after the
+# countdown ends and the ballistic launch starts.
+restore-after-launch-ticks: 5
+
+# After the natural arc, velocity-only guidance continues until the player
+# reaches the configured spawn. There is no landing teleport or timeout snap.
+
+# Distance at which a flight counts as landed.
+arrival:
+  horizontal-distance: 0.25
+  vertical-distance: 0.35
+
+# Use NONE to disable the launch sound.
+# Supports Bukkit enum names (ENTITY_FIREWORK_ROCKET_BLAST) or namespaced keys
+# (minecraft:entity.firework_rocket.blast).
+launch-sound:
+  name: ENTITY_FIREWORK_ROCKET_BLAST
+  volume: 1.0
+  pitch: 1.0
+
+particles:
+  enabled: true
+  type: CLOUD
+  interval-ticks: 2
+  count: 3
+  offset: 0.15
+  speed: 0.01
+
+# Kit names are case-insensitive. A normal kit also disables its generated
+# ranked form automatically (for example, bedwars also disables tierbedwars).
+# Fun/minigame kits are disabled by default.
+disabled-kits:
+  - nodebuff
+  - boxing
+  - sumo
+  - thebridge
+  - bedwars
+  - blockdecay
+  - bedboom
+  - creeper
+  - hunt
+  - colour
+  - pilleroffortune

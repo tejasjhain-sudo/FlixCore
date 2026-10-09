@@ -1,0 +1,183 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lShield Editor'
+  size: 54
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+    - HIDE_DESTROYS
+    - HIDE_PLACED_ON
+
+# =====================================================================
+# Slots used for the editor layout
+# =====================================================================
+# Layer slots (max 6 layers). The order here matches layer 1..6.
+layer_slots: [11, 12, 13, 14, 15, 16]
+
+# Slot of the live shield preview item.
+preview_slot: 4
+
+# Dynamic item templates. All text and materials shown in the shield editor
+# can be changed here. Optional custom-model-data is supported in every item.
+items:
+  preview:
+    material: SHIELD
+    display_name: '&f%color% Shield'
+    layer_lore:
+      - '&7%layer%. &e%layer_color% &7- &e%pattern%'
+    empty_lore:
+      - '&7No layers yet.'
+
+  empty_layer:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    display_name: '&7Layer %layer% (Empty)'
+    lore:
+      - ''
+      - '&7This layer slot is empty.'
+      - '&7Add a layer to fill it.'
+
+  layer:
+    # %color_key% is the Bukkit color key, for example BROWN.
+    material: '%color_key%_BANNER'
+    display_name: '&e&l\u272A LAYER %layer%'
+    lore:
+      - ''
+      - '&fDescription'
+      - '&7Color: &e%color%'
+      - '&7Pattern: &e%pattern%'
+      - ''
+      - '&e\u25B6 LEFT-CLICK to Edit Layer'
+      - '&c\u25B6 RIGHT-CLICK to Remove Layer'
+
+# Buttons / static items
+buttons:
+  info:
+    material: WRITABLE_BOOK
+    slot: 0
+    display_name: '&b&l\u26A1 SHIELD INFO'
+    lore:
+      - ''
+      - '&fInformation'
+      - '&7Customize your shield with &dbanner patterns&7.'
+      - '&7Choose a &ebase color&7, then add up to'
+      - '&e6 layers &7of patterns and colors.'
+      - ''
+      - '&fTip:'
+      - '&7Click the &ebase color &7button below,'
+      - '&7or click &a+ Add Layer &7to get started!'
+
+  base_color:
+    material: WHITE_BANNER
+    slot: 19
+    display_name: '&e&l\u270E BASE COLOR'
+    lore:
+      - ''
+      - '&fDescription'
+      - '&7Currently set to: &e%color%'
+      - '&7Change the background color of your shield.'
+      - ''
+      - '&e\u25B6 CLICK to Change Base Color'
+
+  add_layer:
+    material: LIME_DYE
+    slot: 28
+    display_name: '&a&l+ ADD LAYER'
+    lore:
+      - ''
+      - '&fDescription'
+      - ''
+      - '&7Layers: &e%layers%/6'
+      - '&7Add a new pattern layer to your shield.'
+      - ''
+      - '&fSteps:'
+      - '&71. Choose a color for the layer'
+      - '&72. Choose a pattern design'
+      - ''
+      - '&e\u25B6 CLICK to Add Layer'
+    # When the player has hit the maximum, this alternate item is shown:
+    locked_material: BARRIER
+    locked_display_name: '&c&l+ MAX LAYERS'
+    locked_lore:
+      - ''
+      - '&fDescription'
+      - ''
+      - '&7Layers: &c%layers%/6'
+      - '&cYou''ve reached the maximum number of layers.'
+      - '&7Remove a layer to add a new one.'
+      - ''
+      - '&c\u2717 Cannot add more layers'
+
+  remove_layer:
+    material: ORANGE_DYE
+    slot: 30
+    display_name: '&c&l- REMOVE LAYER'
+    lore:
+      - ''
+      - '&fDescription'
+      - '&7Removes the most recently added layer.'
+      - '&7Top Layer: &e%top_layer%'
+      - ''
+      - '&fWarning'
+      - '&cThis action cannot be undone!'
+      - ''
+      - '&e\u25B6 CLICK to Remove Layer'
+    locked_material: GRAY_DYE
+    locked_display_name: '&7&l- REMOVE LAYER'
+    locked_lore:
+      - ''
+      - '&7No layers to remove.'
+
+  clear_all:
+    material: MAGENTA_DYE
+    slot: 32
+    display_name: '&d&l\u2715 CLEAR ALL'
+    lore:
+      - ''
+      - '&fDescription'
+      - '&7Remove all layers and reset the'
+      - '&7shield to its &edefault state&7.'
+      - ''
+      - '&fWarning'
+      - '&cThis action cannot be undone!'
+      - ''
+      - '&e\u25B6 CLICK to Clear Design'
+
+  apply:
+    material: EMERALD
+    slot: 34
+    display_name: '&a&l\u2713 APPLY DESIGN'
+    lore:
+      - ''
+      - '&fDescription'
+      - '&7Apply this shield design and'
+      - '&7return to the previous menu.'
+      - ''
+      - '&fStatus'
+      - '&aReady to apply your design.'
+      - ''
+      - '&e\u25B6 CLICK to Save Design'
+
+  back:
+    material: REDSTONE
+    slot: 49
+    display_name: '&c&l\u00D7 BACK'
+    lore:
+      - ''
+      - '&fDescription'
+      - '&7Return to the previous menu.'
+      - '&cAll unsaved changes will be lost!'
+      - ''
+      - '&e\u25B6 CLICK to Go Back'
+
+# =====================================================================
+# Filler item (decorative panes)
+# =====================================================================
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  display_name: ' '
+  slots: [1, 2, 3, 5, 6, 7, 8, 9, 10, 17, 18, 20, 21, 22, 23, 24, 25, 26, 27, 29, 31, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50, 51, 52, 53]

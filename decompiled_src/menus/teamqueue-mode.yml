@@ -1,0 +1,45 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "<gradient:#4da6ff:#ff4d4d>%team_size%v%team_size% Queue</gradient>"
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+  navigation:
+    back:
+      enabled: true
+      slot: 18
+      material: ARROW
+      display-name: "<yellow>Back"
+    close:
+      enabled: true
+      slot: 26
+      material: BARRIER
+      display-name: "<red>Close"
+
+items:
+  solo:
+    material: PLAYER_HEAD
+    slot: 11
+    display-name: "<green>Solo Queue"
+    lore:
+      - "<gray>Queue alone."
+      - "<gray>Players are grouped into two teams."
+      - ""
+      - "<yellow>Click to choose a kit"
+    action: "team-mode:solo"
+  party:
+    material: TOTEM_OF_UNDYING
+    slot: 15
+    display-name: "<light_purple>Party Queue"
+    lore:
+      - "<gray>Requires an exact-size party."
+      - "<gray>Only the party leader can join."
+      - ""
+      - "<yellow>Click to choose a kit"
+    action: "team-mode:party"

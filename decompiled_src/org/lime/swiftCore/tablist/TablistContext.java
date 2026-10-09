@@ -1,0 +1,26 @@
+package org.lime.swiftCore.tablist;
+
+public enum TablistContext {
+   DEFAULT,
+   QUEUE,
+   DUEL,
+   FFA,
+   PARTY,
+   PARTY_FFA,
+   PARTY_SPLIT,
+   PARTY_VS,
+   SPECTATING,
+   GLOBAL,
+   DUEL_BLOCK_DECAY,
+   DUEL_FLOWER_CROWN,
+   DUEL_TNT_TAG,
+   DUEL_BEDWARS,
+   PARTY_BLOCK_DECAY,
+   PARTY_FLOWER_CROWN,
+   PARTY_TNT_TAG,
+   PARTY_BEDWARS,
+   TOURNAMENT,
+   EVENT,
+   LOBBY_FRIENDS,
+   TEAM_QUEUE;
+}

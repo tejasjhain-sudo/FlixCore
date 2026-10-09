@@ -1,0 +1,24 @@
+# Demand-only: normal static/generated arenas are selected before generation.
+# Every fully configured, non-FFA static arena is an eligible source family.
+# When enabled, each static NON_BUILD source schematic is loaded or captured once
+# during preparation. Demand waits for that clean snapshot and pastes it directly;
+# NON_BUILD arenas are never live-copied while fulfilling demand.
+enabled: false
+
+# Copies stay in their source arena's world and advance along +X.
+spacing: 500
+
+# AVAILABLE copies maintained only for source families touched by actual demand.
+ready-cache: 1
+acquisition-timeout-seconds: 30
+name-prefix: dynamic_
+
+lifecycle:
+  # persistent keeps arenas; session removes them on shutdown; trim removes idle cache excess.
+  mode: persistent
+  persistent: true
+  session: false
+  maximum-generated: 0
+  idle-delay-seconds: 300
+  trim-interval-seconds: 60
+  trim-excess-on-startup: false

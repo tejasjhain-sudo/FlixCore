@@ -1,0 +1,62 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&8Match History - %player%'
+  size: 54
+  date-format: 'MM/dd/yyyy HH:mm'
+
+match-item:
+  allowed-slots: '10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34'
+  win:
+    material: LIME_STAINED_GLASS_PANE
+    display_name: '&#69F0AE✓ Win vs %opponent%'
+    lore:
+      - ''
+      - '&#FFFFF0Kit: &#69F0AE%kit%'
+      - '&#FFFFF0Arena: &#69F0AE%arena%'
+      - '&#FFFFF0Type: &#69F0AE%ranked%'
+      - '&#FFFFF0Date: &#7F7F7F%date%'
+      - ''
+  loss:
+    material: RED_STAINED_GLASS_PANE
+    display_name: '&#FF4D4D✗ Loss vs %opponent%'
+    lore:
+      - ''
+      - '&#FFFFF0Kit: &#FF4D4D%kit%'
+      - '&#FFFFF0Arena: &#FF4D4D%arena%'
+      - '&#FFFFF0Type: &#FF4D4D%ranked%'
+      - '&#FFFFF0Date: &#7F7F7F%date%'
+      - ''
+
+items-attributes:
+  - HIDE_ATTRIBUTES
+  - HIDE_ADDITIONAL_TOOLTIP
+
+filling-items:
+  item: GRAY_STAINED_GLASS_PANE
+  display_name: '&0 '
+
+close-item:
+  slot: 49
+  material: BARRIER
+  display_name: '&cClose'
+  lore:
+    - '&7Click to close'
+
+back-item:
+  slot: 45
+  material: ARROW
+  display_name: '&cPrevious'
+  lore:
+    - '&7Go to previous page'
+
+next-item:
+  slot: 53
+  material: ARROW
+  display_name: '&aNext'
+  lore:
+    - '&7Go to next page'

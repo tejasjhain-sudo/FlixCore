@@ -1,0 +1,5 @@
+# Team queue kit menu.
+# By default this reuses the complete cached kit layout from unrankedqueue.yml.
+# Set source-menu to another file in plugins/FlixCore/menus, or remove it and
+# define a normal CachedConfigurableMenu `gui` / `items` layout in this file.
+source-menu: unrankedqueue.yml

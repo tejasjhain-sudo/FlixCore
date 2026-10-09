@@ -1,0 +1,151 @@
+# Animation Configuration
+# change-interval: Duration each frame displays (in milliseconds)
+# texts: List of animation frames
+
+# Cyan / Aqua wave title animation for scoreboard
+flixcore:
+  change-interval: 50
+  texts:
+    - "&#E0F7FA&lF&#B2EBF2&lL&#80DEEA&lI&#4DD0E1&lX&#26C6DA&lC&#00BCD4&lO&#00ACC1&lR&#0097A7&lE"
+    - "&#B2EBF2&lF&#E0F7FA&lL&#B2EBF2&lI&#80DEEA&lX&#4DD0E1&lC&#26C6DA&lO&#00BCD4&lR&#00ACC1&lE"
+    - "&#80DEEA&lF&#B2EBF2&lL&#E0F7FA&lI&#B2EBF2&lX&#80DEEA&lC&#4DD0E1&lO&#26C6DA&lR&#00BCD4&lE"
+    - "&#4DD0E1&lF&#80DEEA&lL&#B2EBF2&lI&#E0F7FA&lX&#B2EBF2&lC&#80DEEA&lO&#4DD0E1&lR&#26C6DA&lE"
+    - "&#26C6DA&lF&#4DD0E1&lL&#80DEEA&lI&#B2EBF2&lX&#E0F7FA&lC&#B2EBF2&lO&#80DEEA&lR&#4DD0E1&lE"
+    - "&#00BCD4&lF&#26C6DA&lL&#4DD0E1&lI&#80DEEA&lX&#B2EBF2&lC&#E0F7FA&lO&#B2EBF2&lR&#80DEEA&lE"
+    - "&#00ACC1&lF&#00BCD4&lL&#26C6DA&lI&#4DD0E1&lX&#80DEEA&lC&#B2EBF2&lO&#E0F7FA&lR&#B2EBF2&lE"
+    - "&#0097A7&lF&#00ACC1&lL&#00BCD4&lI&#26C6DA&lX&#4DD0E1&lC&#80DEEA&lO&#B2EBF2&lR&#E0F7FA&lE"
+    - "&#00E5FF&lF&#00B0FF&lL&#0091EA&lI&#00E5FF&lX&#00B0FF&lC&#0091EA&lO&#00E5FF&lR&#00B0FF&lE"
+    - "&#00B0FF&lF&#0091EA&lL&#00E5FF&lI&#00B0FF&lX&#0091EA&lC&#00E5FF&lO&#00B0FF&lR&#0091EA&lE"
+    - "&#0091EA&lF&#00E5FF&lL&#00B0FF&lI&#0091EA&lX&#00E5FF&lC&#00B0FF&lO&#0091EA&lR&#00E5FF&lE"
+    - "&#00E5FF&lF&#00B0FF&lL&#0091EA&lI&#00E5FF&lX&#00B0FF&lC&#0091EA&lO&#00E5FF&lR&#00B0FF&lE"
+    - "&#26C6DA&lF&#4DD0E1&lL&#80DEEA&lI&#B2EBF2&lX&#E0F7FA&lC&#B2EBF2&lO&#80DEEA&lR&#4DD0E1&lE"
+    - "&#4DD0E1&lF&#80DEEA&lL&#B2EBF2&lI&#E0F7FA&lX&#B2EBF2&lC&#80DEEA&lO&#4DD0E1&lR&#26C6DA&lE"
+    - "&#80DEEA&lF&#B2EBF2&lL&#E0F7FA&lI&#B2EBF2&lX&#80DEEA&lC&#4DD0E1&lO&#26C6DA&lR&#00BCD4&lE"
+
+# Cycling info bar for scoreboard title area
+title:
+  change-interval: 19000
+  texts:
+    - "&#00E5FF&nᴅɪsᴄᴏʀᴅ&r &8| &fᴘʀᴀᴄᴛɪᴄᴇ &8| &fꜱᴛᴏʀᴇ"
+    - "&fᴅɪsᴄᴏʀᴅ &8| &#00E5FF&nᴘʀᴀᴄᴛɪᴄᴇ&r &8| &fꜱᴛᴏʀᴇ"
+    - "&fᴅɪsᴄᴏʀᴅ &8| &fᴘʀᴀᴄᴛɪᴄᴇ &8| &#00E5FF&nꜱᴛᴏʀᴇ&r"
+
+line1:
+  change-interval: 19000
+  texts:
+    - "&fJoin our Discord to stay up-to-date!"
+    - "&fPractice with your &#00E5FFTeammates&f and have fun!"
+    - "&fSupport us by shopping from our store!"
+
+line2:
+  change-interval: 19000
+  texts:
+    - "&fuse &#00E5FF/discord &fto join our discord!"
+    - "&fplay ranked matches and get &#00E5FFupgrades&f!"
+    - "&fuse &#00E5FF/store &fto visit our store!"
+
+# Player rank display
+rank:
+  change-interval: 5000
+  texts:
+    - " &#80DEEA★ "
+    - " &#00E5FF✦ "
+
+# Server IP footer with color pulse
+serverip:
+  change-interval: 1500
+  texts:
+    - "&#0097A7ꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#00ACC1ꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#00BCD4ꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#26C6DAꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#4DD0E1ꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#00E5FFꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#4DD0E1ꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+    - "&#00BCD4ꜰʟɪxᴄᴏʀᴇ.ɴᴇᴛ"
+
+# Progress bar animation
+timer:
+  change-interval: 500
+  texts:
+    - "&f●&m               &r●&r"
+    - "&#00E5FF●&m               &r&#00E5FF●&r"
+    - "●&m               &r●&r"
+    - "&#00E5FF●&r&m               &r●&r"
+    - "&#00E5FF●&m &r&m              &r●&r"
+    - "&#00E5FF●&m  &r&m             &r●&r"
+    - "&#00E5FF●&m   &r&m            &r●&r"
+    - "&#00E5FF●&m    &r&m           &r●&r"
+    - "&#00E5FF●&m     &r&m          &r●&r"
+    - "&#00E5FF●&m      &r&m         &r●&r"
+    - "&#00E5FF●&m       &r&m        &r●&r"
+    - "&#00E5FF●&m        &r&m       &r●&r"
+    - "&#00E5FF●&m         &r&m      &r●&r"
+    - "&#00E5FF●&m          &r&m     &r●&r"
+    - "&#00E5FF●&m           &r&m    &r●&r"
+    - "&#00E5FF●&m            &r&m   &r●&r"
+    - "&#00E5FF●&m             &r&m  &r●&r"
+    - "&#00E5FF●&m               &r●&r"
+    - "&#00E5FF●&m               &r&#00E5FF●&r"
+    - "&f●&m               &r●&r"
+    - "&#00E5FF●&m               &r&#00E5FF●&r"
+    - "&r●&m               &r&#00E5FF●&r"
+    - "&r●&m              &#00E5FF&m &r&#00E5FF●&r"
+    - "&r●&m             &#00E5FF&m  &r&#00E5FF●&r"
+    - "&r●&m            &#00E5FF&m   &r&#00E5FF●&r"
+    - "&r●&m           &#00E5FF&m    &r&#00E5FF●&r"
+    - "&r●&m          &#00E5FF&m     &r&#00E5FF●&r"
+    - "&r●&m         &#00E5FF&m      &r&#00E5FF●&r"
+    - "&r●&m        &#00E5FF&m       &r&#00E5FF●&r"
+    - "&r●&m       &#00E5FF&m        &r&#00E5FF●&r"
+    - "&r●&m      &#00E5FF&m         &r&#00E5FF●&r"
+    - "&r●&m     &#00E5FF&m          &r&#00E5FF●&r"
+    - "&r●&m    &#00E5FF&m           &r&#00E5FF●&r"
+    - "&r●&m   &#00E5FF&m            &r&#00E5FF●&r"
+    - "&r●&m  &#00E5FF&m             &r&#00E5FF●&r"
+    - "&r●&m &#00E5FF&m              &r&#00E5FF●&r"
+    - "&r●&m&#00E5FF&m               &r&#00E5FF●&r"
+    - "&r&#00E5FF●&m               &r&#00E5FF●&r"
+
+# Cycling lobby stats (kills/deaths/kdr)
+stats1:
+  change-interval: 12000
+  texts:
+    - "&#00E5FF🗡 &#FFFFF0Kills: &#00E5FF%flixcore_kills%"
+    - "&#FF5252☠ &#FFFFF0Deaths: &#FF5252%flixcore_deaths%"
+    - "&#4DD0E1⚐ &#FFFFF0KdR: &#4DD0E1%flixcore_kdratio%"
+
+# Cycling lobby stats (wins/losses/streaks)
+stats2:
+  change-interval: 12000
+  texts:
+    - "&#00E676✧ &#FFFFF0Won: &#00E676%flixcore_wins%"
+    - "&#FF5252✖ &#FFFFF0Lost: &#FF5252%flixcore_losses%"
+    - "&#00E5FF⚡ &#FFFFF0WinStreak: &#00E5FF%flixcore_winstreak%"
+    - "&#00B0FF⚡ &#FFFFF0KillStreak: &#00B0FF%flixcore_killstreak%"
+
+# Cycling FFA stats (per-arena)
+stats3:
+  change-interval: 1600
+  texts:
+    - "&#00E5FF🗡 &#FFFFF0Kills: &#00E5FF%flixcore_ffa_kills_<arena>%"
+    - "&#FF5252☠ &#FFFFF0Deaths: &#FF5252%flixcore_ffa_deaths_<arena>%"
+    - "&#4DD0E1⚐ &#FFFFF0KdR: &#4DD0E1%flixcore_ffa_kdr_<arena>%"
+
+# Flower Crown game indicator
+flower:
+  change-interval: 500
+  texts:
+    - " &#00E5FF🌸 &#FFFFF0Flower Crown"
+    - " &#4DD0E1🌼 &#FFFFF0Flower Crown"
+    - " &#80DEEA🌻 &#FFFFF0Flower Crown"
+    - " &#4DD0E1🌼 &#FFFFF0Flower Crown"
+
+# TNT Tag game indicator
+tnttag:
+  change-interval: 350
+  texts:
+    - " &#FF5252💣 &#FFFFF0TNT Tag!"
+    - " &#FF7043💥 &#FFFFF0TNT Tag!"
+    - " &#00E5FF💣 &#FFFFF0TNT Tag!"
+    - " &#FF7043💥 &#FFFFF0TNT Tag!"

@@ -1,0 +1,18 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lChallenge Party'
+  size: 54
+
+items:
+  back:
+    material: ARROW
+    slot: 49
+    display_name: '&c&lBack'
+    lore:
+      - ''
+      - '&7Return to party management'

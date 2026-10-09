@@ -1,0 +1,185 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui-rows: 3
+gui-title: "&8Select a Kill Sound"
+
+navigation:
+  previous:
+    slot: 18
+    material: ARROW
+    display-name: "&ePrevious Page"
+    lore:
+      - "&7Page %menu_page%/%menu_total_pages%"
+  next:
+    slot: 26
+    material: ARROW
+    display-name: "&aNext Page"
+    lore:
+      - "&7Page %menu_page%/%menu_total_pages%"
+
+# Lore templates appended to each sound item based on state
+locked-lore:
+  - ""
+  - "&c&lLOCKED"
+  - "&7You don't have permission"
+  - "&7to use this kill sound."
+
+selected-lore:
+  - ""
+  - "&a&lSELECTED"
+  - "&7This kill sound is active."
+  - "&eClick to deselect."
+
+unlocked-lore:
+  - ""
+  - "&a&lUNLOCKED"
+  - "&eClick to select!"
+
+# Each entry supports volume (minimum 0) and pitch (clamped to 0.5-2.0).
+sounds:
+  none:
+    sound: ""
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&c&lNo Kill Sound"
+    material: BARRIER
+    lore:
+      - "&7Disable your kill sound."
+    slot: 10
+    permission: ""
+
+  levelup:
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&6Level Up Sound"
+    material: EXPERIENCE_BOTTLE
+    lore:
+      - "&7A triumphant sound of achievement."
+    slot: 11
+    permission: "killsound.levelup"
+
+  pling:
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&bPling"
+    material: NOTE_BLOCK
+    lore:
+      - "&7A sharp note block pling."
+    slot: 12
+    permission: "killsound.pling"
+
+  anvil:
+    sound: "BLOCK_ANVIL_LAND"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&7Anvil Drop"
+    material: ANVIL
+    lore:
+      - "&7The heavy clang of an anvil."
+    slot: 13
+    permission: "killsound.anvil"
+
+  wither:
+    sound: "ENTITY_WITHER_SPAWN"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&5Wither Spawn"
+    material: WITHER_SKELETON_SKULL
+    lore:
+      - "&7The terrifying sound of a Wither."
+    slot: 14
+    permission: "killsound.wither"
+
+  blaze:
+    sound: "ENTITY_BLAZE_SHOOT"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&6Blaze Shot"
+    material: BLAZE_ROD
+    lore:
+      - "&7A searing blaze fireball."
+    slot: 15
+    permission: "killsound.blaze"
+
+  enderdragon:
+    sound: "ENTITY_ENDER_DRAGON_GROWL"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&dDragon Growl"
+    material: DRAGON_HEAD
+    lore:
+      - "&7The mighty roar of the Ender Dragon."
+    slot: 16
+    permission: "killsound.enderdragon"
+
+  ghast:
+    sound: "ENTITY_GHAST_SCREAM"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&fGhast Scream"
+    material: GHAST_TEAR
+    lore:
+      - "&7A chilling ghast screech."
+    slot: 19
+    permission: "killsound.ghast"
+
+  totem:
+    sound: "ITEM_TOTEM_USE"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&eTotem Pop"
+    material: TOTEM_OF_UNDYING
+    lore:
+      - "&7The sound of cheating death."
+    slot: 20
+    permission: "killsound.totem"
+
+  thunder:
+    sound: "ENTITY_LIGHTNING_BOLT_THUNDER"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&9Thunder Strike"
+    material: TRIDENT
+    lore:
+      - "&7A devastating thunderclap."
+    slot: 21
+    permission: "killsound.thunder"
+
+  villager_no:
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&2Villager No"
+    material: EMERALD
+    lore:
+      - "&7A disapproving villager hmph."
+    slot: 22
+    permission: "killsound.villager"
+
+  cat_hiss:
+    sound: "ENTITY_CAT_HISS"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&aCat Hiss"
+    material: STRING
+    lore:
+      - "&7An angry cat hiss."
+    slot: 23
+    permission: "killsound.cat"
+
+  goat_horn:
+    sound: "ENTITY_GOAT_SCREAMING_LONG_JUMP"
+    volume: 1.0
+    pitch: 1.0
+    display-name: "&6Goat Scream"
+    material: GOAT_HORN
+    lore:
+      - "&7A hilarious screaming goat."
+    slot: 24
+    permission: "killsound.goat"

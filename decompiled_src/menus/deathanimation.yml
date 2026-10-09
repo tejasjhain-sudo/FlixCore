@@ -1,0 +1,206 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "&8&lDeath Animations"
+  size: 27
+  navigation:
+    previous:
+      slot: 18
+      material: ARROW
+      display-name: "&ePrevious Page"
+      lore:
+        - "&7Page %menu_page%/%menu_total_pages%"
+    next:
+      slot: 26
+      material: ARROW
+      display-name: "&aNext Page"
+      lore:
+        - "&7Page %menu_page%/%menu_total_pages%"
+
+animations:
+  none:
+    slot: 10
+    material: BARRIER
+    display_name: "&c&lNo Animation"
+    permission: ""
+    lore:
+      - "&7Disable your death animation."
+    lore_selected:
+      - "&7Disable your death animation."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Disable your death animation."
+
+  blood:
+    slot: 11
+    material: REDSTONE
+    display_name: "&c&lBlood Splatter"
+    permission: "flixcore.deathanimation.blood"
+    lore:
+      - "&7A gruesome blood splatter effect."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7A gruesome blood splatter effect."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7A gruesome blood splatter effect."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  explosion:
+    slot: 12
+    material: TNT
+    display_name: "&6&lExplosion"
+    permission: "flixcore.deathanimation.explosion"
+    lore:
+      - "&7A massive explosion on death."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7A massive explosion on death."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7A massive explosion on death."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  enderman:
+    slot: 13
+    material: ENDER_PEARL
+    display_name: "&5&lEnderman Teleport"
+    permission: "flixcore.deathanimation.enderman"
+    lore:
+      - "&7Teleport away with enderman particles."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Teleport away with enderman particles."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Teleport away with enderman particles."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  lightning:
+    slot: 14
+    material: LIGHTNING_ROD
+    display_name: "&e&lLightning Strike"
+    permission: "flixcore.deathanimation.lightning"
+    lore:
+      - "&7A divine lightning strike on death."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7A divine lightning strike on death."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7A divine lightning strike on death."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  soul_rise:
+    slot: 15
+    material: SOUL_LANTERN
+    display_name: "&b&lSoul Rise"
+    permission: "flixcore.deathanimation.soulrise"
+    lore:
+      - "&7Souls rise from the body."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Souls rise from the body."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Souls rise from the body."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  totem:
+    slot: 16
+    material: TOTEM_OF_UNDYING
+    display_name: "&e&lTotem Pop"
+    permission: "flixcore.deathanimation.totem"
+    lore:
+      - "&7Totem of undying particles on death."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7Totem of undying particles on death."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7Totem of undying particles on death."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  firework:
+    slot: 19
+    material: FIREWORK_ROCKET
+    display_name: "&d&lFirework"
+    permission: "flixcore.deathanimation.firework"
+    lore:
+      - "&7A celebratory firework on death."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7A celebratory firework on death."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7A celebratory firework on death."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."
+
+  void_collapse:
+    slot: 20
+    material: OBSIDIAN
+    display_name: "&8&lVoid Collapse"
+    permission: "flixcore.deathanimation.voidcollapse"
+    lore:
+      - "&7A spiraling void collapse."
+      - ""
+      - "&a&lUNLOCKED"
+      - "&eClick to select!"
+    lore_selected:
+      - "&7A spiraling void collapse."
+      - ""
+      - "&a&lSELECTED"
+      - "&eClick to deselect."
+    lore_no_permission:
+      - "&7A spiraling void collapse."
+      - ""
+      - "&c&lLOCKED"
+      - "&7You don't have permission."

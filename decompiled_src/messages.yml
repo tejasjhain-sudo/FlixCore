@@ -1,0 +1,2076 @@
+messages:
+  global-player-join:
+    - '&a✔ &f%player%&7 connected to &f%server%&7'
+
+  global-player-leave:
+    - '&c✖ &f%player%&7 left &f%server%&7'
+
+  join-message-selected:
+    - '&a✔ &7Selected join message: &f%message%&7'
+  join-message-default:
+    - '&e★ &7Your join message was reset to the default.'
+  join-message-no-permission:
+    - '&c✖ &7You do not have permission to use that join message.'
+
+  leave-message-selected:
+    - '&a✔ &7Selected leave message: &f%message%&7'
+  leave-message-default:
+    - '&e★ &7Your leave message was reset to the default.'
+  leave-message-no-permission:
+    - '&c✖ &7You do not have permission to use that leave message.'
+
+  duel-request-sent:
+    - ''
+    - '&a✔ &7Duel Request Sent!'
+    - '&7You challenged &f%target%&7 to a duel'
+    - '&7Kit: &f%kit%&7 | Rounds: &fBest of &f%rounds%&7'
+    - ''
+  
+  duel-request-received:
+    - ''
+    - '&e⚔ &7Duel Request!'
+    - '&f%sender%&7 has challenged you to a duel!'
+    - '&7Kit: &f%kit%&7 | Rounds: &fBest of &f%rounds%&7'
+    - ''
+    - '&eType &7/duel accept &eto accept!'
+    - ''
+  
+  duel-click-accept:
+    text: '&f⏵ [ &nᴀᴄᴄᴇᴘᴛ&f ] ⏴'
+    hover: '&f🏹 &7Click to accept duel from &f%sender%&7'
+    command: 'duel accept %sender%'
+
+  
+  duel-accepted:
+    - '&a✔ &7Duel accepted! Teleporting to arena...'
+  
+  duel-no-request:
+    - '&c✖ &7You dont have any pending duel requests!'
+  
+  duel-request-expired:
+    - '&c✖ &7The duel request has expired!'
+  
+  duel-player-offline:
+    - '&c✖ &7That player is no longer online!'
+  
+  duel-no-arenas:
+    - '&c✖ &7No &f%arena_type%&7 arenas available! Try again later.'
+  
+  duel-kit-not-found:
+    - '&c✖ &7Kit not found!'
+
+  open-challenge-usage:
+    - '&c✖ &7Usage: &f/openchallenge <kitname>'
+
+  open-challenge-disabled:
+    - '&c✖ &7Open challenges are currently disabled!'
+
+  open-challenge-busy:
+    - '&c✖ &7You cannot use open challenges while busy!'
+
+  open-challenge-kit-not-found:
+    - '&c✖ &7That kit does not exist!'
+
+  open-challenge-cooldown:
+    - '&c✖ &7Please wait &f%time%s&7 before creating another open challenge!'
+
+  open-challenge-already-active:
+    - '&c✖ &7You already have an active open challenge!'
+
+  open-challenge-created:
+    - '&a✔ &7Open challenge created for &f%kit_display%&7. It expires in &f%time%s&7.'
+
+  open-challenge-broadcast:
+    - ''
+    - '&6⚔ &f%player%&7 has opened a duel challenge!'
+    - '&7Kit: &f%kit_display% &8| &7Expires in: &f%time%s'
+    - '<click:run_command:"/openchallenge accept %challenge_id%"><hover:show_text:"&eClick to join %player%''s open challenge">&a&l[CLICK TO JOIN]</hover></click>'
+    - ''
+
+  open-challenge-expired:
+    - '&c✖ &7This open challenge is no longer available!'
+
+  open-challenge-expired-owner:
+    - '&e★ &7Your open challenge for &f%kit_display%&7 expired.'
+
+  open-challenge-cannot-accept-own:
+    - '&c✖ &7You cannot accept your own open challenge!'
+
+  open-challenge-accept-failed:
+    - '&c✖ &7Could not start that open challenge. Try again later.'
+
+  open-challenge-accepted:
+    - '&a✔ &f%accepter%&7 accepted your open challenge!'
+
+  open-challenge-you-accepted:
+    - '&a✔ &7You accepted &f%player%''s&7 open challenge!'
+
+  # ─── PracticeBot Duels (/bot <name> <kit>) ─────────────────────────────
+  bot-no-arenas:
+    - '&c✖ &7No arenas available for a bot duel right now! Try again later.'
+
+  bot-not-available:
+    - '&c✖ &7PracticeBot is not available right now. Try again in a moment.'
+
+  bot-already-in-duel:
+    - '&c✖ &7You are already in a duel.'
+
+  bot-already-in-bot-duel:
+    - '&c✖ &7You are already in a bot duel. Wait for it to end.'
+
+  bot-in-ffa:
+    - '&c✖ &7You are currently in FFA.'
+
+  bot-spectating:
+    - '&c✖ &7You are currently spectating.'
+
+  bot-no-kit-permission:
+    - "&c✖ &7You don't have permission to use kit &f%kit%&7."
+
+  kit-no-permission:
+    - "&c✖ &7You don't have permission to use kit &f%kit_display%&7."
+
+  hunter-troops-kit-queue-blocked:
+    - '&c✖ &f%kit%&7 is a Hunter and Troops kit and can only be used in party/event HunterTroops games.'
+
+  hunter-troops-kit-ranked-queue-blocked:
+    - '&c✖ &f%kit%&7 is a Hunter and Troops kit and cannot be used in ranked queues.'
+
+  hunter-troops-kit-duel-blocked:
+    - '&c✖ &f%kit%&7 is a Hunter and Troops kit and cannot be used for normal duels.'
+
+  hunter-troops-kit-tournament-blocked:
+    - '&c✖ &f%kit%&7 is a Hunter and Troops kit and cannot be used for tournaments.'
+
+  color-party-kit-queue-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and can only be used in Party FFA.'
+
+  color-party-kit-ranked-queue-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and cannot be used in ranked queues.'
+
+  color-party-kit-duel-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and cannot be used for duels.'
+
+  color-party-kit-tournament-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and cannot be used for tournaments.'
+
+  color-party-kit-party-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and can only be used with /party ffa.'
+
+  color-party-kit-event-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and cannot be used in events. Use Party FFA.'
+
+  color-party-kit-ffa-blocked:
+    - '&c✖ &f%kit%&7 is a ColorParty kit and cannot be used in FFA.'
+
+  color-party-player-busy:
+    - '&c✖ &7You cannot do that while playing ColorParty.'
+
+  chicken-hunt-kit-mode-blocked:
+    - '&c✖ &f%kit%&7 is a Chicken Hunt kit and cannot be used in %mode%. Use a normal duel or party game.'
+  chicken-hunt-addon-required:
+    - '&c✖ &7The FlixCoreChickenHunt addon is not installed or enabled.'
+
+  bot-arena-broken:
+    - '&c✖ &7Arena positions are not configured properly.'
+
+  bot-spawn-failed:
+    - '&c✖ &7Failed to spawn the bot. Please try again.'
+
+  bot-duel-started:
+    - '&a✔ &7Duel started against bot &f%bot%&7 on kit &f%kit%&7 (&f%mode%&7 mode&f%difficulty_suffix%&7).'
+
+  bot-difficulty-suffix:
+    - ' &7on &f%difficulty%&7 difficulty'
+
+  bot-surrender:
+    - '&c✖ &7You have surrendered the match!'
+
+  bot-time-limit:
+    - '&e⚠ &7Match ended due to time limit.'
+  
+  queue-joined:
+    - ''
+    - '&a✔ &7Joined Queue!'
+    - '&7Kit: &f%kit%&7'
+    - '&7Players in queue: &f%in_queue%&7'
+    - ''
+
+  ranked-queue-joined:
+    - ''
+    - '&a✔ &7Joined Ranked Queue!'
+    - '&7Kit: &f%kit%&7'
+    - '&7Players in queue: &f%players%&7'
+    - ''
+
+  multi-queue-joined:
+    - '&a✔ &7Added &f%kit% &7to your queues.'
+    - '&7Queues (&f%queue_count%&7): %queues%'
+
+  multi-queue-limit-reached:
+    - '&c✖ &7You can only join &f%limit% &7queues at once.'
+
+  # Queue match templates support %opponent%, %kit%, %players%, %in_queue%,
+  # %queue_count%, %queues%, %kit_sprite%, %queue_sprite%, and %sprite%.
+  multi-queue-match-found:
+    - ''
+    - '&a✔ &7Match Found!'
+    - '&7Opponent: &f%opponent%&7'
+    - '&7Kit: &f%kit%&7'
+    - '&7You were removed from all other queues.'
+    - ''
+
+  ranked-multi-queue-match-found:
+    - ''
+    - '&a✔ &7Ranked Match Found!'
+    - '&7Opponent: &f%opponent%&7'
+    - '&7Kit: &f%kit%&7'
+    - '&7You were removed from all other queues.'
+    - ''
+  
+  queue-left:
+    - '&c✖ &7Left queue for &f%kit%&7'
+  
+  queue-already-in:
+    - '&c✖ &7You are already in a queue!'
+  
+  queue-opponent-left:
+    - '&c✖ &7Your opponent left! Re-queuing...'
+  
+  queue-found-match:
+    - ''
+    - '&a✔ &7Match Found!'
+    - '&7Opponent: &f%opponent%&7'
+    - '&7Kit: &f%kit%&7'
+    - ''
+  
+  match-started:
+    - '&e⚔ &7Match Started! &7Round &f%round%&7/&f%total_rounds%&7'
+  
+  match-ended-winner:
+    - ''
+    - '&e★★★ &7VICTORY! &e★★★'
+    - '&7You defeated &f%opponent%&7'
+    - '&7Final Score: &f%your_wins%&7 - &f%opponent_wins%&7'
+    - '&f%inv_see%&7'
+    - ''
+  
+  match-ended-loser:
+    - ''
+    - '&c✖ &7DEFEAT!'
+    - '&7You were defeated by &f%opponent%&7'
+    - '&7Final Score: &f%your_wins%&7 - &f%opponent_wins%&7'
+    - '&f%inv_see%&7'
+    - ''
+  
+  round-won:
+    - '&a✔ &7You won round &f%round%&7!'
+  
+  round-lost:
+    - '&c✖ &7You lost round &f%round%&7!'
+  
+  round-victory-title:
+    title: '&a✔ VICTORY!'
+    subtitle: '&7You killed &f%opponent%&7'
+  
+  round-defeat-title:
+    title: '&c✖ DEFEATED!'
+    subtitle: '&7Killed by &f%opponent%&7'
+  
+  spectator-mode:
+    - '&e◆ &7You are now spectating...'
+  
+  arena-boundary-death:
+    - '&c✖ &7You left the arena!'
+
+  arena-boundary-warning:
+    - '&c✖ &7You cannot leave the arena boundaries!'
+  
+  respawn-countdown:
+    actionbar: '&f⏳ &7Respawning in &f%time%&7 seconds...'
+  
+  bedwars-bed-destroyed:
+    - ''
+    - '&c✖ &7Your bed has been destroyed!'
+    - '&7You will no longer respawn!'
+    - ''
+
+  bedwars-cannot-break-own-bed:
+    - '&c✖ &7You cannot break your own bed!'
+  
+  arena-build-height-limit:
+    - '&c✖ &7You cannot build above Y=&f%y%&7!'
+
+  duel-win-title:
+    title: '&e★ VICTORY ★'
+    subtitle: '&7You defeated &f%opponent%&7'
+  
+  duel-loss-title:
+    title: '&c✖ DEFEAT ✖'
+    subtitle: '&7Defeated by &f%opponent%&7'
+  
+  party-usage:
+    - ''
+    - '&e═════ &7PARTY COMMANDS &e═════'
+    - ' &f/p create &7- Create a party'
+    - ' &f/p invite <player> &7- Invite a player'
+    - ' &f/p invitefriend &7- Choose online friends in a GUI'
+    - ' &f/p invitefriends &7- Invite all eligible online friends'
+    - ' &f/p join <player> &7- Join a party'
+    - ' &f/p leave &7- Leave the party'
+    - ' &f/p kick <player> &7- Kick a member'
+    - ' &f/p disband &7- Disband the party'
+    - ' &f/p chat &7- Toggle party chat'
+    - ' &f/p settings &7- Open party settings'
+    - ' &f/p manage &7- Manage party games'
+    - '&e══════════════════════════'
+    - ''
+
+  party-created:
+    - ''
+    - '&e★ &7Party Created!'
+    - '&7You created &f%party_name%&7'
+    - ''
+  
+  party-disbanded:
+    - ''
+    - '&c✖ &7Party Disbanded!'
+    - '&7Your party has been disbanded'
+    - ''
+  
+  party-invite-sent:
+    - ''
+    - '&e★ &7Party Invite Sent!'
+    - '&7You invited &f%player%&7 to your party'
+    - ''
+
+  party-invite-friends-summary:
+    - '&a✔ &7Invited &f%invited% &7online friend(s).'
+    - '&7Skipped: &f%skipped%'
+
+  party-invite-friends-none:
+    - '&e★ &7No eligible online friends were available to invite.'
+    - '&7Skipped: &f%skipped%'
+  
+  party-invite-selector-none-selected:
+    - '&e★ &7Select at least one friend before confirming.'
+
+  party-invite-selector-no-eligible:
+    - '&e★ &7None of the included friends are currently eligible for an invite.'
+    - '&7Skipped: &f%skipped%'
+
+  party-invite-selector-full:
+    - '&c✖ &7Your party has no available slots. Maximum: &f%party_max%'
+
+  party-invite-selector-summary:
+    - '&a✔ &7Sent invites to &f%invited% &7friend(s).'
+    - '&7Excluded: &f%excluded% &8| &7Skipped: &f%skipped%'
+
+  party-invite-received:
+    - ''
+    - '&e★ &7Party Invite!'
+    - '&f%owner%&7 has invited you to their party!'
+    - ''
+    - '&eType &7/p join &f%owner%&7 &eto join!'
+    - ''
+  
+  party-click-accept:
+    text: '&f⏵ [ &nᴊᴏɪɴ&f ] ⏴'
+    hover: '&f🎉 &7Click to join &f%owner%&7''s party'
+    command: 'party join %owner%'
+  
+  party-broadcast-button:
+    text: '&e[CLICK TO JOIN]'
+    hover: '&7Click to join &f%owner%&7''s party'
+    command: 'party join %owner%'
+  
+  party-challenge-button:
+    text: '&e[CLICK TO ACCEPT]'
+    hover: '&7Click to accept &f%challenger%&7''s challenge'
+    command: 'p accept %challenger%'
+  
+  party-joined:
+    - ''
+    - '&e★ &7Joined Party!'
+    - '&7You joined &f%party_name%&7'
+    - '&7Members: &f%members%&7'
+    - ''
+
+  party-join-in-match:
+    - '&e⚔ &7This party is currently in a match!'
+    - '&7Use the spectate item to watch the game.'
+
+  party-cannot-join-while-queued:
+    - '&c✖ &7You cannot join or manage a party while queued!'
+    - '&7Leave the queue first, then try again.'
+
+  party-cannot-while-spectating:
+    - '&c✖ &7You cannot create or manage a party while spectating!'
+    - '&7Stop spectating first, then try again.'
+
+  party-left:
+    - ''
+    - '&c✖ &7Left Party!'
+    - '&7You left the party'
+    - ''
+  
+  party-kicked:
+    - ''
+    - '&c✖ &7Kicked from Party!'
+    - '&7You were kicked by &f%owner%&7'
+    - ''
+
+  party-kick-success:
+    - '&a✔ &7Kicked &f%player%&7 from the party!'
+  
+  party-owner-transfer:
+    - ''
+    - '&e★ &7Ownership Transferred!'
+    - '&f%new_owner%&7 is now the party owner'
+    - ''
+  
+  party-challenge-sent:
+    - ''
+    - '&e★ &7Party Challenge Sent!'
+    - '&7You challenged &f%party%&7 to a duel'
+    - '&7Kit: &f%kit%&7'
+    - ''
+  
+  party-challenge-received:
+    - ''
+    - '&e⚔ &7Party Challenge!'
+    - '&f%challenger%&7 has challenged your party!'
+    - '&7Kit: &f%kit%&7'
+    - ''
+    - '&eType &7/p accept &f%challenger%&7 &eto accept!'
+    - ''
+  
+  party-broadcast:
+    - ''
+    - '&e═══════════════════════════'
+    - '&e★ &f%owner%&7 is hosting a public party!'
+    - '&7Join with: &7/p join &f%owner%&7'
+    - '&e═══════════════════════════'
+    - ''
+  
+  party-not-in-party:
+    - '&c✖ &7You are not in a party!'
+  
+  party-not-owner:
+    - '&c✖ &7Only the party owner can do this!'
+  
+  party-already-in-party:
+    - '&c✖ &7You are already in a party!'
+  
+  party-player-not-online:
+    - '&c✖ &7That player is not online!'
+  
+  party-player-already-in-party:
+    - '&c✖ &f%player%&7 is already in a party!'
+  
+  party-not-invited:
+    - '&c✖ &7You have not been invited to this party!'
+  
+  party-full:
+    - '&c✖ &7This party is full!'
+  
+  party-invite-expired:
+    - '&c✖ &7The party invite has expired!'
+  
+  party-player-not-in-party:
+    - '&c✖ &f%player%&7 is not in your party!'
+  
+  party-cannot-kick-self:
+    - '&c✖ &7You cannot kick yourself!'
+  
+  party-min-members:
+    - '&c✖ &7Need at least &f%min%&7 members for this mode!'
+  
+  party-no-arena:
+    - '&c✖ &7No available arenas for this kit!'
+  
+  party-settings-updated:
+    - '&a✔ &7Party settings updated!'
+  
+  party-chat-enabled:
+    - '&e★ &7Party chat enabled!'
+  
+  party-chat-disabled:
+    - '&e★ &7Party chat disabled!'
+  
+  party-no-permission:
+    - '&c✖ &7You don''t have permission for this!'
+  
+  party-kit-disabled:
+    - '&c✖ &7This kit is disabled for this party mode!'
+  
+  party-invalid-mode:
+    - '&c✖ &7Invalid party mode!'
+  
+  party-economy-need-money:
+    - '&c✖ &7You need $&f%amount%&7 to create a party!'
+  
+  party-economy-deducted:
+    - '&a✔ &7$&f%amount%&7 deducted from your account.'
+  
+  party-create-failed:
+    - '&c✖ &7Failed to create party!'
+  
+  party-leave-failed:
+    - '&c✖ &7Failed to leave party!'
+  
+  party-kick-failed:
+    - '&c✖ &7Failed to kick player!'
+  
+  party-no-party:
+    - '&c✖ &f%player%&7 doesn''t have a party!'
+  
+  party-member-joined:
+    - '&a✔ &f%player%&7 joined the party!'
+  
+  party-member-left:
+    - '&e★ &f%player%&7 left the party!'
+  
+  party-member-kicked:
+    - '&c✖ &f%player%&7 was kicked from the party!'
+  
+  party-new-owner:
+    - '&e★ &7You are now the party owner!'
+  
+  party-challenge-no-pending:
+    - '&c✖ &7You don''t have any pending party challenges!'
+  
+  party-challenger-offline:
+    - '&c✖ &7The challenger is no longer online!'
+  
+  party-target-not-owner:
+    - '&c✖ &f%player%&7 is not a party owner!'
+  
+  party-cannot-challenge-self:
+    - '&c✖ &7You cannot challenge your own party!'
+  
+  party-no-kits-in-pool:
+    - '&c✖ &7No kits available in this random kit pool!'
+  
+  kit-created:
+    - '&a✔ &7Kit &f%kit%&7 &fcreated successfully!'
+  
+  kit-deleted:
+    - '&a✔ &7Kit &f%kit%&7 &fdeleted successfully!'
+  
+  kit-not-found:
+    - '&c✖ &7Kit &f%kit%&7 &cdoes not exist!'
+
+  kit-layouts-cleared:
+    - '&a✔ &7Cleared &f%count% &7saved layout(s) for &f%kit%&7.'
+
+  kit-layouts-clear-failed:
+    - '&c✖ &7Failed to clear saved layouts for &f%kit%&7.'
+  
+  joined-queue:
+    - '&a✔ &7You have joined the queue for &f%kit%&7'
+  
+  left-queue:
+    - '&e★ &7You have left the queue for &f%kit%&7'
+  
+  switched-queue:
+    - '&e★ &7You have switched to the queue for &f%kit%&7'
+
+  team-queue-joined:
+    - '&a✔ &7Joined the &f%team_size%v%team_size% %mode% &7queue for &f%kit%&7.'
+
+  team-queue-left:
+    - '&e★ &7You have left the team queue.'
+
+  team-queue-match-found:
+    - '&a✔ &7A &f%team_size%v%team_size% &7team match was found for &f%kit%&7!'
+
+  team-queue-invalid-party:
+    - '&c✖ &7Your party must have exactly &f%team_size% &7online members and you must be its leader.'
+
+  team-queue-solo-in-party:
+    - '&c✖ &7Leave your party before joining a solo team queue.'
+
+  team-queue-party-locked:
+    - '&c✖ &7Party membership cannot change while the party is queued.'
+
+  team-queue-already-queued:
+    - '&c✖ &7You or a party member are already queued or busy.'
+
+  team-queue-unavailable:
+    - '&c✖ &7That team queue is currently unavailable.'
+
+  team-queue-no-arenas:
+    - '&c✖ &7No compatible arena is currently available for this kit. You have been returned to the queue.'
+
+  auto-requeued:
+    - '&a✔ &7Auto-requeued for &f%kit%&7!'
+
+  rematch-expired:
+    - '&c✖ &7Rematch request has expired!'
+
+  rematch-opponent-offline:
+    - '&c✖ &7Your previous opponent is no longer online!'
+
+  rematch-opponent-busy:
+    - '&c✖ &7Your previous opponent is currently busy!'
+  
+  editing-kit:
+    - '&e★ &7You are now editing the kit. Arrange your items and type ''savekit'' to save.'
+  
+  kit-saved:
+    - '&a✔ &7Your kit layout has been saved!'
+
+  kit-auto-saved:
+    - '&a✔ &7Kit layout auto-saved!'
+
+  kit-reset:
+    - '&e★ &7Kit reset to admin''s default kit!'
+  
+  left-editor:
+    - '&7You have left the kit editor.'
+
+  editor-sneak-actionbar: '&eSneak to reopen editor GUI'
+
+  editor-save-failed:
+    - '&c✖ &7Kit layout not saved! Extra or invalid items were detected.'
+    - '&7Remove them and try saving again; your editor session is still open.'
+
+  editor-no-trim-permission:
+    - '&c✖ &7You don''t have permission to use armor trims!'
+
+  editor-no-shield-permission:
+    - '&c✖ &7You don''t have permission to use the shield customizer!'
+
+  shield-no-shield:
+    - '&c✖ &7You need to have a shield in your inventory or offhand to customize one!'
+
+  shield-applied:
+    - '&a✔ &7Shield design applied!'
+
+  editor-no-drop:
+    - '&c✖ &7You cannot drop items while editing a kit!'
+
+  spectator-now-spectating:
+    - '&a✔ &7You are now spectating &f%player%&7'
+
+  spectator-no-longer-spectating:
+    - '&e★ &7You are no longer spectating'
+
+  spectator-teleported-to-target:
+    - '&7Teleported to target player'
+
+  spectator-stay-away:
+    - '&c✖ &7Stay away from players!'
+
+  spectator-cannot-leave-arena:
+    - '&c✖ &7You cannot leave the arena while spectating!'
+
+  spectator-cannot-leave-during-match:
+    - '&c✖ &7You are still in a match and cannot leave spectator mode!'
+
+  spectator-no-players:
+    - '&c✖ &7No players to teleport to!'
+
+  spectator-now-watching:
+    - '&a✔ &7Now spectating: &f%player%&7'
+
+  spectator-not-spectating:
+    - '&c✖ &7You are not spectating anyone!'
+
+  spectator-cannot-spectate-self:
+    - '&c✖ &7You cannot spectate yourself!'
+
+  spectator-player-not-in-match:
+    - '&c✖ &7That player is not in a match!'
+
+  spectator-already-spectating:
+    - '&c✖ &7You are already spectating!'
+
+  spectator-cannot-while-fighting:
+    - '&c✖ &7You cannot spectate while in a fight!'
+
+  party-need-members:
+    - '&c✖ &7Need at least &f%min%&7 members for this mode!'
+
+  party-no-arenas:
+    - '&c✖ &7No available arenas for this kit!'
+
+  party-death-killed:
+    - '&c⚔ &f%victim%&7 was killed by &f%killer%&7'
+
+  party-death-eliminated:
+    - '&c⚔ &f%victim%&7 has been eliminated!'
+
+  party-match-time-limit:
+    - '&e★ &7Match ended due to time limit'
+
+  party-ffa-win-title:
+    title: '&e★ VICTORY ★'
+    subtitle: '&f%partyffa_winner%&7 won!'
+
+  party-ffa-win-message:
+    - ''
+    - '&e★★★ &7PARTY FFA VICTORY! &e★★★'
+    - '&7Winner: &f%partyffa_winner%&7'
+    - ''
+
+  party-split-win-title:
+    title: '&e★ VICTORY ★'
+    subtitle: '&f%partysplit_winner_team%&7 wins!'
+
+  party-split-win-message:
+    - ''
+    - '&e★★★ &7PARTY SPLIT VICTORY! &e★★★'
+    - '&7Winner: &f%partysplit_winner_team%&7'
+    - ''
+
+  party-vs-win-title:
+    title: '&e★ VICTORY ★'
+    subtitle: '&f%partyvs_winner_party%&7 wins!'
+
+  party-vs-win-message:
+    - ''
+    - '&e★★★ &7PARTY VS PARTY VICTORY! &e★★★'
+    - '&7Winner: &f%partyvs_winner_party%&7'
+    - ''
+
+  party-round-win-title:
+    title: '&eROUND WON'
+    subtitle: '&f%winner_team%&7 wins round &f%round%&7!'
+
+  party-round-win-message:
+    - ''
+    - '&e★ &f%winner_team%&7 won round &f%round%&7! &e(&7Blue &f%blue_wins%&7 &e- &f%red_wins%&7 Red&e)'
+    - ''
+
+  party-flower-crown-disabled:
+    - '&c✖ &7Flower Crown mode is not available for this party mode!'
+
+  ffa-joined:
+    - '&a✔ &7You joined FFA! &7Kit: &f%kit%&7'
+
+  ffa-left:
+    - '&e★ &7You left FFA'
+
+  ffa-already-in:
+    - '&c✖ &7You are already in FFA!'
+
+  ffa-not-in:
+    - '&c✖ &7You are not in FFA!'
+
+  ffa-no-arenas:
+    - '&c✖ &7No FFA arenas available!'
+
+  ffa-kit-not-found:
+    - '&c✖ &7Kit not found!'
+
+  ffa-arena-full:
+    - '&c✖ &7This arena is full!'
+
+  ffa-reservation-expired:
+    - '&c✖ &7Your FFA slot reservation expired. Please try again.'
+
+  ffa-instance-unavailable:
+    - '&c✖ &7FFA instance &f%arena%&7 is currently unavailable.'
+
+  ffa-no-available-instance:
+    - '&c✖ &7No FFA instance for &f%kit%&7 currently has space.'
+
+  ffa-no-mode-instances:
+    - '&c✖ &7No FFA arena supports mode &f%kit%&7.'
+
+  ffa-mode-not-supported:
+    - '&c✖ &7FFA instance &f%arena%&7 does not support mode &f%kit%&7.'
+
+  ranked-joined-queue:
+    - '&a✔ &7Joined ranked queue!'
+
+  ranked-left-queue:
+    - '&e★ &7Left ranked queue'
+
+  ranked-already-in-queue:
+    - '&c✖ &7You are already in ranked queue!'
+
+  ranked-not-in-queue:
+    - '&c✖ &7You are not in ranked queue!'
+
+  ranked-match-found:
+    - '&a✔ &7Ranked match found! Opponent: &f%opponent%&7'
+
+  ranked-elo-win:
+    - '&f+&f%elo_change%&7 ELO | &f%points%&7 points | &f%tier%&7'
+
+  ranked-elo-loss:
+    - '&c-&f%elo_change%&7 ELO | &f%points%&7 points | &f%tier%&7'
+
+  ranked-tier-up-title:
+    title: '&e★ TIER UP ★'
+    subtitle: '&f%old_tier%&7 ➔ &f%new_tier%&7'
+
+  ranked-tier-up-message:
+    - ''
+    - '&e★ &7TIER UP!'
+    - '&f%old_tier%&7 ➔ &f%new_tier%&7'
+    - ''
+
+  ranked-tier-down-title:
+    title: '&c✖ TIER DOWN ✖'
+    subtitle: '&f%old_tier%&7 ➔ &f%new_tier%&7'
+
+  ranked-tier-down-message:
+    - ''
+    - '&c✖ &7TIER DOWN!'
+    - '&f%old_tier%&7 ➔ &f%new_tier%&7'
+    - ''
+
+  spawn-items-cannot-drop:
+    - '&c✖ &7You cannot drop spawn items!'
+
+  spawn-items-cannot-move:
+    - '&c✖ &7You cannot move spawn items!'
+
+  settings-toggled:
+    - '&a✔ &f%setting%&7 toggled!'
+
+  command-blocked-in-match:
+    - '&c✖ &7You cannot use this command while in a match!'
+
+  command-blocked-in-party:
+    - '&c✖ &7You cannot use this command while in a party!'
+    - '&7Use /p leave to leave the party first.'
+
+  surrender-success:
+    - '&e★ &7You have surrendered the match'
+
+  opponent-surrendered:
+    - '&a✔ &f%player%&7 has surrendered!'
+
+  surrender-not-in-match:
+    - '&c✖ &7You are not in a match!'
+
+  party-player-surrendered:
+    - '&e★ &f%player%&7 has surrendered and left the game!'
+
+  lobby-teleported:
+    - '&a✔ &7Teleported to lobby!'
+
+  lobby-already-in:
+    - '&c✖ &7You are already in the lobby!'
+
+  queue-not-in-queue:
+    - '&c✖ &7You are not in any queue!'
+
+  duel-cannot-duel-self:
+    - '&c✖ &7You cannot duel yourself!'
+
+  duel-player-busy:
+    - '&c✖ &7That player is currently busy!'
+
+  duel-already-in-match:
+    - '&c✖ &7You are already in a match!'
+
+  duel-invalid-rounds:
+    - '&c✖ &7Invalid round number!'
+
+  duel-max-rounds:
+    - '&c✖ &7Maximum rounds is &f%max%&7!'
+
+  unranked-joined-queue:
+    - '&a✔ &7Joined unranked queue for &f%kit%&7'
+
+  unranked-left-queue:
+    - '&e★ &7Left unranked queue'
+
+  unranked-already-in-queue:
+    - '&c✖ &7You are already in a queue!'
+
+  spectator-usage:
+    - '&c✖ &7Usage: /spectator <player|leave>'
+
+  spectator-cannot-while-in-queue:
+    - '&c✖ &7You cannot spectate while in queue!'
+
+  spectator-cannot-while-in-party:
+    - '&c✖ &7You cannot spectate while in a party!'
+    - '&7Leave the party first, then try again.'
+
+  spectator-cannot-while-editing:
+    - '&c✖ &7You cannot spectate while editing a kit!'
+
+  spectator-failed:
+    - '&c✖ &7Failed to start spectating!'
+
+  player-not-found:
+    - '&c✖ &7Player not found!'
+
+  only-players:
+    - '&c✖ &7Only players can use this command!'
+
+  ffa-cannot-spectate:
+    - '&c✖ &7You cannot spectate while in FFA!'
+
+  duel-cannot-spectate:
+    - '&c✖ &7You cannot spectate while in a duel!'
+
+  ffa-usage:
+    - '&c✖ &7Usage: /ffa <mode> [arena-instance] or /ffa <arenaname> [positionname]'
+
+  ffa-arena-not-found:
+    - '&c✖ &7Arena not found!'
+
+  ffa-not-ffa-mode:
+    - '&c✖ &7This arena is not in FFA mode!'
+
+  ffa-use-leaveffa:
+    - '&7Use /leaveffa to leave first'
+
+  ffa-cannot-while-in-duel:
+    - '&c✖ &7You cannot join FFA while in a duel!'
+
+  ffa-cannot-while-in-queue:
+    - '&c✖ &7You cannot join FFA while in queue!'
+
+  ffa-cannot-while-editing:
+    - '&c✖ &7You cannot join FFA while editing a kit!'
+
+  ffa-cannot-while-in-party:
+    - '&c✖ &7You cannot join FFA while in a party!'
+
+  ffa-arena-not-setup:
+    - '&c✖ &7Arena is not fully set up!'
+
+  ffa-no-kit:
+    - '&c✖ &7This arena has no assigned kit!'
+
+  ffa-position-not-found:
+    - '&c✖ &7Position ''&f%position%&7'' not found!'
+
+  ffa-joining:
+    - '&a✔ &7Joining FFA arena: &f%arena%&7'
+
+  ffa-joining-mode:
+    - '&a✔ &7Joining &f%kit%&7 FFA on instance &f%arena%&7'
+
+  ffa-joining-position:
+    - '&a✔ &7Joining FFA arena: &f%arena%&7 &fat position: &f%position%&7'
+
+  ffa-combat-start:
+    - '&7You are now in combat with &f%player%&7.'
+
+  ffa-combat-end:
+    - '&7You are no longer in combat.'
+
+  ffa-combat-interruption:
+    - '&c✖ &7You cannot hit &f%player%&7&c as they are in combat with someone else.'
+
+  ffa-leave-in-combat:
+    - '&c✖ &7You cannot leave FFA while in combat!'
+
+  ranked-disabled:
+    - '&c✖ &7Ranked mode is currently disabled!'
+
+  ranked-kit-not-found:
+    - '&c✖ &7Ranked kit not found: tier&f%kit%&7'
+    - '&7Use /kit copy &f%kit%&7 to create a ranked version.'
+
+  queue-usage:
+    - '&c✖ &7Usage: /queue <kit>'
+
+  queue-cannot-while-in-match:
+    - '&c✖ &7You cannot join queue while in a match!'
+
+  queue-cannot-while-in-ffa:
+    - '&c✖ &7You cannot join queue while in FFA!'
+
+  queue-cannot-while-editing:
+    - '&c✖ &7You cannot join queue while editing a kit!'
+
+  queue-cannot-while-spectating:
+    - '&c✖ &7You cannot join queue while spectating!'
+
+  queue-cannot-while-in-party:
+    - '&c✖ &7You cannot join queue while in a party!'
+
+  duel-usage:
+    - '&c✖ &7Usage: /duel <player> [kit] [rounds] | /duel accept <player>'
+
+  duel-target-not-found:
+    - '&c✖ &7Player not found or offline!'
+
+  duel-target-in-match:
+    - '&c✖ &7That player is already in a match!'
+
+  duel-target-in-queue:
+    - '&c✖ &7That player is in a queue!'
+
+  duel-target-in-ffa:
+    - '&c✖ &7That player is in FFA!'
+
+  duel-yourself:
+    - '&c✖ &7You cannot duel yourself!'
+
+  duel-in-match:
+    - '&c✖ &7You are already in a match!'
+
+  duel-in-queue:
+    - '&c✖ &7You are in a queue! Leave it first.'
+
+  duel-in-ffa:
+    - '&c✖ &7You are in FFA! Leave it first.'
+
+  duel-in-party-game:
+    - '&c✖ &7You are in a party game!'
+
+  duel-no-pending:
+    - '&c✖ &7You have no pending duel requests!'
+
+  duel-cannot-while-in-queue:
+    - '&c✖ &7You cannot accept duels while in queue!'
+
+  duel-cannot-send-in-queue:
+    - '&c✖ &7You cannot send duel requests while in queue!'
+
+  duel-cannot-in-ffa:
+    - '&c✖ &7You cannot accept duels while in FFA!'
+
+  duel-cannot-send-in-ffa:
+    - '&c✖ &7You cannot send duel requests while in FFA!'
+
+  duel-cannot-in-party:
+    - '&c✖ &7You cannot accept duels while in a party game!'
+
+  duel-cannot-send-in-party:
+    - '&c✖ &7You cannot send duel requests while in a party game!'
+
+  duel-target-in-party:
+    - '&c✖ &f%player%&7 is currently in a party game!'
+
+  duel-target-requests-disabled:
+    - '&c✖ &f%player%&7 has duel requests disabled!'
+
+  duel-ranked-kit-not-allowed:
+    - '&c✖ &7Cannot use ranked kits for direct duels!'
+
+  duel-rounds-invalid:
+    - '&c✖ &7Rounds must be between 1 and &f%max%&7!'
+
+  parkour-usage:
+    - '&c✖ &7Usage: /parkour <arena> <checkpoint1|checkpoint2|clear|list>'
+
+  parkour-setup-click-plate:
+    - '&e⚡ &7Click a pressure plate to set the checkpoint!'
+    - '&7You have 30 seconds before the session times out.'
+
+  parkour-setup-timeout:
+    - '&c✖ &7Parkour setup session timed out!'
+
+  parkour-checkpoint-set:
+    - '&a✔ &7Checkpoint &f%checkpoint%&7 set for arena &f%arena%&7&f!'
+
+  parkour-checkpoints-cleared:
+    - '&a✔ &7Cleared all checkpoints for arena &f%arena%&7&f!'
+
+  parkour-checkpoint-list:
+    - '&e⚡ &7Parkour Checkpoints for &f%arena%&7'
+    - '&7Total checkpoints: &f%count%&7'
+    - '&7Status: &f%status%&7'
+
+  parkour-invalid-checkpoint:
+    - '&c✖ &7Invalid checkpoint! Use checkpoint1, checkpoint2, etc.'
+
+  parkour-checkpoint-reached:
+    actionbar: '&f✔ &7Checkpoint &f%checkpoint%&7 reached!'
+
+  parkour-ffa-winner:
+    - ''
+    - '&e⚡ &f%winner%&7 has completed the parkour!'
+    - '&7They win the game!'
+    - ''
+
+  parkour-team-winner:
+    - ''
+    - '&e⚡ &f%team%&7 wins!'
+    - '&f%player%&7 completed the parkour first!'
+    - ''
+
+  parkour-duel-winner:
+    - ''
+    - '&e⚡ &f%winner%&7 has completed the parkour!'
+    - '&7They win the duel!'
+    - ''
+
+  bedwars-bed-destroyer:
+    title: "&eBED DESTROYED!"
+    subtitle: "&fYou destroyed the enemy bed!"
+    actionbar: '&f🛏 &7You destroyed &f%victim%&7''s bed!'
+    chat:
+      - '&f🛏 &f%killer%&7 destroyed &f%victim%&7''s bed!'
+
+  bedwars-kill-message:
+    actionbar: '&f⚔ &7You killed &f%victim%&7!'
+    chat:
+      - '&f⚔ &f%killer%&7 killed &f%victim%&7!'
+
+  bridge-kill-message:
+    actionbar: '&f⚔ &7You killed &f%victim%&7!'
+    chat:
+      - '&f⚔ &f%killer%&7 killed &f%victim%&7!'
+
+  party-imbalance-not-allowed:
+    - '&c✖ &7Teams must be equal size!'
+    - '&7Both parties need the same number of players.'
+
+  kill-effect-selected:
+    - '&a✔ &7Selected kill effect: &f%effect%&7'
+
+  kill-effect-deselected:
+    - '&e★ &7Deselected kill effect: &f%effect%&7'
+
+  kill-effect-disabled:
+    - '&a✔ &7Kill effect disabled!'
+
+  kill-effect-no-selection:
+    - '&e★ &7No effect is currently selected.'
+
+  kill-effect-no-permission:
+    - '&c✖ &7You don''t have permission to use this effect!'
+
+  killsound-selected:
+    - '&a✔ &7Selected kill sound: &f%sound%&7'
+
+  killsound-deselected:
+    - '&e★ &7Deselected kill sound: &f%sound%&7'
+
+  killsound-disabled:
+    - '&a✔ &7Kill sound disabled!'
+
+  killsound-no-selection:
+    - '&e★ &7No kill sound is currently selected.'
+
+  killsound-no-permission:
+    - '&c✖ &7You don''t have permission to use this kill sound!'
+
+  party-broadcast-no-permission:
+    - '&c✖ &7You don''t have permission to broadcast your party!'
+
+  party-max-size-reached:
+    - '&c✖ &7Your maximum party size is &f%max%&7&c!'
+
+  ffa-joining-random:
+    - '&a✔ &7Joining random FFA with kit &f%kit%&7 &fin arena &f%arena%&7&f!'
+
+  economy-kill-reward:
+    - '&f+&f%amount%&7 coins &e(Kill: &f%victim%&7&e)'
+
+  economy-death-penalty:
+    - '&f-&f%amount%&7 coins &e(Death)'
+
+  economy-win-reward:
+    - '&f+&f%amount%&7 coins &e(Match Win!)'
+
+  economy-lose-penalty:
+    - '&f-&f%amount%&7 coins &e(Match Loss)'
+
+  arena-reset-teleported:
+    - '&7Arena was reset! You have been teleported to safety.'
+
+  command-blocked-match:
+    - '&c✖ &7You cannot use this command during a match!'
+
+  command-blocked-ffa:
+    - '&c✖ &7You cannot use this command during FFA!'
+
+  command-blocked-editing:
+    - '&c✖ &7You cannot use commands while editing a kit!'
+
+  arena-cannot-break-blocks:
+    - '&c✖ &7You cannot break blocks in this arena!'
+
+  arena-cannot-break-outside:
+    - '&c✖ &7You cannot break blocks outside of arenas!'
+
+  randomffa-inventory-restored:
+    - '&a✔ &7Your previous inventory has been restored!'
+
+  randomffa-inventory-saved:
+    - '&a✔ &7Your inventory has been saved!'
+
+  randomffa-combat-log:
+    - '&c✖ &7You combat logged! Your items have been dropped!'
+
+  randomffa-no-eligible-kits:
+    - '&c✖ &7No eligible kits found for random FFA!'
+
+  # ═══════════════════════════════════════
+  # Death Animation Messages
+  # ═══════════════════════════════════════
+  death-animation-selected:
+    - '&a✔ &7Selected death animation: &f%animation%&7'
+
+  death-animation-deselected:
+    - '&e★ &7Deselected death animation: &f%animation%&7'
+
+  death-animation-disabled:
+    - '&a✔ &7Death animation disabled!'
+
+  death-animation-no-selection:
+    - '&e★ &7No death animation is currently selected.'
+
+  death-animation-no-permission:
+    - '&c✖ &7You don''t have permission to use this death animation!'
+
+  # ═══════════════════════════════════════
+  # Trail Effect Messages
+  # ═══════════════════════════════════════
+  trail-effect-selected:
+    - '&a✔ &7Selected trail effect: &f%trail%&7'
+
+  trail-effect-deselected:
+    - '&e★ &7Deselected trail effect: &f%trail%&7'
+
+  trail-effect-disabled:
+    - '&a✔ &7Trail effect disabled!'
+
+  trail-effect-no-selection:
+    - '&e★ &7No trail effect is currently selected.'
+
+  trail-effect-no-permission:
+    - '&c✖ &7You don''t have permission to use this trail effect!'
+
+  # ═══════════════════════════════════════
+  # Environment Messages
+  # ═══════════════════════════════════════
+  environment-changed:
+    - '&a✔ &7Your client time set to &f%time%&7'
+
+  # ═══════════════════════════════════════
+  # Open Party Messages
+  # ═══════════════════════════════════════
+  party-join-failed:
+    - '&c✖ &7Failed to join party! It may be full or you need an invite.'
+
+  party-player-joined:
+    - '&a✔ &f%player%&7 has joined the party!'
+
+  # ═══════════════════════════════════════
+  # Tournament Messages
+  # ═══════════════════════════════════════
+  tournament-usage:
+    - ''
+    - '&e⚔ &7Tournament Commands:'
+    - ' &f/tournament host <kit> <maxplayers> [type] &7- Host a tournament'
+    - ' &f/tournament join &7- Join the active tournament'
+    - ' &f/tournament leave &7- Leave the tournament'
+    - ' &f/tournament start &7- Force start the tournament'
+    - ' &f/tournament stop &7- Cancel the tournament'
+    - ' &f/tournament status &7- View tournament info'
+    - ' &f/tournament autohost [on|off|reload|status] &7- Auto-host control'
+    - ''
+    - '&7Types: SOLO, PARTY, CLAN'
+    - ''
+
+  tournament-host-usage:
+    - '&c✖ &7Usage: /tournament host <kit> <maxplayers> [SOLO|PARTY|CLAN]'
+
+  tournament-created:
+    - ''
+    - '&e═════════════════════════════════'
+    - '&e⚔ &7Tournament Created!'
+    - '&7Host: &f%host%&7'
+    - '&7Kit: &f%kit%&7 | Type: &f%type%&7'
+    - '&7Max Players: &f%max%&7'
+    - ''
+    - '&eType &7/tournament join &eto enter!'
+    - '&e═════════════════════════════════'
+    - ''
+
+  tournament-already-active:
+    - '&c✖ &7A tournament is already active!'
+
+  tournament-no-arena-for-kit:
+    - '&c✖ &7No &f%type%&7 arenas available for kit &f%kit%&7! Cannot start tournament.'
+
+  tournament-joined:
+    - '&a✔ &7You joined the tournament! &f(&f%players%&7/&f%max%&7)'
+
+  tournament-already-joined:
+    - '&c✖ &7You are already in the tournament!'
+
+  tournament-already-started:
+    - '&c✖ &7The tournament has already started! You cannot join now.'
+
+  tournament-arena-not-free:
+    - '&c✖ &7No event arenas are available right now! Please wait.'
+
+  tournament-join-failed:
+    - '&c✖ &7Could not join tournament! It may be full.'
+
+  tournament-full:
+    - '&c✖ &7Tournament is full!'
+
+  tournament-need-party:
+    - '&c✖ &7This is a party tournament! You must be in a party to join.'
+
+  tournament-party-owner-only:
+    - '&c✖ &7Only the party leader can join the tournament! Your entire party will be enrolled.'
+
+  tournament-party-member-busy:
+    - '&c✖ &7A member of your party is busy (in a duel, queue, etc). All members must be free to join.'
+
+  tournament-need-clan:
+    - '&c✖ &7This is a clan tournament! You must be in a clan to join.'
+
+  tournament-clans-disabled:
+    - '&c✖ &7Clan tournaments are unavailable because clans are disabled.'
+
+  tournament-clan-leader-only:
+    - '&c✖ &7Only the clan leader can join the tournament! All online clan members will be enrolled.'
+
+  tournament-clan-member-busy:
+    - '&c✖ &7An online clan member is busy (in a duel, queue, etc). All online members must be free to join.'
+
+  tournament-party-enrolled:
+    - '&a✔ &7Your party leader joined a tournament! You have been enrolled automatically.'
+
+  tournament-clan-enrolled:
+    - '&a✔ &7Your clan leader joined a tournament! You have been enrolled automatically.'
+
+  tournament-cannot-party-in-tournament:
+    - '&c✖ &7You cannot join or create a party while in a tournament!'
+
+  tournament-cannot-clan-in-tournament:
+    - '&c✖ &7You cannot join a clan while in a tournament!'
+
+  tournament-left:
+    - '&e★ &7You left the tournament.'
+
+  tournament-not-in:
+    - '&c✖ &7You are not in a tournament!'
+
+  tournament-none-active:
+    - '&c✖ &7No tournament is currently active!'
+
+  tournament-player-joined:
+    - '&a✔ &f%player%&7 joined the tournament! &f(&f%players%&7/&f%max%&7)'
+
+  tournament-starting:
+    - ''
+    - '&e⚔ &7Tournament is starting!'
+    - '&7Players: &f%alive%&7 | Kit: &f%kit%&7'
+    - ''
+
+  tournament-round-start:
+    - ''
+    - '&e⚔ &7The battle has begun! Last man standing wins!'
+    - '&7Players alive: &f%alive%&7 | Kit: &f%kit%&7'
+    - ''
+
+  tournament-match-won:
+    - '&a✔ &7You won your tournament match! Waiting for next round...'
+
+  tournament-bye:
+    - '&e★ &7You received a bye this round! Waiting for next round...'
+
+  tournament-ended:
+    - ''
+    - '&e═════════════════════════════════'
+    - '&e🏆 &7Tournament Over!'
+    - '&7Winner: &f%winner%&7'
+    - '&e═════════════════════════════════'
+    - ''
+
+  tournament-win-title:
+    title: '&e🏆 TOURNAMENT OVER 🏆'
+    subtitle: '&7Winner: &f%winner%&7'
+
+  tournament-reward-first:
+    - '&e🏆 &7You placed &f1st &7and received your reward!'
+
+  tournament-reward-second:
+    - '&7🥈 &7You placed &f2nd &7and received your reward!'
+
+  tournament-reward-third:
+    - '&6🥉 &7You placed &f3rd &7and received your reward!'
+
+  tournament-ended-no-winner:
+    - ''
+    - '&c✖ &7Tournament ended with no winner!'
+    - ''
+
+  tournament-no-winner-title:
+    title: '&c✖ TOURNAMENT OVER ✖'
+    subtitle: '&7No winner'
+
+  tournament-cancelled:
+    - '&c✖ &7The tournament has been cancelled!'
+
+  tournament-status:
+    - ''
+    - '&e⚔ &7Tournament Status:'
+    - ' &f◆ &7Kit: &f%kit%&7'
+    - ' &f◆ &7Type: &f%type%&7'
+    - ' &f◆ &7Players: &f%players%&7/&f%max%&7'
+    - ' &f◆ &7Round: &f%round%&7'
+    - ' &f◆ &7State: &f%state%&7'
+    - ''
+
+  # ═══════════════════════════════════════
+  # Tournament Auto-Host Messages
+  # ═══════════════════════════════════════
+  autohost-tournament-announced:
+    - ''
+    - '&e═════════════════════════════════'
+    - '&e⚔ &7Auto Tournament!'
+    - '&7Kit: &f%kit%&7 | Type: &f%type%&7'
+    - '&7Max Players: &f%max%&7'
+    - '&7Starting in: &f%time%&7s'
+    - ''
+    - '&eType &7/tournament join &eto enter!'
+    - '&e═════════════════════════════════'
+    - ''
+
+  autohost-reminder:
+    - '&e⚔ &7Tournament is open! &f(&f%players%&7/&f%max%&7) &7joined. &7Min: &f%min%&7'
+    - '&eType &7/tournament join &eto enter! &7Kit: &f%kit%&7'
+
+  autohost-tournament-starting:
+    - ''
+    - '&a✔ &7Auto tournament starting with &f%players%&7 players! Kit: &f%kit%&7'
+    - ''
+
+  autohost-fail-already-active:
+    - '&c✖ &7Auto-host skipped: a tournament is already active.'
+
+  autohost-fail-no-valid-kit:
+    - '&c✖ &7Auto-host failed: no valid kits found in rotation.'
+
+  autohost-fail-not-enough-online:
+    - '&c✖ &7Auto-host skipped: not enough players online &f(&f%online%&7/&f%min%&7 needed)&7.'
+
+  autohost-fail-create-error:
+    - '&c✖ &7Auto-host failed: could not create tournament.'
+
+  autohost-fail-not-enough-players:
+    - ''
+    - '&c✖ &7Auto tournament cancelled!'
+    - '&7Not enough players joined &f(&f%players%&7/&f%min%&7 needed) &7for &f%kit%&7.'
+    - ''
+
+  autohost-enabled:
+    - '&a✔ &7Tournament auto-host has been &aenabled&7.'
+
+  autohost-disabled:
+    - '&c✖ &7Tournament auto-host has been &cdisabled&7.'
+
+  autohost-status:
+    - ''
+    - '&e⚔ &7Auto-Host Status:'
+    - ' &f◆ &7Enabled: &f%enabled%&7'
+    - ' &f◆ &7Interval: &f%interval%&7m'
+    - ' &f◆ &7Join Time: &f%join_time%&7s'
+    - ' &f◆ &7Min Players: &f%min%&7'
+    - ' &f◆ &7Max Players: &f%max%&7'
+    - ' &f◆ &7Type: &f%type%&7'
+    - ' &f◆ &7Kits: &f%kits%&7'
+    - ' &f◆ &7Next Kit: &f%next_kit%&7'
+    - ' &f◆ &7In Join Phase: &f%join_phase%&7'
+    - ''
+
+  # ═══════════════════════════════════════
+  # Event Messages
+  # ═══════════════════════════════════════
+  event-usage:
+    - ''
+    - '&e⚡ &7Event Commands:'
+    - ' &f/event host <arena> <max> <kit> &7- Host an event'
+    - ' &f/event host <type> <arena> <max> <kit> &7- Host with an explicit type'
+    - ' &f/event join &7- Join the active event'
+    - ' &f/event leave &7- Leave the event'
+    - ' &f/event start &7- Force start the event'
+    - ' &f/event cancel &7- Cancel the event'
+    - ' &f/event info &7- View event info'
+    - ''
+    - '&7Types: SUMO, SPLEEF, TNT_RUN, GULAG, BRACKETS'
+    - '&7Kit must be an existing kit on the server'
+    - ''
+
+  event-host-usage:
+    - '&c✖ &7Usage: /event host [type] <arena> <maxplayers> <kit>'
+
+  event-invalid-type:
+    - '&c✖ &7Invalid event type! Use: SUMO, SPLEEF, TNT_RUN, GULAG, BRACKETS'
+
+  event-created:
+    - ''
+    - '&e═════════════════════════════════'
+    - '&e⚡ &7Event Created!'
+    - '&7Host: &f%host%&7'
+    - '&7Type: &f%type%&7 | Kit: &f%kit%&7'
+    - '&7Arena: &f%arena%&7 | Max: &f%max%&7'
+    - ''
+    - '&eType &7/event join &eto enter!'
+    - '&e═════════════════════════════════'
+    - ''
+
+  event-create-failed:
+    - '&c✖ &7Failed to create event! Arena may not be event-enabled, not setup, or already in use.'
+
+  event-arena-not-free:
+    - '&c✖ &7That event arena is currently in use! Please wait until it becomes free.'
+
+  event-already-started:
+    - '&c✖ &7The event has already started! You cannot join now.'
+
+  event-joined:
+    - '&a✔ &7You joined the &f%type%&7 event! Kit: &f%kit%&7 (&f%players%&7 players)'
+
+  event-already-joined:
+    - '&c✖ &7You are already in the event!'
+
+  event-join-failed:
+    - '&c✖ &7Could not join event! It may be full.'
+
+  event-full:
+    - '&c✖ &7The event is full!'
+
+  event-busy-in-duel:
+    - '&c✖ &7You cannot join the event while in a duel!'
+
+  event-busy-in-ffa:
+    - '&c✖ &7You cannot join the event while in FFA!'
+
+  event-busy-in-queue:
+    - '&c✖ &7You cannot join the event while in a queue! Leave the queue first.'
+
+  event-busy-in-ranked:
+    - '&c✖ &7You cannot join the event while in a ranked queue!'
+
+  event-busy-in-tournament:
+    - '&c✖ &7You cannot join the event while in a tournament!'
+
+  event-busy-in-party-game:
+    - '&c✖ &7You cannot join the event while in a party game!'
+
+  event-busy-spectating:
+    - '&c✖ &7You cannot join the event while spectating! Stop spectating first.'
+
+  event-busy-editing:
+    - '&c✖ &7You cannot join the event while editing a kit!'
+
+  event-arena-type-mismatch:
+    - '&c✖ &7Kit requires &f%kit_type%&7 arenas but the selected arena is &f%arena_type%&7!'
+
+  event-left:
+    - '&e★ &7You left the event.'
+
+  event-not-in:
+    - '&c✖ &7You are not in an event!'
+
+  event-none-active:
+    - '&c✖ &7No event is currently active!'
+
+  event-starting:
+    - '&e⚡ &7The event is starting! Get ready!'
+
+  event-fight-start:
+    - '&e⚡ &7Next fight! Players remaining: &f%alive%&7'
+
+  event-fight-won:
+    - '&a✔ &7Fight completed! Players remaining: &f%alive%&7'
+
+  event-ended:
+    - ''
+    - '&e═════════════════════════════════'
+    - '&e🏆 &f%type%&7 Event Over!'
+    - '&7Winner: &f%winner%&7'
+    - '&e═════════════════════════════════'
+    - ''
+
+  event-ended-no-winner:
+    - '&c✖ &f%type%&7 event ended with no winner!'
+
+  event-cancelled:
+    - '&c✖ &f%type%&7 event has been cancelled!'
+
+  event-info:
+    - ''
+    - '&e⚡ &7Event Info:'
+    - ' &f◆ &7Type: &f%type%&7'
+    - ' &f◆ &7Kit: &f%kit%&7'
+    - ' &f◆ &7Arena: &f%arena%&7'
+    - ' &f◆ &7Players: &f%players%&7/&f%max%&7'
+    - ' &f◆ &7State: &f%state%&7'
+    - ''
+
+  # ═══════════════════════════════════════
+  # Clan Messages
+  # ═══════════════════════════════════════
+  clan-usage:
+    - ''
+    - '&e🏰 &7Clan Commands:'
+    - ' &f/clan create <name> &7- Create a clan'
+    - ' &f/clan disband &7- Disband your clan'
+    - ' &f/clan invite <player> &7- Invite a player'
+    - ' &f/clan join <clanid> &7- Join a clan'
+    - ' &f/clan leave &7- Leave your clan'
+    - ' &f/clan kick <player> &7- Kick a member'
+    - ' &f/clan info [clan] &7- View clan info'
+    - ' &f/clan list &7- List all clans'
+    - ' &f/clan chat &7- Toggle clan chat'
+    - ' &f/clan rename <name> &7- Rename your clan'
+    - ' &f/clan setcolor <color> &7- Set clan color'
+    - ' &f/clan delete <clan> &7- Admin delete a clan'
+    - ''
+
+  clan-create-usage:
+    - '&c✖ &7Usage: /clan create <name>'
+
+  clan-invite-usage:
+    - '&c✖ &7Usage: /clan invite <player>'
+
+  clan-join-usage:
+    - '&c✖ &7Usage: /clan join <clanid>'
+
+  clan-kick-usage:
+    - '&c✖ &7Usage: /clan kick <player>'
+
+  clan-delete-usage:
+    - '&c✖ &7Usage: /clan delete <clan>'
+
+  clan-created:
+    - ''
+    - '&e🏰 &7Clan Created!'
+    - '&7Your clan &f%clan%&7 has been created!'
+    - ''
+
+  clan-create-failed:
+    - '&c✖ &7Failed to create clan! Name may be taken or invalid.'
+
+  clan-name-invalid:
+    - '&c✖ &7Clan name must be 3-16 characters!'
+
+  clan-name-restricted:
+    - '&c✖ &7That clan name is restricted!'
+
+  clan-already-in-clan:
+    - '&c✖ &7You are already in a clan! Leave first.'
+
+  clan-not-in-clan:
+    - '&c✖ &7You are not in a clan!'
+
+  clan-not-leader:
+    - '&c✖ &7Only the clan leader can do this!'
+
+  clan-not-found:
+    - '&c✖ &7Clan not found!'
+
+  clan-disbanded:
+    - ''
+    - '&c✖ &7Clan &f%clan%&7 has been disbanded!'
+    - ''
+
+  clan-admin-deleted:
+    - '&a✔ &7Deleted clan &f%clan%&7.'
+
+  clan-invited:
+    - '&a✔ &7You invited &f%player%&7 to your clan!'
+
+  clan-invite-received:
+    - ''
+    - '&e🏰 &7Clan Invite!'
+    - '&f%player%&7 invited you to join &f%clan%&7!'
+    - ''
+    - '&eType &7/clan join &f%clan%&7 &eto join!'
+    - ''
+
+  clan-invite-failed:
+    - '&c✖ &7Failed to invite player. They may be in another clan.'
+
+  clan-joined:
+    - '&a✔ &7You joined clan &f%clan%&7!'
+
+  clan-join-failed:
+    - '&c✖ &7Failed to join clan! You may not have an invite or the clan is full.'
+
+  clan-player-joined:
+    - '&a✔ &f%player%&7 has joined the clan!'
+
+  clan-left:
+    - '&e★ &7You left clan &f%clan%&7'
+
+  clan-kicked:
+    - '&a✔ &7You kicked &f%player%&7 from the clan!'
+
+  clan-been-kicked:
+    - '&c✖ &7You have been kicked from &f%clan%&7!'
+
+  clan-info:
+    - ''
+    - '&e🏰 &7Clan Info: &f%color%&7&f%clan%&7'
+    - ' &f◆ &7Leader: &f%leader%&7'
+    - ' &f◆ &7Members &7(&f%size%&7): &f%members%&7'
+    - ' &f◆ &7Points: &f%points%&7'
+    - ''
+
+  clan-list-empty:
+    - '&c✖ &7No clans exist yet!'
+
+  clan-list-header:
+    - ''
+    - '&e🏰 &7All Clans:'
+
+  clan-list-entry:
+    - ' &f◆ &f%clan%&7 - Members: &f%members%&7 | Points: &f%points%&7'
+
+  clan-chat-enabled:
+    - '&e🏰 &7Clan chat enabled!'
+
+  clan-chat-disabled:
+    - '&e🏰 &7Clan chat disabled!'
+
+  clan-renamed:
+    - '&a✔ &7Clan renamed to &f%name%&7!'
+
+  clan-color-set:
+    - '&a✔ &7Clan color set to &f%color%&7!'
+
+  clan-not-officer:
+    - '&c✖ &7Only the clan leader or an officer can do this!'
+  clan-rank-too-high:
+    - '&c✖ &7You cannot manage a member with an equal or higher rank.'
+  clan-cancel-usage:
+    - '&c✖ &7Usage: /clan cancel <player>'
+  clan-invite-cancelled:
+    - '&a✔ &7Cancelled the invite for &f%player%&7.'
+  clan-invite-cancel-failed:
+    - '&c✖ &7No active invite exists for &f%player%&7.'
+  clan-changeleader-usage:
+    - '&c✖ &7Usage: /clan changeleader <member>'
+  clan-changeleader-failed:
+    - '&c✖ &7Could not transfer clan leadership.'
+  clan-leader-changed:
+    - '&a✔ &f%player%&7 is now the clan leader.'
+  clan-description:
+    - '&e🏰 &7Description: &f%description%'
+  clan-description-invalid:
+    - '&c✖ &7Description must be at most &f%max%&7 characters.'
+  clan-description-set:
+    - '&a✔ &7Clan description updated.'
+  clan-promote-usage:
+    - '&c✖ &7Usage: /clan promote <member>'
+  clan-demote-usage:
+    - '&c✖ &7Usage: /clan demote <member>'
+  clan-rank-change-failed:
+    - '&c✖ &7Could not change that member''s rank.'
+  clan-promoted:
+    - '&a✔ &f%player%&7 was promoted to &f%rank%&7.'
+  clan-demoted:
+    - '&a✔ &f%player%&7 was demoted to &f%rank%&7.'
+  clan-ff-enabled:
+    - '&e⚔ &7FFA clan friendly fire enabled.'
+  clan-ff-disabled:
+    - '&a✔ &7FFA clan friendly fire disabled.'
+  clan-modtag-usage:
+    - '&c✖ &7Usage: /clan modtag <tag>'
+  clan-tag-invalid:
+    - '&c✖ &7That tag is invalid or already used.'
+  clan-tag-set:
+    - '&a✔ &7Clan tag set to &f%tag%&7.'
+  clan-relation-usage:
+    - '&c✖ &7Usage: /clan %type% <add|remove|accept|deny|list> [clan]'
+  clan-relation-list:
+    - ''
+    - '&e🏰 &f%type% relations'
+    - '&7Active: &f%active%'
+    - '&7Incoming: &f%incoming%'
+    - '&7Outgoing: &f%outgoing%'
+    - ''
+  clan-relation-success:
+    - '&a✔ &7Clan relation action &f%action%&7 completed for &f%clan%&7.'
+  clan-relation-failed:
+    - '&c✖ &7Could not &f%action% %type%&7 relation with &f%clan%&7.'
+  clan-settings-view:
+    - '&e🏰 &7FFA friendly fire: &f%ff% &8| &7Settings: &f%settings%'
+  clan-settings-usage:
+    - '&c✖ &7Usage: /clan settings <view|set <key> <value>>'
+  clan-setting-set:
+    - '&a✔ &7Clan setting &f%key%&7 updated.'
+  clan-nickname-invalid:
+    - '&c✖ &7Nickname must be 24 or fewer letters, numbers, spaces or underscores.'
+  clan-nickname-set:
+    - '&a✔ &7Nickname for &f%player%&7 set to &f%nickname%&7.'
+
+  clan-points-set:
+    - '&a✔ &7Set &f%clan%&7 points to &f%points%&7'
+
+  invalid-number:
+    - '&c✖ &7Invalid number!'
+
+  no-permission:
+    - '&c✖ &7You don''t have permission to do this!'
+
+  # ═══════════════════════════════════════
+  # Spectator Transition Messages
+  # ═══════════════════════════════════════
+  tournament-now-spectating:
+    - '&e⚔ &7You have been eliminated! You are now spectating the tournament.'
+    - '&7Use &e/tournament leave &7to return to the lobby.'
+
+  tournament-player-eliminated:
+    - '&c☠ &7A player has been eliminated! &f%alive%&7 remaining.'
+
+  tournament-match-announce:
+    - ''
+    - '&e⚔ &7Match #&f%match_number%&7 — &f%fighter1%&7 vs &f%fighter2%&7'
+    - '&7Players remaining: &f%alive%&7'
+    - ''
+
+  tournament-match-result:
+    - '&e⚔ &f%winner%&7 defeated &f%loser%&7! &f%alive%&7 remaining.'
+
+  tournament-unsupported-kit:
+    - '&c✖ &7The kit &f%kit% &7uses a special game mode that tournaments do not support.'
+
+  tournament-fight-timeout:
+    - '&e⌛ &7The tournament fight reached its time limit. The team with less health is eliminated.'
+
+  tournament-eliminated:
+    - '&c☠ &7You have been eliminated from the tournament!'
+
+  event-now-spectating:
+    - '&e⚡ &7You have been eliminated! You are now spectating the event.'
+    - '&7Use &e/event leave &7to return to the lobby.'
+
+  # ═══════════════════════════════════════
+  # Cross-system Blocking Messages
+  # ═══════════════════════════════════════
+  cannot-while-in-tournament:
+    - '&c✖ &7You cannot do this while in a tournament!'
+
+  cannot-while-in-event:
+    - '&c✖ &7You cannot do this while in an event!'
+
+  tournament-cannot-while-busy:
+    - '&c✖ &7You cannot join a tournament while busy!'
+
+  event-cannot-while-busy:
+    - '&c✖ &7You cannot join an event while busy!'
+
+  # ═══════════════════════════════════════
+  # Match History Messages
+  # ═══════════════════════════════════════
+  matchhistory-no-records:
+    - '&7No match history found.'
+
+  # ═══════════════════════════════════════
+  # Party Help
+  # ═══════════════════════════════════════
+  # (party-usage is above with other party messages)
+
+  # ═══════════════════════════════════════
+  # Ranked Help
+  # ═══════════════════════════════════════
+  ranked-usage:
+    - ''
+    - '&e═════ &7Ranked Commands &e═════'
+    - ' &f/ranked <kitname> &7- Join ranked queue'
+    - ' &f/ranked stats [player] &7- View ranked stats'
+    - ' &f/ranked leave &7- Leave ranked queue'
+    - ''
+
+  ranked-stats:
+    - '&e&lProgress'
+    - '&7- &7Division: &f%tier%&7 ➜ &f%next_tier%&7'
+    - '  &a%progress_bar% &f%progress_percent%&7% &7(&f%points%&7/&f%next_points%&7)'
+    - '&7- &7Global Win Streak: &f%global_winstreak%&7 (Best: &f%global_best_winstreak%&7)'
+    - '&7- &7Kit Win Streak: &f%kit_winstreak%&7 (Best: &f%kit_best_winstreak%&7)'
+    - '&7- &7Kit Win Rate: &f%kit_winrate%&7 ➜ &f%winrate%&7'
+
+  # ═══════════════════════════════════════
+  # Admin Command Help
+  # ═══════════════════════════════════════
+  arena-usage:
+    - ''
+    - '&e═════ &7Arena Commands &e═════'
+    - ' &f/arena create <name> <build/nonbuild>'
+    - ' &f/arena delete <name>'
+    - ' &f/arena list'
+    - ' &f/arena info <name>'
+    - ' &f/arena pos1 <name>'
+    - ' &f/arena pos2 <name>'
+    - ' &f/arena centre <name>'
+    - ' &f/arena corner1 <name>'
+    - ' &f/arena corner2 <name>'
+    - ' &f/arena kits <name> <kitname>'
+    - ' &f/arena clearkits <name>'
+    - ' &f/arena ffa <name>'
+    - ' &f/arena event <name>'
+    - ' &f/arena autoreset <name> <seconds>'
+    - ' &f/arena reset <name|all>'
+    - ' &f/arena teleport <name>'
+    - ' &f/arena copypaste <source> <newName>'
+    - ' &f/arena copypastesequence <source> <firstNewName> <spacing> <count>'
+    - ' &f/arena setpos <name> <posname>'
+    - ' &f/arena delpos <name> <posname>'
+    - ' &f/arena rename <name> <newname>'
+    - ' &f/arena update <name>'
+    - ' &f/arena killbelowy <name> [y|disable]'
+    - ' &f/arena maxbuildy <name> [y|disable]'
+    - ' &f/arena group <set|remove|display|info|sync> &7- Manage arena groups'
+    - ''
+
+  fence-wand-usage:
+    - '&c✖ &7Usage: /fwand <arena>'
+  fence-wand-arena-not-found:
+    - '&c✖ &7Arena &f%arena%&7 was not found.'
+  fence-wand-arena-not-setup:
+    - '&c✖ &7That arena must have pos1 and pos2 configured first.'
+  fence-wand-arena-world-invalid:
+    - '&c✖ &7Arena &f%arena%&7 has spawn points in different worlds.'
+  fence-wand-started:
+    - '&a✔ &7FenceV2 setup started for &f%arena%&7.'
+  fence-wand-select-bottom:
+    - '&e◆ &7Left click the bottom opposite corner.'
+  fence-wand-select-top:
+    - '&e◆ &7Right click the top opposite corner.'
+  fence-wand-bottom-set:
+    - '&a✔ &7Bottom corner set at &f%x%, %y%, %z%&7.'
+  fence-wand-bottom-required:
+    - '&c✖ &7Select the bottom corner with left click first.'
+  fence-wand-different-worlds:
+    - '&c✖ &7Both corners must be in the same world.'
+  fence-wand-wrong-arena-world:
+    - '&c✖ &7Selections must be in the world for arena &f%arena%&7.'
+  fence-wand-top-not-above-bottom:
+    - '&c✖ &7The top corner Y must be above the bottom corner Y.'
+  fence-wand-duplicate-side:
+    - '&c✖ &7That region is nearest to &f%side%&7, which is already selected.'
+  fence-wand-side-set:
+    - '&a✔ &7Saved the pending &f%side%&7 region for &f%arena%&7.'
+  fence-wand-select-other-side:
+    - '&e◆ &7Now select the region nearest &f%side%&7.'
+  fence-wand-complete:
+    - '&a✔ &7Saved both FenceV2 regions for &f%arena%&7.'
+  fence-wand-cancelled:
+    - '&c✖ &7FenceV2 setup cancelled.'
+
+  kit-usage:
+    - ''
+    - '&e═════ &7Kit Commands &e═════'
+    - ' &f/kit create <name> <build/nonbuild> &7- Create a kit'
+    - ' &f/kit edit <name> &7- Edit kit layout'
+    - ' &f/kit delete <name> &7- Delete a kit'
+    - ' &f/kit copy <name> &7- Create ranked version'
+    - ' &f/kit rule <name> &7- View/toggle kit rules'
+    - ' &f/kit list &7- List all kits'
+    - ' &f/kit give <player> <kit> &7- Give a kit'
+    - ' &f/kit displayname <kit> <name> &7- Set display name'
+    - ' &f/kit setinv <kit> &7- Update kit from inventory'
+    - ' &f/kit clearlayouts <kit> &7- Clear all saved player layouts'
+    - ' &f/kit canbreak <kit> [block|all] &7- Add held or named breakable block'
+    - ''
+
+  flixcore-usage:
+  swiftcore-usage:
+    - ''
+    - '&#0091EA═════ &#00E5FFFlixCore Commands &#0091EA═════'
+    - ' &f/flixcore reload <config> &7- Reload a configuration'
+    - ' &f/flixcore rank set <player> <tier> &7- Set player rank/tier'
+    - ' &f/flixcore elo <add|remove|set> <player> <points> &7- Manage player ELO'
+    - ' &f/flixcore sign <set|remove|list> &7- Manage queue signs'
+    - ' &f/flixcore update &7- Check for updates from Git'
+    - ' &7Configs: config, messages, scoreboard, duelgui, queue, rounds, spawnitems, kiteditor, partymenus, modegui, tab, menus, signqueue, all'
+    - ''
+
+  spawnitems-usage:
+    - ''
+    - '&e═════ &7SpawnItems Commands &e═════'
+    - ' &f/spawnitems give <player> &7- Give spawn items (auto-detects state)'
+    - ' &f/spawnitems reload &7- Reload spawn items config'
+    - ''
+
+  # ───────────────────────────────────────────────────────────────────────────
+  # Friends system
+  # All friend.* messages may be set to "" (empty quotes) to skip silently.
+  # The &f%prefix%&7 placeholder is replaced with friend.prefix below.
+  # ───────────────────────────────────────────────────────────────────────────
+  friend:
+    prefix: '&b&l FRIENDS &7➡'
+
+    request-sent: '&f%prefix%&7 Friend request sent to &f%target%&7'
+    request-received: '&f%prefix%&7 &f%sender%&7 sent you a friend request! Type &f/f accept &f%sender%&7'
+    request-already-friends: '&f%prefix%&7 &cYou are already friends with &f%target%&7'
+    request-already-pending: '&f%prefix%&7 &cYou already have a pending request to &f%target%&7'
+    request-self: '&f%prefix%&7 &cYou cannot friend yourself'
+    request-blocked: '&f%prefix%&7 &f%target%&7 is not accepting friend requests right now'
+    request-no-such: '&f%prefix%&7 &cNo incoming request from &f%sender%&7'
+    request-accepted-self: '&f%prefix%&7 &aYou and &f%target%&7 &aare now friends'
+    request-accepted-target: '&f%prefix%&7 &f%player%&7 &aaccepted your friend request'
+    request-denied: '&f%prefix%&7 Denied request from &f%target%&7'
+
+    removed: '&f%prefix%&7 Removed &f%target%&7 from your friends'
+    not-a-friend: '&f%prefix%&7 &f%target%&7 is not on your friends list'
+    player-not-found: '&f%prefix%&7 &cPlayer &f%target%&7 &cnot found'
+
+    notifications-enabled: '&f%prefix%&7 &aFriend join/quit alerts: &aEnabled'
+    notifications-disabled: '&f%prefix%&7 &cFriend join/quit alerts: &cDisabled'
+    requests-enabled: '&f%prefix%&7 &aIncoming requests: &aEnabled'
+    requests-disabled: '&f%prefix%&7 &cIncoming requests: &cDisabled'
+
+    notify-join: '&f%prefix%&7 &f%player%&7 joined the server'
+    notify-quit: '&f%prefix%&7 &f%player%&7 left the server'
+
+    list-header: '&f%prefix%&7 Your friends (&f%count%&7):'
+    list-entry-online: '  &a● &f%player%&7'
+    list-entry-offline: '  &c● &f%player%&7'
+    list-empty: '&f%prefix%&7 You have no friends yet. Use &f/f add <player>'
+
+    usage-add: '&f%prefix%&7 &cUsage: /f add <player>'
+    usage-remove: '&f%prefix%&7 &cUsage: /f remove <player>'
+    usage-accept: '&f%prefix%&7 &cUsage: /f accept <player>'
+    usage-deny: '&f%prefix%&7 &cUsage: /f deny <player>'
+    usage-message: '&f%prefix%&7 &cUsage: /f message <player> <message>'
+    messaging-cross-server-only: '&f%prefix%&7 &cNetwork friend messaging is not enabled'
+    not-friends: '&f%prefix%&7 &cYou are not friends with &f%target%'
+    target-offline: '&f%prefix%&7 &f%target%&7 is offline'
+    message-sent: '&d[MSG] &fYou &7→ &f%player%&7: &f%message%'
+
+    help:
+      - ''
+      - '&f%prefix%&7 Friend Commands'
+      - '  &f/f add <player> &7- Send a friend request'
+      - '  &f/f accept <player> &7- Accept a request'
+      - '  &f/f deny <player> &7- Deny a request'
+      - '  &f/f remove <player> &7- Remove a friend'
+      - '  &f/f list &7- Show your friends'
+      - '  &f/f message <player> <message> &7- Message an online friend'
+      - '  &f/f toggle-notifications &7- Toggle join/quit alerts'
+      - '  &f/f toggle-requests &7- Toggle incoming requests'
+      - ''
+
+    # Display formats consumed by the swiftcore PlaceholderAPI placeholders.
+    # Customizing these changes how friend status / toggle states render in tab,
+    # scoreboard, GUIs, and any /papi parse output.
+    display:
+      online: '&aOnline'
+      offline: '&cOffline'
+      online-raw: 'online'
+      offline-raw: 'offline'
+      enabled: '&aEnabled'
+      disabled: '&cDisabled'
+      enabled-raw: 'enabled'
+      disabled-raw: 'disabled'
+      # Friend list rendering (used by &f%flixcore_friend_list%&7 / &f%flixcore_friend_list_inline%&7)
+      empty-list: '&7No friends yet'
+      entry-online: '&a● &f%name%&7'
+      entry-offline: '&c● &f%name%&7'
+      max-list-size: 10
+
+# ═══════════════════════════════════════
+# Cross-Server Friend Notifications
+# ═══════════════════════════════════════
+friend-online: '&f%player%&7 joined the network &8(&f%server%&7)'
+friend-offline: '&f%player%&7 left the network'
+friend-switch: '&f%player%&7 switched from &f%from%&7 to &f%to%&7'
+friend-message: '&d[MSG] &f%player%&7 → &f%message%&7'

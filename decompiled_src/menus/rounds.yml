@@ -1,0 +1,61 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&8Select Rounds'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+rounds:
+  best-of-1:
+    slot: 11
+    material: IRON_SWORD
+    display-name: '&aBest of 1'
+    lore:
+      - '&7Single round match'
+      - '&7First to win takes all'
+    rounds: 1
+  best-of-3:
+    slot: 13
+    material: DIAMOND_SWORD
+    display-name: '&eBest of 3'
+    lore:
+      - '&7Three round match'
+      - '&7First to 2 wins'
+    rounds: 3
+  best-of-5:
+    slot: 15
+    material: NETHERITE_SWORD
+    display-name: '&cBest of 5'
+    lore:
+      - '&7Five round match'
+      - '&7First to 3 wins'
+    rounds: 5
+
+custom-rounds:
+  enabled: true
+  slot: 22
+  material: NAME_TAG
+  display-name: '&dCustom Rounds'
+  lore:
+    - '&7Click to type a custom'
+    - '&7number of rounds in chat'
+    - ''
+    - '&eMax: %max_rounds% rounds'
+  custom-model-data: -1
+  anvil:
+    enabled: true
+    title: '&8Custom Rounds'
+    text: '1'
+    invalid-text: 'Invalid'
+  # Fallback only if AnvilGUI cannot open.
+  prompt-message: '&e&lType the number of rounds in chat &7(max %max_rounds%)&e:'
+  invalid-message: '&cInvalid number! Enter a value between 1 and %max_rounds%.'
+  cancel-word: 'cancel'
+  cancel-message: '&cCustom rounds selection cancelled.'
+

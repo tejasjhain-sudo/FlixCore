@@ -1,0 +1,28 @@
+enabled: true
+
+# How often FlixCore re-checks players that stay inside/outside the lobby.
+# Event hooks also update immediately on join, teleport, world change, and quit.
+check-interval-ticks: 10
+
+# true = only apply effects when the player is inside LobbyManager's lobby radius.
+# false = apply in any enabled world while the player is not fighting/editing/spectating.
+require-lobby-location: true
+
+effects:
+  speed:
+    enabled: true
+    type: SPEED
+    amplifier: 1
+    duration-ticks: 80
+    ambient: false
+    particles: false
+    icon: false
+
+  night_vision:
+    enabled: false
+    type: NIGHT_VISION
+    amplifier: 0
+    duration-ticks: 260
+    ambient: false
+    particles: false
+    icon: false

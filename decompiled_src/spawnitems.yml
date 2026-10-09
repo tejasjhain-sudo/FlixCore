@@ -1,0 +1,267 @@
+spawn-items:
+  settings:
+    give-on-lobby-world-join: true
+    auto-give-delay: 3 # experimintal 
+    
+  items-atributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+    - HIDE_ENCHANTS
+
+  default:
+    unranked:
+      material: IRON_SWORD
+      display-name: "&#6AC7FF⚔ Unranked Queue"
+      lore:
+        - ""
+        - "&#BDEBFFPlay casual duels"
+        - "&#BDEBFFwithout affecting rank."
+        - ""
+        - "&#6AC7FFClick to join the queue"
+        - ""
+      slot: 0
+      command: /unranked
+
+    ranked:
+      material: IRON_SWORD
+      display-name: "&#6AC7FF⚔ Ranked Queue"
+      lore:
+        - ""
+        - "&#FFD86FCompete for rank"
+        - "&#FFD86Fand climb the leaderboard."
+        - ""
+        - "&#6AC7FFClick to join ranked"
+        - ""
+      slot: 1
+      command: /ranked
+
+    party-create:
+      material: FIREWORK_ROCKET
+      display-name: '&#5FD1FF🎉 Create Party'
+      lore:
+        - ""
+        - "&#CFF4FFCreate a party"
+        - "&#CFF4FFand play with friends."
+        - ""
+        - "&#5FD1FFClick to create a party"
+        - ""
+      slot: 3
+      command: /party create
+
+    settings:
+      material: CLOCK
+      display-name: '&#9BBEFF⚙ Your Settings'
+      lore:
+        - ""
+        - "&#D6E3FFCustomize your"
+        - "&#D6E3FFpersonal preferences."
+        - ""
+        - "&#9BBEFFClick to open settings"
+        - ""
+      slot: 8
+      command: /settings
+
+    point-shop:
+      material: MAP
+      display-name: '&#FFD86F🛒 Point Shop'
+      lore:
+        - ""
+        - "&#FFF0B3Spend your points"
+        - "&#FFF0B3on cosmetics and perks."
+        - ""
+        - "&#FFD86FClick to open shop"
+        - ""
+      slot: 7
+      command: /pointshop
+
+    rematch:
+      enabled: true
+      material: BLAZE_ROD
+      display-name: '&#FFB347🔄 Rematch'
+      lore:
+        - ""
+        - "&#FFE0B8Challenge your previous"
+        - "&#FFE0B8opponent to a rematch!"
+        - ""
+        - "&#FFB347Click to send rematch"
+        - ""
+      slot: 4
+      glow: true
+      expire-time: 5
+      manual-only: true
+
+  queue:
+    leave-queue:
+      material: RED_DYE
+      display-name: '&#FF4D4D✘ Leave Queue'
+      lore:
+        - ""
+        - "&#FFB3B3Exit the queue"
+        - "&#FFB3B3before a match starts."
+        - ""
+        - "&#FF4D4DClick to leave queue"
+        - ""
+      slot: 8
+      command: /leavequeue
+
+  party:
+    party-fight:
+      material: DIAMOND_SWORD
+      display-name: '&#FFB347🗡 Party Fights'
+      lore:
+        - ""
+        - "&#FFE0B8Start party battles"
+        - "&#FFE0B8against other teams."
+        - ""
+        - "&#FFB347Click to fight"
+        - ""
+      slot: 0
+      command: /partyfights
+
+    party-info:
+      material: PAINTING
+      display-name: '&#3AC4FFℹ Party Info'
+      lore:
+        - ""
+        - "&#CFEFFFView party members"
+        - "&#CFEFFFand current status."
+        - ""
+        - "&#3AC4FFClick to view info"
+        - ""
+      slot: 1
+      command: /party info
+
+    party-chat:
+      material: PAPER
+      display-name: '&#7CFF2E💬 Party Chat'
+      lore:
+        - ""
+        - "&#D8FFB8Chat privately"
+        - "&#D8FFB8with your party."
+        - ""
+        - "&#7CFF2EClick to toggle chat"
+        - ""
+      slot: 6
+      command: /party chat
+
+    party-settings:
+      material: CLOCK
+      display-name: '&#D3A1FF⚙ Party Settings'
+      lore:
+        - ""
+        - "&#EBD7FFManage party rules"
+        - "&#EBD7FFand permissions."
+        - ""
+        - "&#D3A1FFClick to open settings"
+        - ""
+      slot: 8
+      party-owner: true
+      command: /party settings
+
+    party-leave:
+      material: RED_DYE
+      display-name: '&#FF6F61🚪 Leave Party'
+      lore:
+        - ""
+        - "&#FFC4BELeave the party"
+        - "&#FFC4BEat any time."
+        - ""
+        - "&#FF6F61Click to leave party"
+        - ""
+      slot: 7
+      party: true
+      command: /party leave
+
+    party-disband:
+      material: BARRIER
+      display-name: '&#D11A1A💥 Disband Party'
+      lore:
+        - ""
+        - "&#FFB3B3Disband the party"
+        - "&#FFB3B3for all members."
+        - ""
+        - "&#D11A1AClick to disband"
+        - ""
+      slot: 7
+      party-owner: true
+      command: /party disband
+
+  tournament:
+    tournament-status:
+      material: BOOK
+      display-name: '&#FFB800⚔ Tournament Status'
+      lore:
+        - ""
+        - "&#FFE0B8View tournament bracket"
+        - "&#FFE0B8and current standings."
+        - ""
+        - "&#FFB800Click to view status"
+        - ""
+      slot: 0
+      command: /tournament status
+
+    tournament-leave:
+      material: RED_DYE
+      display-name: '&#FF4D4D✘ Leave Tournament'
+      lore:
+        - ""
+        - "&#FFB3B3Exit the tournament"
+        - "&#FFB3B3and return to lobby."
+        - ""
+        - "&#FF4D4DClick to leave"
+        - ""
+      slot: 8
+      command: /tournament leave
+
+  event:
+    event-info:
+      material: BOOK
+      display-name: '&#FFB800⚡ Event Info'
+      lore:
+        - ""
+        - "&#FFE0B8View event details"
+        - "&#FFE0B8and player count."
+        - ""
+        - "&#FFB800Click to view info"
+        - ""
+      slot: 0
+      command: /event info
+
+    event-leave:
+      material: RED_DYE
+      display-name: '&#FF4D4D✘ Leave Event'
+      lore:
+        - ""
+        - "&#FFB3B3Exit the event"
+        - "&#FFB3B3and return to lobby."
+        - ""
+        - "&#FF4D4DClick to leave"
+        - ""
+      slot: 8
+      command: /event leave
+
+  spectating:
+    spectator-compass:
+      material: COMPASS
+      display-name: '&#3AC4FF🧭 Teleport to Player'
+      lore:
+        - ""
+        - "&#CFEFFFLeft-click: Next player"
+        - "&#CFEFFFRight-click: Previous player"
+        - ""
+        - "&#3AC4FFClick to teleport"
+        - ""
+      slot: 0
+
+    spectator-leave:
+      material: RED_DYE
+      display-name: '&#FF5A5A👁 Leave Spectator'
+      lore:
+        - ""
+        - "&#FFC7C7Exit spectator mode"
+        - "&#FFC7C7and return to spawn."
+        - ""
+        - "&#FF5A5AClick to leave"
+        - ""
+      slot: 8
+      command: /spectator leave

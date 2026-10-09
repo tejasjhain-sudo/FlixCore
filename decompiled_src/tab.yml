@@ -1,0 +1,437 @@
+tablist:
+  enabled: true
+  update-interval: 20
+  shadow: true
+  shadow-color: '#00E5FFff'
+  # All tablist text fields support PlaceholderAPI, animations, FlixCore
+  # placeholders, legacy & colors, and every standard MiniMessage tag.
+  # Atlas sprite example (Minecraft 1.21.9+):
+  # '<sprite:"minecraft:items":"minecraft:item/diamond_helmet">'
+  # Standard examples: '<gradient:red:gold>Text</gradient>', '<bold>Text</bold>',
+  # '<font:minecraft:default>Text</font>', and '<head:PlayerName>'.
+
+  # Player name format in tab list (supports PlaceholderAPI).
+  # Custom base64 heads use <head_database:BASE64>. FlixCoreLeaderboard's
+  #  returns this tag automatically.
+  player-format:
+    prefix: ""
+    name: " &7%player_name%"
+    suffix: ""
+
+  # Nametag format above player heads (supports PlaceholderAPI)
+  # If not set, falls back to player-format prefix/suffix
+  # name-color: scoreboard-team color applied only to the player name.
+  # It does not recolor or append formatting to prefix/suffix.
+  #   Shadow comes from tablist.shadow + tablist.shadow-color above.
+  # below-name: optional text/object shown under each nametag. Supports MiniMessage,
+  # PlaceholderAPI, atlas sprites, and HeadDatabase base64 heads via:
+  #   
+  #   <head_database:BASE64>
+  #   eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6...
+  # Leave empty to disable. HP indicator takes priority during active matches.
+  tag-format:
+    prefix: "%flixcore_tier_rank% "
+    suffix: ""
+    name-color: "<white>"
+    below-name: ""
+
+  # Player sorting. Modes:
+  # - luckperms-weight: highest LuckPerms group weight first (legacy/default behavior)
+  # - configured-groups: order from groups below, then unlisted groups
+  # - placeholder: numeric or text PlaceholderAPI value with ascending/descending order
+  # Equal values always use player name as a deterministic tie-break.
+  group-sorting:
+    enabled: true
+    mode: luckperms-weight
+    groups:
+      - owner
+      - admin
+      - moderator
+      - helper
+      - vip
+      - default
+    placeholder:
+      value: "%player_ping%"
+      type: numeric
+      order: ascending
+
+  default:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAOnline: &#8AFF80%server_online%        &#AAAAAAPlayers: &#00E5FF%flixcore_in_fight%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - "&#7F7F7FSneak to view friends"
+      - ""
+
+  # Lobby Friends tablist view (toggle by sneaking in the lobby).
+  # Falls back to "default" if this section is removed.
+  lobby_friends:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#00FDFF&lFRIENDS &#7F7F7F(%flixcore_friend_count_online%/%flixcore_friend_count%)"
+      - ""
+    footer:
+      - ""
+      - "%flixcore_friend_list%"
+      - ""
+      - "&#7F7F7FSneak again to switch"
+      - ""
+    social-layout:
+      # Only applies inside lobby_friends. Default/global tab stays unchanged.
+      # Without a party, only the styled Friends column is shown.
+      # With a party, the Party column is added beside Friends.
+      enabled: true
+      column-rows: 20
+      max-friends: 18
+      max-party: 18
+      # Party section starts after this many tab rows. Keep this equal to
+      # column-rows to pin Party to the second fixed column.
+      party-start-row: 20
+      header-gap: 1
+      ping: 1
+      friends-header: "&#00FDFF&lFriends &#7F7F7F(%online%/%total%)"
+      party-header: "&#D855FF&lParty &#7F7F7F(%count%)"
+      # Leave blank so offline/no online friends do not show any row.
+      empty-friends: " "
+      empty-party: "&#555555No party"
+      blank: " "
+
+  queue:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAASearching for opponent..."
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAKit: &#00E5FF<in_queue_kitname>        &#AAAAAAWait: &#00E5FF%flixcore_wait_time%        &#AAAAAAPlayers: &#8AFF80%server_online%"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  # Team queue context. Queue integrations can provide the visible roster through
+  # TablistManager#setupTeamQueueContext without a hard dependency on queue classes.
+  # Falls back to "default" if this section is removed.
+  team_queue:
+    blue-player-color: "&#4DA3FF"
+    red-player-color: "&#FF5252"
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAATeam Queue: &#00E5FF<team_queue_size>v<team_queue_size> <team_queue_mode> &#AAAAAA• &#FFFFF0<fight_kitname>"
+      - ""
+    footer:
+      - ""
+      - "&#4DA3FFBlue: &#FFFFF0<blue_alive>&#AAAAAA/&#FFFFF0<blue_total>        &#FF5252Red: &#FFFFF0<red_alive>&#AAAAAA/&#FFFFF0<red_total>"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    real-player-colors:
+      blue: "&#4DA3FF"
+      red: "&#FF5252"
+
+  duel:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAOpponent: &#FF5252<opponent>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAARound: &#00E5FF<current_round>&#AAAAAA/&#00E5FF<total_rounds>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    social-layout:
+      # Visual-only duel tab rows. Real duel players stay as real tab entries.
+      # Fake entries are used only for these layout lines. Disable for default behavior.
+      enabled: false
+      blank-rows: 1
+      ping: 1
+      blank: " "
+      blue-player-color: "&#4DA3FF"
+      red-player-color: "&#FF5252"
+      # Supports %players%, %player%, %opponent%, %player_colored%, %opponent_colored%,
+      # %blue_player%, %red_player%, %blue_name%, and %red_name%.
+      # Leave empty to fall back to blank-rows.
+      lines:
+        - "&#FF5252&lDuel &#7F7F7F(%players%)"
+        - " "
+
+  ffa:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAArena: &#00E5FF<ffa_arena>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAFighters: &#8AFF80%flixcore_ffa_players_<ffa_arena>%        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  party:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAALeader: &#00E5FF<party_owner>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAMembers: &#00E5FF<party_size>&#AAAAAA/&#00E5FF<party_max_size>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  party_ffa:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAKit: &#00E5FF<fight_kitname>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAAlive: &#8AFF80<party_ffa_alive>&#AAAAAA/&#00E5FF<party_size>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    social-layout:
+      # Visual-only party FFA tab rows. Real fighters stay as real tab entries.
+      enabled: false
+      blank-rows: 1
+      ping: 1
+      blank: " "
+      lines:
+        - "&#D855FF&lParty FFA &#7F7F7F(%players%)"
+        - "&#AAAAAAKit: &#00E5FF%fight_kitname%"
+
+  party_split:
+    blue-player-color: "&#4DA3FF"
+    red-player-color: "&#FF5252"
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAATeam Split"
+      - ""
+    footer:
+      - ""
+      - "&#00E5FFBlue: &#FFFFF0<blue_alive>&#AAAAAA/&#FFFFF0<blue_total>        &#FF5252Red: &#FFFFF0<red_alive>&#AAAAAA/&#FFFFF0<red_total>        &#AAAAAAPlayers: &#8AFF80%server_online%"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    # Colors applied to real player entries, independent of the optional visual rows.
+    # For backward compatibility, omitted keys fall back to the matching
+    # social-layout blue-player-color/red-player-color values below.
+    real-player-colors:
+      blue: "&#4DA3FF"
+      red: "&#FF5252"
+    social-layout:
+      # Visual-only party split tab rows.
+      enabled: false
+      blank-rows: 1
+      ping: 1
+      blank: " "
+      blue-player-color: "&#4DA3FF"
+      red-player-color: "&#FF5252"
+      # Real tab entries are colored by blue-player-color/red-player-color.
+      # Supports %blue_player%, %red_player%, %blue_players%, %red_players%,
+      # %blue_alive%, %red_alive%, %blue_total%, %red_total%, and %fight_kitname%.
+      # Avoid putting player-list placeholders in lines if you do not want duplicate names.
+      lines:
+        - "&#4DA3FF&lBlue &#7F7F7F(%blue_alive%/%blue_total%) &#555555vs &#FF5252&lRed &#7F7F7F(%red_alive%/%red_total%)"
+        - " "
+
+  party_vs:
+    blue-player-color: "&#4DA3FF"
+    red-player-color: "&#FF5252"
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAParty vs Party"
+      - ""
+    footer:
+      - ""
+      - "&#00E5FFAllies: &#FFFFF0<your_party_alive>&#AAAAAA/&#FFFFF0<your_party_total>        &#FF5252Foes: &#FFFFF0<enemy_party_alive>&#AAAAAA/&#FFFFF0<enemy_party_total>        &#AAAAAAPlayers: &#8AFF80%server_online%"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    # Colors applied to real player entries. If omitted, the legacy social-layout
+    # color keys are used, then party_split's legacy colors as the final fallback.
+    real-player-colors:
+      blue: "&#4DA3FF"
+      red: "&#FF5252"
+    social-layout:
+      # Visual-only party-vs-party tab rows.
+      enabled: false
+      blank-rows: 1
+      ping: 1
+      blank: " "
+      blue-player-color: "&#4DA3FF"
+      red-player-color: "&#FF5252"
+      lines:
+        - "&#4DA3FF&lYour Party &#555555vs &#FF5252&lEnemy Party"
+        - " "
+
+  spectating:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAWatching: &#00E5FF<spectating_player>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAArena: &#00E5FF<spectating_arena>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  duel_block_decay:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAOpponent: &#FF5252<opponent>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAARound: &#00E5FF<current_round>&#AAAAAA/&#00E5FF<total_rounds>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  duel_flower_crown:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAOpponent: &#FF5252<opponent>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAARound: &#00E5FF<current_round>&#AAAAAA/&#00E5FF<total_rounds>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  duel_tnt_tag:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAOpponent: &#FF5252<opponent>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAARound: &#00E5FF<current_round>&#AAAAAA/&#00E5FF<total_rounds>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  duel_bedwars:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAOpponent: &#FF5252<opponent>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAARound: &#00E5FF<current_round>&#AAAAAA/&#00E5FF<total_rounds>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  party_block_decay:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAKit: &#00E5FF<fight_kitname>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAAlive: &#8AFF80<party_ffa_alive>&#AAAAAA/&#00E5FF<party_size>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  party_flower_crown:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAKit: &#00E5FF<fight_kitname>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAAlive: &#8AFF80<party_ffa_alive>&#AAAAAA/&#00E5FF<party_size>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  party_tnt_tag:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAKit: &#00E5FF<fight_kitname>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAAlive: &#8AFF80<party_ffa_alive>&#AAAAAA/&#00E5FF<party_size>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  party_bedwars:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAKit: &#00E5FF<fight_kitname>"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAAlive: &#8AFF80<party_ffa_alive>&#AAAAAA/&#00E5FF<party_size>        &#AAAAAAPlayers: &#8AFF80%server_online%        &#AAAAAAStore: &#00E5FF/store"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+
+  event:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAAEvent"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAPlayers: &#8AFF80%server_online%"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    social-layout:
+      # Visual-only event tab rows.
+      enabled: false
+      blank-rows: 1
+      ping: 1
+      blank: " "
+      blue-player-color: "&#4DA3FF"
+      red-player-color: "&#FF5252"
+      lines:
+        - "&#00E5FF&lEvent &#7F7F7F(%players%)"
+        - "&#4DA3FF%blue_player% &#555555vs &#FF5252%red_player%"
+
+  tournament:
+    header:
+      - ""
+      - "%animation:flixcore%"
+      - "&#AAAAAATournament"
+      - ""
+    footer:
+      - ""
+      - "&#AAAAAAPlayers: &#8AFF80%server_online%"
+      - "&#00E5FFplay.flixcore.net"
+      - ""
+    social-layout:
+      # Visual-only tournament tab rows.
+      enabled: false
+      blank-rows: 1
+      ping: 1
+      blank: " "
+      lines:
+        - "&#00E5FF&lTournament &#7F7F7F(%players%)"
+
+global:
+  enable: false
+  enable-worlds:
+    - world1
+    - world2
+  header:
+    - ""
+    - "%animation:flixcore%"
+    - ""
+  footer:
+    - ""
+    - "&#AAAAAAKills: &#FFFFF0%flixcore_kills%        &#AAAAAADeaths: &#FFFFF0%flixcore_deaths%        &#AAAAAAStore: &#00E5FF/store"
+    - "&#00E5FFplay.flixcore.net"
+    - ""

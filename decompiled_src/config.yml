@@ -1,0 +1,1445 @@
+license-key: "YOUR_LICENSE_KEY_HERE"
+
+# Enable verbose plugin debug logs (kit editor diagnostics, race-condition tracing, etc).
+# Turn this on temporarily if players report being unable to move items in the kit editor
+# or other state issues — the console will explain which listener cancelled the action.
+debug: false
+
+disabled-worlds:
+  - "example_world"
+
+arena-lobby-loaded: false
+
+lobby:
+  world: "world"
+  x: 0.5
+  y: 65.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+prefix: "&#0091EA[&#00E5FFFlixCore&#0091EA] &r"
+
+gui:
+  duel-gui-enabled: true
+  # If true, right-clicking a lobby player opens the duel kit selection GUI.
+  # Set false to disable only this shortcut; /duel and other duel GUI flows still work.
+  right-click-player-duel-gui-enabled: false
+  queue-gui-enabled: true
+  mode-gui-enabled: true
+  ranked-kit-gui-enabled: true
+  ranked-queue-gui-enabled: true
+  # Paper Dialogs duel settings UI (1.21.7+ clients/servers).
+  # If enabled and supported, the rounds/settings step uses a modern dialog.
+  # If disabled or unavailable, FlixCore uses menus/rounds.yml like before.
+  duel-dialog:
+    enabled: false
+    title: "&6Duel Settings"
+    body:
+      - "&7%sender% &fvs &7%target%"
+      - "&7Kit: &e%kit%"
+    rounds-label: "Rounds"
+    # Paper Dialog label format receives two values: %s = label, %2$s = selected number.
+    # Use %2$s when you want only the live round number.
+    rounds-format: "Rounds: %2$s"
+    slider-width: 310
+    initial-rounds: 1
+    send-button: "&aSend Duel"
+    # Button tooltips are static in Paper dialogs; the live selected number is shown by rounds-format.
+    send-tooltip: "&7Send a duel request with the selected rounds."
+    close-button: "&cClose"
+    close-tooltip: "&7Close without sending a duel request."
+    advanced-button:
+      enabled: true
+      text: "&7View Advanced Options"
+      tooltip: "&7Open the classic rounds menu."
+
+bot:
+  # Kits listed here cannot be used with /bot and are hidden from its tab completion.
+  # Matching is case-insensitive. Apply changes with /flixcore reload config.
+  # Example: disabled-kits: [nodebuff, boxing]
+  disabled-kits: []
+
+match:
+  # Delay after a non-final round death before players are teleported back
+  # to their starting positions for the next round countdown.
+  next-round-delay-seconds: 3
+  round-score-title:
+    enabled: true
+    # Keep false so the final victory/defeat title is not overwritten.
+    show-final-round: false
+    # Delay allows the round victory/defeat title to display first.
+    delay-ticks: 20
+    title: "&eRound Score: &f%player1_wins% &7- &f%player2_wins%"
+    subtitle: "&f%player1% &8vs &f%player2%"
+    fade-in-ticks: 0
+    stay-ticks: 30
+    fade-out-ticks: 10
+    # Available placeholders:
+    # %player1%, %player2%, %player1_wins%, %player2_wins%,
+    # %your_wins%, %opponent_wins%, %winner%, %round%, %total_rounds%
+  leave-delay:
+    enabled: true
+    seconds: 3
+    title: "&c&lDEFEAT"
+    subtitle: "&7Teleporting to lobby..."
+    fade-in-ticks: 5
+    stay-ticks: 40
+    fade-out-ticks: 10
+    sound: "ENTITY_VILLAGER_DEATH"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+  inactivity-reveal:
+    enabled: true
+    seconds: 60
+    message: "&e%opponent% &7is at &f%x%&7, &f%y%&7, &f%z%"
+    sound: "BLOCK_NOTE_BLOCK_BELL"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+  countdown-time: 4
+  # How long players remain in the arena after the final win. Final
+  # victory/defeat titles and sounds play immediately, before this delay.
+  spectator-time: 5
+  crafting-in-fight: false
+  inv-see:
+    enabled: true
+    # Cross-server snapshots are bounded and automatically expire in Redis.
+    redis-ttl-seconds: 300
+    redis-max-bytes: 262144
+    click-text: "&#FFD54F⏵ [ &nᴠɪᴇᴡ ɪɴᴠ&#FFD54F ] ⏴"
+    hover-text: "&#FFD54F🔍 &#FFFFF0Click to see %opponent%'s inventory"
+    gui-title: "&#FFB800%opponent%'s Inventory"
+  bed-status:
+    alive: "✅"
+    destroyed: "❌"
+  kit-colored-armor: true
+  max-fight-duration: 30
+  duel-max-rounds: 20
+  queue-default-rounds:
+    # Default round amount for unranked queue matches. Per-kit keys are normal kit names.
+    unranked:
+      default: 1
+      kits:
+        # nodebuff: 3
+    # Default round amount for ranked queue matches. Per-kit keys can be normal kit names or tier kit names.
+    ranked:
+      default: 1
+      kits:
+        # nodebuff: 3
+        # tiernodebuff: 3
+  duel-request-expiry: 60
+  start-elevator:
+    enabled: false
+    radius: 1
+    depth: 5
+    sync-with-countdown: true
+    duration-ticks: 60
+    levitation-amplifier: 1
+    platform-offset: 0.5
+    platform-material: IRON_BLOCK
+    # Smooth mode uses client-side BlockDisplay interpolation and ease-in-out movement.
+    # Higher update-interval reduces server work; interpolation keeps the platform moving smoothly.
+    smooth: true
+    update-interval: 2
+    teleport-duration: 3
+    easing: "ease-in-out"
+    teleport-to-spawn-on-finish: false
+    # Real blocks restore one horizontal layer whenever the platform rises one
+    # full block: depth 5 restores 5, 4, 3, 2, 1 from bottom to top. The spawn
+    # Y layer is restored last before levitation/display cleanup.
+    # Extra levitation/cleanup safety time retained for slow FAWE servers.
+    restore-before-finish-ticks: 20
+    # If layer restoration is slow, verify the area and queue one full backup paste.
+    restore-timeout-ticks: 40
+    sound: BLOCK_PISTON_EXTEND
+    sound-volume: 1.0
+    sound-pitch: 1.0
+    # Normal names also disable generated ranked forms automatically
+    # (for example, bedwars also disables tierbedwars).
+    disabled-kits:
+      - nodebuff
+      - boxing
+      - sumo
+      - thebridge
+      - bedwars
+      - blockdecay
+      - bedboom
+      - creeper
+      - hunt
+      - colour
+      - pilleroffortune
+  round-rewind:
+    enabled: false
+    # Maximum ballistic flight time; a shorter duration may be selected
+    # automatically to match the configured arc height.
+    duration-ticks: 60
+    # Approximate peak blocks above the direct path.
+    arc-height: 4.0
+    particles: true
+    # Normal names also disable generated ranked forms automatically.
+    disabled-kits:
+      - nodebuff
+      - boxing
+      - sumo
+      - thebridge
+      - bedwars
+      - blockdecay
+      - bedboom
+      - creeper
+      - hunt
+      - colour
+      - pilleroffortune
+  # First-To win condition (FT)
+  # If true: a duel/party match ends as soon as a player or team reaches the chosen rounds value as their win count
+  #         (e.g. rounds=5 -> first to 5 wins takes the match).
+  # If false (default): classic best-of-N (e.g. rounds=5 -> first to 3 wins).
+  # Applies to: duel requests, ranked queue, party FFA / split / vs-party.
+  first-to: false
+  titles:
+    - title: ""
+      subtitle: "&e➌"
+      pitch: 0.8
+    - title: ""
+      subtitle: "&e➋"
+      pitch: 1.0
+    - title: ""
+      subtitle: "&e➊"
+      pitch: 1.2
+  final-title:
+    - title: ""
+      subtitle: "&e🏆 &6Fight &e🏆"
+  disabled-commands:
+    - '/duel'
+    - '/sc'
+    - '/flixcore'
+  sounds:
+    # Every scalar sound supports sibling -volume (minimum 0) and -pitch (0.5-2.0).
+    countdown: "BLOCK_NOTE_BLOCK_PLING"
+    countdown-volume: 1.0
+    countdown-pitch: 1.0
+    start: "BLOCK_NOTE_BLOCK_CHIME"
+    start-volume: 1.0
+    start-pitch: 1.0
+    win: "ENTITY_PLAYER_LEVELUP"
+    win-volume: 1.0
+    win-pitch: 1.0
+    lose: "ENTITY_VILLAGER_DEATH"
+    lose-volume: 1.0
+    lose-pitch: 1.0
+  kill-sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  kill-sound-volume: 1.0
+  kill-sound-pitch: 1.0
+  match-found:
+    enabled: true
+    instant-queue: false
+    blindness: true
+    blindness-duration: 100
+    # Ticks to wait after "match found" before teleporting/starting match setup.
+    # teleport-delay has priority, start-delay is kept as an alias, delay is legacy fallback.
+    teleport-delay: 60
+    start-delay: 60
+    delay: 60
+    title: "&6&lMATCH FOUND"
+    subtitle: "&eGet ready to fight!"
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+    queue-join-actionbar:
+      enabled: true
+      message: "%kit_sprite% &#FFD54F⚔ &#FFFFF0Searching for match... Kit: &#FFD54F%kit% &#FFFFF0| &#FFD54F%time%"
+    match-found-actionbar:
+      enabled: true
+      message: "%kit_sprite% &#8AFF80✔ &#FFFFF0Match found! Opponent: &#FFD54F%opponent% &#FFFFF0| Kit: &#FFD54F%kit%"
+    totem-animation:
+      enabled: true
+      show-title: true
+      sound: "ITEM_TOTEM_USE"
+      sound-volume: 1.0
+      sound-pitch: 1.0
+      item: "TOTEM_OF_UNDYING"
+      # Per-kit sound-volume/sound-pitch inherit the global values when omitted.
+      # Normal and ranked names are linked automatically:
+      # configuring "bedwars" also applies to "tierbedwars" (and vice versa).
+      # kits:
+      #   diamond:
+      #     sound: "ENTITY_ENDER_DRAGON_GROWL"
+      #     sound-volume: 1.0
+      #     sound-pitch: 1.0
+      #     item: "DIAMOND_SWORD"
+      #   nodebuff:
+      #     sound: "ENTITY_WITHER_SPAWN"
+      #     item: "SPLASH_POTION"
+    door-animation:
+      enabled: false
+      front-only-rise: true
+      red-block: "RED_STAINED_GLASS"
+      blue-block: "BLUE_STAINED_GLASS"
+      red-top-block: "RED_STAINED_GLASS"
+      blue-top-block: "BLUE_STAINED_GLASS"
+      red-side-block: "RED_STAINED_GLASS"
+      blue-side-block: "BLUE_STAINED_GLASS"
+      width: 5
+      height: 3
+      depth: 3
+      rise-duration: 40
+      disabled-kits:
+        - sumo
+        - boxing
+
+# Free For All Configuration
+free-for-all:
+  rejoin-automatically: true
+  ffa-countdown: 4
+  # Cross-server joins reserve an instance slot atomically in Redis before transfer.
+  # A limit of 0 is unlimited. Per-instance names are FlixCore arena names.
+  instances:
+    default-limit: 100
+    limits:
+      # nodebuff-ffa-1: 60
+      # nodebuff-ffa-2: 80
+    reservation-ttl-seconds: 20
+    # Count snapshots and active memberships expire if a server stops refreshing them.
+    count-ttl-seconds: 20
+  titles:
+    - title: ""
+      subtitle: "&e➌"
+    - title: ""
+      subtitle: "&e➋"
+    - title: ""
+      subtitle: "&e➊"
+  final-title:
+    - title: ""
+      subtitle: "&e🏆 &6Fight &e🏆"
+  disabled-commands:
+    - '/duel'
+    - '/p'
+    - '/party'
+    - '/openparty'
+    - '/findparty'
+    - '/parties'
+    - '/sc'
+    - '/flixcore'
+    - '/ffa'
+  sounds:
+    countdown: "BLOCK_NOTE_BLOCK_PLING"
+    countdown-volume: 1.0
+    countdown-pitch: 1.0
+    start: "BLOCK_NOTE_BLOCK_CHIME"
+    start-volume: 1.0
+    start-pitch: 1.0
+    win: "ENTITY_PLAYER_LEVELUP"
+    win-volume: 1.0
+    win-pitch: 1.0
+    lose: "ENTITY_VILLAGER_DEATH"
+    lose-volume: 1.0
+    lose-pitch: 1.0
+  kill-death-title:
+    enabled: true
+    kill:
+      title: 'You Killed'
+      subtitle: '%player%'
+      sound: ""
+      sound-volume: 1.0
+      sound-pitch: 1.0
+    death:
+      title: 'You Were Killed'
+      subtitle: 'by %player%'
+      sound: ""
+      sound-volume: 1.0
+      sound-pitch: 1.0
+  teleport-back-on-outbound: true
+  instant-kill-arena-outbound: false
+  delay-kill-outbound:
+    delay: 5
+    actionbar: "&cReturn to arena in &e%time%s"
+  leave-countdown:
+    time: 3
+    actionbar: "&cLeaving FFA in &e%time%s&c..."
+    cancelled: "&cLeave cancelled"
+    complete: "&aYou have left the FFA arena"
+  random-ffa:
+    enabled: false
+    loot-drop: false  # default: false
+    save-inventory: false  # Save player inventory on disconnect/leave, restore on rejoin
+    arenas:
+      examplearena:
+        mode: "exclude"  # "include" = only these kits, "exclude" = all kits except these
+        kits:
+          - tiernodebuff
+          - tiergapple
+  combat:
+    enabled: true
+    duration: 15
+    anti-interruption: true
+    anti-interruption-ffa-arena:
+      - arenas # Empty list = all arenas 
+      - hello world  # Only these arenas have anti-interruption
+      
+    actionbar:
+      enabled: true
+      message: "&7You are in combat for &f%time%&7 seconds."
+
+# Spectator Configuration
+spectator:
+  # Spectators are always mutually hidden while still seeing active fighters.
+  hide-from-tab: false
+  hide-cage-from-spectators: true
+  spectator-gamemode: SURVIVAL
+  spectator-teleport-distance: 150
+
+# Team Settings
+team-settings:
+  red-team-icon: '&c[R] &c'
+  red-team-color: '&c'
+  blue-team-icon: '&9[B] &9'
+  blue-team-color: '&9'
+  # Enable/disable team glow outline in party split & party vs modes
+  team-glow-enabled: true
+
+# Placeholder Settings
+placeholders:
+  # Used when tier/rank placeholders would normally show "Unranked".
+  # Supports legacy color codes and hex colors.
+  unranked-tier-name: "&7Unranked"
+  ping-colors:
+    good: "<#B5F063>"
+    mid: "<#E0D3A7>"
+    bad: "<#FF5D5D>"
+  ping-thresholds:
+    good: 50
+    mid: 100
+
+# Bedwars Configuration
+bedwars:
+  reload-arrows: true
+  reload-arrow-time: 5
+  respawn-delay-seconds: 5
+  spawn-protection-seconds: 0
+  bed-break-sound: ENTITY_ENDER_DRAGON_GROWL
+  bed-break-sound-volume: 1.0
+  bed-break-sound-pitch: 1.0
+  bed-break-title:
+    - title: "&cYour bed has been destroyed!"
+      subtitle: "&fYou will no longer respawn"
+
+# Golden Head Configuration
+#   The Golden Head is a PLAYER_HEAD with a custom texture that uses a real eating
+#   animation and a per-item visual cooldown (via Paper data-components). The legacy
+#   PIGLIN_HEAD material is still auto-migrated so old kits keep working.
+golden-head:
+  # Mojang texture URL (use any http://textures.minecraft.net/texture/... url).
+  texture-url: "http://textures.minecraft.net/texture/aa0c0ff130897f404ece7e74896bc3b830bd3cba566c9e0f475fbd3fc8c769e4"
+  display-name: "&6&lGolden Head"
+  # Seconds the player holds right-click to finish eating (like vanilla food).
+  consume-seconds: 1.6
+  # Visual cooldown shown on the item slot after eating, in seconds.
+  g-head-cooldown: 8
+  message: "&fYou ate a &6Golden Head &fand Gained. &dRegeneration III &7(0:08) &f& &eAbsorption II &7(2:00)"
+  ate-sound: "entity.generic.eat"
+  ate-sound-volume: 1.0
+  ate-sound-pitch: 1.0
+  effects:
+    - effect: "minecraft:absorption"
+      duration: 120
+      amplifier: 1
+      has-particles: false
+    - effect: "minecraft:regeneration"
+      duration: 8
+      amplifier: 2
+      has-particles: false
+
+tnt:
+  source-damage: -1  # -1 = default TNT damage, 0 = no damage, positive = custom damage
+  knockback:
+    radius:
+      x: 2
+      y: 2
+      z: 2
+    multiplier: 1.5
+    y-force: 1.5
+  cooldown:
+    enabled: true
+    cooldown: 2
+    rename-item: '&fCooldown: &e<time> &fseconds'
+
+fireball:
+  shooter-damage: 0
+  knockback:
+    radius:
+      x: 2
+      y: 2
+      z: 2
+    multiplier: 1.5
+    y-force: 1.5
+  cooldown:
+    enabled: true
+    cooldown: 2
+    rename-item: '&fCooldown: &e<time> &fseconds'
+
+tnt-tag:
+  timer: 15
+  actionbar-holder: "&c💣 You will be Exploded in: &f%time%s"
+  actionbar-others: "&e💣 TNT Exploding in: &f%time%s &7| &c%holder%"
+  sounds:
+    # Configured values are the base; transfer/tick/explosion effects multiply them.
+    tag: "ENTITY_ITEM_PICKUP"
+    tag-volume: 1.0
+    tag-pitch: 1.0
+    tick: "BLOCK_NOTE_BLOCK_HAT"
+    tick-volume: 1.0
+    tick-pitch: 1.0
+    explosion: "ENTITY_GENERIC_EXPLODE"
+    explosion-volume: 1.0
+    explosion-pitch: 1.0
+
+flower-crown:
+  timer: 20
+  actionbar-holder: "&d🌸 Protect your Flower: &f%time%s"
+  actionbar-others: "&e🌸 Protecting Timer: &f%time%s &7| &e%holder%"
+  flower-item: "POPPY"
+  sounds:
+    # Configured values are the base; steal/tick effects multiply them.
+    give: "ENTITY_ITEM_PICKUP"
+    give-volume: 1.0
+    give-pitch: 1.0
+    steal: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    steal-volume: 1.0
+    steal-pitch: 1.0
+    tick: "BLOCK_NOTE_BLOCK_HARP"
+    tick-volume: 1.0
+    tick-pitch: 1.0
+    win: "ENTITY_PLAYER_LEVELUP"
+    win-volume: 1.0
+    win-pitch: 1.0
+    eliminate: "ENTITY_VILLAGER_NO"
+    eliminate-volume: 1.0
+    eliminate-pitch: 1.0
+
+tnt-sumo:
+  knockback:
+    grounded:
+      strength: 0.3
+      y-force: 0.2
+    airborne:
+      strength: 1.5
+      y-force: 0.8
+    airborne-threshold: 0.5
+  max-hits: 10
+  block-break-time: 40
+
+snowball:
+  knockback:
+    strength: 0.5
+    y-force: 0.3
+
+egg:
+  knockback:
+    strength: 0.5
+    y-force: 0.3
+
+kit-editor:
+  auto-save-on-close: true
+  # When true, reject layouts containing extra items. Set false to allow any
+  # inventory contents globally. The per-kit custom-items rule always bypasses it.
+  strict-layout-validation: true
+  # Prevents kit-editor race exploits immediately after leaving FFA while async
+  # lobby teleports / old pearls are still settling. Set 0 to disable.
+  post-ffa-leave-edit-lock-ms: 5000
+  shulker-box-editor:
+    enabled: true
+
+kit-rules:
+  gapple-cooldown: 5
+  god-apple-cooldown: 300
+  enderpearl-cooldown: 16
+  hearts:
+    crystal: 20
+    uhc: 10
+    nodebuff: 10
+  # Max fight duration per kit (only used when MAX_FIGHT_DURATION kit rule is enabled)
+  # If not set, uses match.max-fight-duration
+  max-fight-duration:
+    bedwars: 300
+    bridge: 180
+  # Damage multiplier when DAMAGE_MULTIPLIER kit rule is enabled
+  # default: applies to all kits unless kit-specific value is set
+  # You can add kit-specific multipliers like: nodebuff: 1.5
+  # kit-rules:
+  #damage-multiplier:
+  #  default: 2.0      # All kits use 2x
+  #  nodebuff: 3.0     # nodebuff kit uses 3x
+  #sumo: 1.5         # sumo kit uses 1.5x
+  damage-multiplier:
+    default: 2.0
+  block-decay:
+    decay-time: 6
+    cascade:
+      enabled: true
+      delay: 3
+  bridge-points:
+    default: 5
+  # HP Indicator — shows health below player nametag during matches.
+  # Only active for kits that have the "hpindicator" rule enabled.
+  hp-indicator:
+    title: "&c❤"
+    render-distance: 32        # blocks; controls how far we SEND packets (client only renders ~10-12 blocks)
+    scope: both                # fighters | spectators | both
+    update-interval: 2         # ticks between score refreshes (0 = every damage event only)
+
+  # Lava Raise — enabled only for kits with the "lavaraise" rule.
+  # Uses the arena corner1/corner2 region. Air blocks are changed to stationary
+  # lava from the lowest Y layer upward, then restored when the round ends.
+  lava-raise:
+    enabled: true
+    # Delay after the fight countdown ends before the first layer starts.
+    start-delay-ticks: 100
+    # Pause after one complete layer before beginning the next layer.
+    layer-interval-ticks: 20
+    # Maximum blocks changed per server tick to avoid large arena lag spikes.
+    blocks-per-tick: 256
+
+  # Pre-Potions — apply potion effects on match start / next round start.
+  # Only active for kits that have the "prepotions" rule enabled.
+  # sound: the sound to play when effects are applied (empty = no sound)
+  # Format per kit:
+  #   <kit-name>:
+  #     - type: SPEED             # Bukkit PotionEffectType name
+  #       amplifier: 1            # 0 = level I, 1 = level II, etc.
+  #       duration: 600           # duration in ticks (20 ticks = 1 second, -1 = infinite)
+  #       ambient: true           # show translucent particles
+  #       particles: false        # show normal particles
+  #       icon: true              # show icon on HUD
+  #     - type: RESISTANCE
+  #       amplifier: 0
+  #       duration: -1
+  # You can also define a "default" entry that applies to ALL kits with prepotions enabled.
+  pre-potions:
+    sound: "ENTITY_WITCH_DRINK"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+    # default:
+    #   - type: SPEED
+    #     amplifier: 1
+    #     duration: 600
+    #     ambient: true
+    #     particles: false
+    #     icon: true
+
+party:
+  countdown-time: 5
+  # Lateral distance between teammates sharing an arena spawn.
+  team-spawn-spacing: 1.5
+  allow-imbalance: false
+  imbalance-permission: "flixcore.party.imbalance"
+  titles:
+    - title: ""
+      subtitle: "&c➌"
+      pitch: 0.8
+    - title: ""
+      subtitle: "&e➋"
+      pitch: 1.0
+    - title: ""
+      subtitle: "&a➊"
+      pitch: 1.2
+  final-title:
+    - title: "&a&lFIGHT!"
+      subtitle: ""
+  economy:
+    create-costs: false
+    create-amount: 20
+  party-gui: true
+  default-max-size: 8
+  ffa-spawn-radius: 5.0
+  end-delay-seconds: 3
+  invite-cooldown: 3000
+  invite-expire-time: 60
+  challenge-expire-time: 120
+  broadcast:
+    enabled: true
+    # Auto-broadcast public parties whose "broadcast" toggle is enabled.
+    # Runs asynchronously every 60 seconds by default.
+    interval-seconds: 60
+  # Legacy interval key kept for old configs. New installs should use party.broadcast.interval-seconds.
+  broadcast-interval: 60
+  broadcast-permission: "flixcore.party.broadcast"
+  max-size-permissions:
+    - permission: "flixcore.party.size.20"
+      max-size: 20
+    - permission: "flixcore.party.size.16"
+      max-size: 16
+    - permission: "flixcore.party.size.12"
+      max-size: 12
+  party-info:
+    - '&eParty Info '
+    - '&f'
+    - ' &fLeader: &f<owner>'
+    - ' &fMembers [<size>]: &f<members>'
+  max-display-limit: 16
+  limit-reached: '&eAnd <more_members> members more.'
+  round-selection:
+    enabled: false
+    options:
+      - 1
+      - 3
+      - 5
+  partyffa-disabled-kits:
+  - tank
+  partysplit-disabled-kits:
+  - tank
+  partyvs-disabled-kits:
+  - tank
+  disabled-commands:
+    - '/duel'
+    - '/sc'
+    - '/flixcore'
+  sounds:
+    countdown: "BLOCK_NOTE_BLOCK_PLING"
+    countdown-volume: 1.0
+    countdown-pitch: 1.0
+    start: "BLOCK_NOTE_BLOCK_CHIME"
+    start-volume: 1.0
+    start-pitch: 1.0
+    win: "ENTITY_PLAYER_LEVELUP"
+    win-volume: 1.0
+    win-pitch: 1.0
+    eliminate: "ENTITY_VILLAGER_NO"
+    eliminate-volume: 1.0
+    eliminate-pitch: 1.0
+  create:
+    title: "&5&lPARTY CREATED"
+    subtitle: "&dYou are now the party leader!"
+    actionbar: "&aParty created successfully!"
+    sound: "ENTITY_PLAYER_LEVELUP"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+  disband:
+    confirm-gui: true
+    title: "&c&lPARTY DISBANDED"
+    subtitle: "&7The party has been disbanded"
+    actionbar: "&cParty disbanded!"
+    sound: "ENTITY_VILLAGER_NO"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+  
+
+# Ranked queue settings.
+# This system only affects ranked queue matches, not normal duels, unranked queue, party, or FFA.
+# Players have two ratings:
+# - Per-kit ELO: separate rating for each ranked kit.
+# - Global ELO: display rating calculated from the average of all configured per-kit ELOs.
+# The ranked database stores global ranked wins/losses/matches, while the displayed ELO comes from kit averages.
+# Matchmaking uses the average of displayed global ELO and selected kit ELO to find fair opponents.
+ranked:
+  # Legacy fixed ELO values kept for compatibility. Ranked match results now use the advanced ELO settings below.
+  elo-per-win: 12
+  elo-per-loss: 12
+  permission-win-bonus:
+    enabled: true
+    # Apply the permission bonus to the stored global ranked ELO.
+    apply-to-global: true
+    # Apply the permission bonus to the selected kit's ranked ELO.
+    apply-to-kit: true
+    # If false, only the highest matching bonus is used. If true, all matching bonuses are added together.
+    stack-bonuses: false
+    bonuses:
+      vip:
+        permission: flixcore.elo.vip
+        bonus: 5
+  sounds:
+    tier-up: UI_TOAST_CHALLENGE_COMPLETE
+    tier-up-volume: 1.0
+    tier-up-pitch: 1.2
+    tier-down: ENTITY_VILLAGER_NO
+    tier-down-volume: 1.0
+    tier-down-pitch: 0.8
+  # Number of rounds used for ranked matches.
+  rounds: 1
+  # First ranked matches used to place a player. Placement matches use placement-k-factor for faster rating adjustment.
+  placement-matches: 5
+  streak-points:
+    # Extra points added to a ranked win once the player's ranked win streak reaches this minimum.
+    win-streak-extra-point: 2
+    minimum-win-streak-needed: 5
+    # Extra points removed on a ranked loss once the player's ranked lose streak reaches this minimum.
+    lose-streak-extra-loss: 2
+    minimum-lose-streak-needed: 5
+  elo:
+    # Normal ELO sensitivity after placements. Higher = faster gain/loss.
+    k-factor: 32
+    # ELO sensitivity during placement matches. Usually higher than normal k-factor.
+    placement-k-factor: 48
+    # Minimum ELO a winner can gain, even against weaker opponents.
+    min-gain: 4
+    # Maximum ELO a winner can gain, usually when beating a much stronger opponent.
+    max-gain: 40
+    # Minimum ELO a loser can lose, usually when losing against a much stronger opponent.
+    min-loss: 4
+    # Maximum ELO a loser can lose, usually when losing against a much weaker opponent.
+    max-loss: 40
+  elo-history:
+    # Number of days to keep ranked ELO event history for API summaries.
+    retention-days: 30
+  matchmaking:
+    # Starting ELO difference allowed when searching for an opponent.
+    # Example: 1000 ELO with 150 range can match 850-1150.
+    search-range-start: 150
+    # How much the allowed ELO range expands per second while waiting in queue.
+    search-range-expand-per-second: 4
+    # Maximum ELO difference allowed. Lower value makes high-vs-low ELO matches more rare.
+    search-range-max: 450
+  tiers:
+    silver1:
+      min: 0
+    silver2:
+      min: 901
+    silver3:
+      min: 931
+    gold1:
+      min: 951
+    gold2:
+      min: 1001
+    gold3:
+      min: 1051
+    platinum1:
+      min: 1101
+    platinum2:
+      min: 1201
+    platinum3:
+      min: 1301
+    diamond1:
+      min: 1401
+    diamond2:
+      min: 1501
+    diamond3:
+      min: 1601
+    master:
+      min: 1701
+    grandmaster:
+      min: 2001
+    lt5:
+      min: 1000
+    ht5:
+      min: 1100
+    lt4:
+      min: 1200
+    ht4:
+      min: 1300
+    lt3:
+      min: 1400
+    ht3:
+      min: 1500
+    lt2:
+      min: 1600
+    ht2:
+      min: 1700
+    lt1:
+      min: 1800
+    ht1:
+      min: 2000
+
+random-kits:
+  randomkit:
+    kitname: "randomkit"
+    enable: true
+    mode: "exclude"
+    excluded-kits:
+      - tiernodebuff
+      - tiergapple
+  ufunkits:
+    kitname: "ufunkits"
+    enable: true
+    mode: "include"
+    included-kits:
+      - tank
+
+tier-ranks:
+  enable: true
+  starting-tier: 1000
+  tiers:
+    silver1:
+      name: '&7Silver I'
+      tier-range: 0-900
+    silver2:
+      name: '&7Silver II'
+      tier-range: 901-930
+    silver3:
+      name: '&7Silver III'
+      tier-range: 931-950
+    gold1:
+      name: '&6Gold I'
+      tier-range: 951-1000
+    gold2:
+      name: '&6Gold II'
+      tier-range: 1001-1050
+    gold3:
+      name: '&6Gold III'
+      tier-range: 1051-1100
+    platinum1:
+      name: '&bPlatinum I'
+      tier-range: 1101-1200
+    platinum2:
+      name: '&bPlatinum II'
+      tier-range: 1201-1300
+    platinum3:
+      name: '&bPlatinum III'
+      tier-range: 1301-1400
+    diamond1:
+      name: '&3Diamond I'
+      tier-range: 1401-1500
+    diamond2:
+      name: '&3Diamond II'
+      tier-range: 1501-1600
+    diamond3:
+      name: '&3Diamond III'
+      tier-range: 1601-1700
+    master:
+      name: '&5Master'
+      tier-range: 1701-2000
+    grandmaster:
+      name: '&dGrandmaster'
+      tier-range: 2001-999999
+
+tier-commands:
+  silver2:
+    one-time: true
+    tier: 900
+    commands:
+      - "give %player% diamond 1"
+  gold1:
+    one-time: true
+    tier: 950
+    commands:
+      - "give %player% emerald 2"
+      - "eco give %player% 100"
+  platinum1:
+    one-time: true
+    tier: 1100
+    commands:
+      - "give %player% diamond 5"
+      - "eco give %player% 500"
+  diamond1:
+    one-time: true
+    tier: 1400
+    commands:
+      - "give %player% diamond 10"
+      - "eco give %player% 1000"
+  master:
+    one-time: true
+    tier: 1700
+    commands:
+      - "give %player% netherite_ingot 1"
+      - "eco give %player% 2500"
+
+per-kits-tier:
+  # Per-kit tier ranks - kit name here is the NORMAL name (e.g. "tank")
+  # but internally it will be treated as "tier<kitname>" (e.g. "tiertank")
+  # Placeholders: %flixcore_tier_rank<kitname>% and %flixcore_tier_points<kitname>%
+  # tank:
+  #   starting-tier: 0
+  #   iron1:
+  #     name: '&7Iron I'
+  #     tier-range: 0-400
+  #     command: ''
+  #   iron2:
+  #     name: '&7Iron II'
+  #     tier-range: 401-600
+  #     command: ''
+  #   iron3:
+  #     name: '&fIron III'
+  #     tier-range: 601-800
+  #     command: ''
+  #   gold1:
+  #     name: '&6Gold I'
+  #     tier-range: 801-1000
+  #     command: ''
+  #   gold2:
+  #     name: '&6Gold II'
+  #     tier-range: 1001-1200
+  #     command: ''
+  #   diamond1:
+  #     name: '&3Diamond I'
+  #     tier-range: 1201-1500
+  #     command: ''
+
+kill-messages:
+  enabled: true
+  messages:
+    - "&c%victim% &7was slain by &a%killer%"
+    - "&c%victim% &7was destroyed by &a%killer%"
+    - "&c%victim% &7was eliminated by &a%killer%"
+    - "&c%victim% &7was defeated by &a%killer%"
+    - "&c%victim% &7was obliterated by &a%killer%"
+  
+  # Specific death causes
+  by-crystal:
+    - "&c%victim% &7was blown up by &a%killer%&7's crystal"
+    - "&c%victim% &7was crystallized by &a%killer%"
+  by-anchor:
+    - "&c%victim% &7was anchored by &a%killer%"
+    - "&c%victim% &7took a respawn anchor to the face from &a%killer%"
+  by-bow:
+    - "&c%victim% &7was shot by &a%killer%"
+    - "&c%victim% &7was sniped by &a%killer%"
+  by-void:
+    - "&c%victim% &7fell into the void fleeing &a%killer%"
+    - "&c%victim% &7was knocked into the void by &a%killer%"
+  by-fire:
+    - "&c%victim% &7was burned to death by &a%killer%"
+    - "&c%victim% &7was roasted by &a%killer%"
+  by-lava:
+    - "&c%victim% &7tried to swim in lava while fighting &a%killer%"
+    - "&c%victim% &7melted in lava because of &a%killer%"
+
+kill-streak:
+  enabled: true
+  announce-on-every: 5
+  minimum-streak-end-message: 5
+  killstreak-message: "&6%player% &7is on a &c%streak% &7kill streak!"
+  streak-end-message: "&6%killer% &7has ended &c%victim%'s &7kill streak of &c%streak% &7kills!"
+  specific-killstreak-commands:
+    enabled: false
+    5:
+      - "[console] give %player% diamond 1"
+      - "[player] me is on fire with %streak% kills!"
+    10:
+      - "[console] give %player% emerald 3"
+      - "[console] effect give %player% regeneration 30 1"
+  threshold:
+    - 5
+    - 10
+    - 15
+    - 20
+    - 30
+    - 40
+
+sign-queue:
+  update-interval: 20
+  format:
+    - "&7[&6Queue&7]"
+    - "&e%kit%"
+    - "&7Players:"
+    - "&e%players%&7/%max%"
+
+arena:
+  instant-kill-arena-outbound: true
+  delay-kill-outbound:
+    enabled: false
+    delay: 10
+    title: "&cReturn to arena!"
+    subtitle: "&eReturn to arena in &c%time%s"
+    actionbar: "&cReturn to safe zone or you will be killed! &e%time%s"
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    sound-volume: 1.0
+    sound-pitch: 1.0
+  reset-on-startup: false  # Reset all BUILD arenas with schematics on server startup
+  auto-reset-startup-delay: 480  # seconds
+  # Safety fallback: release an IN_USE arena when no duel, party game, bot,
+  # FFA session, tournament, event, or reset owns it for this many seconds.
+  # Keep this above the cross-server player transfer timeout.
+  stale-in-use-timeout-seconds: 180
+
+# Duel Economy System
+# mode: "vault" or "playerpoints"
+duel-economy:
+  enabled: false
+  mode: "vault"
+  on-kill:
+    enabled: true
+    amount: 10
+  on-death:
+    enabled: true
+    amount: 4
+  on-win:
+    enabled: true
+    amount: 50
+  on-lose:
+    enabled: false
+    amount: 0
+
+# ═══════════════════════════════════════════════════════════════
+# Clan Configuration
+# ═══════════════════════════════════════════════════════════════
+# Clans persist to the database automatically.
+# Players can /clan create <name>, invite, join, leave, chat, etc.
+# Clans can participate in clan-type tournaments.
+#
+# Placeholders:
+#   %flixcore_clan_name%       - Player's clan name
+#   %flixcore_clan_tag%        - Colored [ClanName] tag
+#   %flixcore_clan_points%     - Player's clan points
+#   %flixcore_clan_members%    - Member count
+#   %flixcore_clan_leader%     - Clan leader name
+#   %flixcore_clan_top_name_1% - #1 clan by points (1-10)
+#   %flixcore_clan_top_points_1% - #1 clan's points
+#   %flixcore_has_clan%        - true/false
+#   %flixcore_clan_count%      - Total clans on server
+# ═══════════════════════════════════════════════════════════════
+clans:
+  # Requires a restart. When false, no clan manager, database tasks, commands,
+  # listeners, GUI, tags, points, or clan tournaments are registered.
+  enabled: true
+  max-members: 15
+  invite-expire-time: 60  # seconds before invite expires
+  description-max-length: 120
+  tags:
+    enabled: true
+    ffa-only: true
+    format: '&8[&e%tag%&8]&r '
+    tab-visible: true
+    min-length: 2
+    max-length: 5
+  relationships:
+    request-expire-seconds: 300
+    max-allies: 5
+    max-rivals: 5
+  # Clan names are checked case-insensitively after colors/symbols are stripped.
+  restricted-names:
+    - admin
+    - owner
+    - staff
+    - mod
+    - moderator
+    - helper
+    - flixcore
+    - server
+  # Java regex patterns. Useful for blocking names that contain staff/admin words.
+  restricted-patterns:
+    - ".*admin.*"
+    - ".*staff.*"
+    - ".*owner.*"
+  points:
+    enabled: true
+    top-cache-seconds: 30
+    duel-win:
+      enabled: true
+      amount: 10
+    duel-kill:
+      enabled: false
+      amount: 2
+    ffa-kill:
+      enabled: true
+      amount: 3
+    party-win:
+      enabled: true
+      amount: 5
+    tournament-win:
+      first: 50
+      second: 25
+      third: 10
+
+# ═══════════════════════════════════════════════════════════════
+# Tournament Configuration
+# ═══════════════════════════════════════════════════════════════
+# Bracket-style elimination tournaments.
+# Tournament matches are 1v1 duels using the DuelManager system.
+# Arenas marked as EVENT (/arena event <name>) are used first.
+# If no event arenas are available, regular arenas for the kit are used.
+#
+# SETUP REQUIREMENTS:
+#   1. Create arenas: /arena create <name>
+#   2. Set positions: /arena pos1 <name>, /arena pos2 <name> (spawn points)
+#   3. Set bounds: /arena centre <name>, /arena corner1 <name>, /arena corner2 <name>
+#   4. Assign kit: /arena kits <name> <kit>
+#   5. Mark as event arena: /arena event <name>
+#      ↳ Event-enabled arenas are RESERVED for tournaments & events only
+#      ↳ They will NOT be used for regular duels or queue matches
+#      ↳ If no event arenas exist, tournament falls back to regular arenas
+#   6. Make sure arena type matches kit type (BUILD or NON_BUILD)
+#   7. For BUILD arenas: set corner1/corner2 so schematic reset works
+#
+# PERMISSIONS:
+#   flixcore.tournament.host - Required to host/start/stop (default: op)
+#   flixcore.tournament.join - Required to join (default: true)
+#
+# HOW IT WORKS:
+#   - Host creates tournament: /tournament host <kit> <maxplayers> [SOLO|PARTY|CLAN]
+#   - Players join with: /tournament join
+#   - Players are teleported to lobby and given "tournament" spawn items
+#   - Tab list only shows tournament participants
+#   - Each round, players are paired and fight in available event arenas
+#   - If no event arenas available, falls back to regular arenas for the kit
+#   - After each fight, arena resets automatically (BUILD=schematic, NON_BUILD=entity cleanup)
+#   - Kit rules are fully enforced during each fight (hunger, regen, etc.)
+#   - Winners advance; losers are eliminated and sent to lobby
+#   - Last player standing wins the tournament
+#   - Players CANNOT join after the tournament has started
+#   - Players CANNOT queue, duel, join FFA, spectate, or join events while in tournament
+#
+# COMMANDS:
+#   /tournament host <kit> <maxplayers> [SOLO|PARTY|CLAN] - Host a tournament
+#   /tournament join    - Join the active tournament
+#   /tournament leave   - Leave the tournament
+#   /tournament start   - Force start the tournament
+#   /tournament stop    - Cancel the tournament
+#   /tournament status  - View tournament info
+#
+# Placeholders:
+#   %flixcore_tournament_kit%    - Active tournament kit
+#   %flixcore_tournament_type%   - SOLO/PARTY/CLAN
+#   %flixcore_tournament_round%  - Current round number
+#   %flixcore_tournament_alive%  - Remaining players
+#   %flixcore_tournament_state%  - WAITING/STARTING/IN_PROGRESS/ENDED
+#   %flixcore_in_tournament%     - true/false
+#
+# Scoreboard: Uses the "tournament" scoreboard state in scoreboard.yml
+# Spawn Items: Uses the "tournament" state in spawnitems.yml
+# ═══════════════════════════════════════════════════════════════
+tournament:
+  default-max-players: 32
+  countdown-time: 60  # seconds after forcestart before round 1
+  match-delay-ticks: 100
+  end-delay-ticks: 100
+  sounds:
+    win: "ENTITY_PLAYER_LEVELUP"
+    win-volume: 1.0
+    win-pitch: 1.0
+
+  # ─── Winner Rewards ───
+  # Commands executed when tournament ends. Use %player% for winner name.
+  # Commands are run from CONSOLE (no / prefix needed).
+  rewards:
+    enabled: true
+    first:
+      - "eco give %player% 1000"
+      - "give %player% diamond 5"
+    second:
+      - "eco give %player% 500"
+      - "give %player% gold_ingot 10"
+    third:
+      - "eco give %player% 250"
+
+  # ─── Auto-Host Configuration ───
+  # Automatically hosts tournaments on a repeating schedule.
+  # The system will rotate through the configured kits in order.
+  # If a tournament fails to start (not enough players, no arenas, etc.),
+  # the reason is broadcast to all online players.
+  auto-host:
+    enabled: false
+    # Interval between tournaments in minutes (time after one ends before next is announced)
+    interval: 30
+    # How long players have to join before the tournament auto-starts (seconds)
+    join-time: 120
+    # Minimum players required to start — if not met, tournament is cancelled with reason
+    min-players: 4
+    # Maximum players per auto-hosted tournament
+    max-players: 32
+    # Tournament type: SOLO, PARTY, or CLAN
+    type: SOLO
+    # Kit rotation list — cycles through these kits in order
+    # If a kit doesn't exist or has no arenas, it skips to the next one
+    kits:
+      - "nodebuff"
+      - "diamond"
+      - "combo"
+    # Whether to broadcast announcements to all players
+    broadcast-announcements: true
+    # How often to send reminder broadcasts during join phase (seconds, 0 = no reminders)
+    reminder-interval: 30
+
+# ═══════════════════════════════════════════════════════════════
+# Event Configuration
+# ═══════════════════════════════════════════════════════════════
+# Staff/player-hosted minigame events (Sumo, Spleef, TNT Run, Gulag, Brackets).
+# Events use a SPECIFIC arena — the host picks which arena to use.
+# The arena is reserved (IN_USE) for the entire event duration,
+# then reset and freed when the event ends.
+#
+# SETUP REQUIREMENTS:
+#   1. Create dedicated event arenas: /arena create sumo1
+#   2. Set pos1 and pos2 (player spawn points for 1v1 fights)
+#   3. Set centre (waiting area / winner teleport point between fights)
+#   4. Set corner1, corner2 (bounding box for arena reset)
+#   5. Mark as event arena: /arena event sumo1
+#      ↳ REQUIRED! Only event-enabled arenas can be used for events
+#      ↳ Tab-complete for /event host only shows event arenas
+#   6. For BUILD arenas (Spleef, TNT Run): set corner1/corner2 for schematic reset
+#   7. For NON_BUILD arenas (Sumo, Gulag, Brackets): entities auto-cleanup
+#   8. Arena MUST be AVAILABLE when hosting (not used by another match)
+#
+# PERMISSIONS:
+#   flixcore.event.host - Required to host/start/cancel (default: op)
+#   flixcore.event.join - Required to join (default: true)
+#
+# HOW IT WORKS:
+#   - Host creates event: /event host <arena> <maxplayers> <kit>
+#   - The event type is inferred from kit rules; the old explicit-type syntax remains supported
+#   - The specified event arena is reserved immediately (state → IN_USE)
+#   - Players join with: /event join → teleported to arena centre
+#   - Players receive "event" spawn items and EVENT scoreboard state
+#   - Tab list only shows event participants + current fighters
+#   - When started, players fight 1v1 in the reserved arena
+#   - Fighters receive the specified kit and kit rules are enforced
+#   - Fighters spawn at pos1 and pos2 of the arena
+#   - Losers are eliminated and sent to lobby with default spawn items
+#   - Winners teleport back to centre and wait for next fight
+#   - Last player standing wins
+#   - Match history is saved for each fight (winner/loser/kit/arena)
+#   - Arena is reset and freed after event ends
+#   - Players CANNOT join after the event has started
+#   - Players CANNOT queue, duel, join FFA, spectate, or join tournaments while in event
+#   - Players are spread in a circle around arena centre when joining
+#
+# COMMANDS:
+#   /event host <arena> <maxplayers> <kit> - Host an event and infer its type
+#   /event host <type> <arena> <maxplayers> <kit> - Host with an explicit type
+#   /event join     - Join the active event
+#   /event leave    - Leave the event
+#   /event start    - Force start the event
+#   /event cancel   - Cancel the event
+#   /event info     - View event info
+#
+# EVENT TYPES:
+#   SUMO      - No items, knockback-only (fall = lose)
+#   SPLEEF    - Diamond shovel, break blocks under opponents
+#   TNT_RUN   - Run on platforms that break behind you
+#   GULAG     - Wooden sword 1v1
+#   BRACKETS  - Standard bracket fights (no special items)
+#
+# Placeholders:
+#   %flixcore_event_type%   - SUMO/SPLEEF/TNT_RUN/GULAG/BRACKETS
+#   %flixcore_event_arena%  - Arena name being used
+#   %flixcore_event_alive%  - Remaining players
+#   %flixcore_event_state%  - WAITING/STARTING/IN_PROGRESS/ENDED
+#   %flixcore_in_event%     - true/false
+#
+# Scoreboard: Uses the "event" scoreboard state in scoreboard.yml
+# Spawn Items: Uses the "event" state in spawnitems.yml
+# ═══════════════════════════════════════════════════════════════
+events:
+  default-max-players: 24
+  countdown-time: 60  # seconds after forcestart before fights begin
+
+# ═══════════════════════════════════════════════════════════════
+# Match History Configuration
+# ═══════════════════════════════════════════════════════════════
+# Stores match results (winner, loser, kit, arena, date) in the
+# database and provides a browsable paginated GUI per player.
+#
+# COMMANDS:
+#   /matchhistory [player]  - View your or another player's match history
+#   Aliases: /matches, /mh
+#
+# PERMISSIONS:
+#   flixcore.matchhistory  - Allows viewing match history (default: true)
+#
+# HOW IT WORKS:
+#   - Every duel/ranked match result is auto-saved to the database
+#   - Last 30 matches per player are cached in memory
+#   - GUI is fully configurable in menus/matchhistory.yml
+#   - Wins shown as green, losses as red
+#   - Each item shows opponent, kit, arena, date, ranked/unranked
+#
+# GUI PLACEHOLDERS (in menus/matchhistory.yml):
+#   %opponent% - Opponent name
+#   %kit%      - Kit used
+#   %arena%    - Arena name
+#   %date%     - Match date
+#   %ranked%   - Ranked or Unranked
+#   %result%   - Win or Loss
+#   %player%   - Target player name (in title)
+# ═══════════════════════════════════════════════════════════════
+match-history:
+  cached-records: 30
+
+kit-statistics:
+  # Tracks total match counts per kit asynchronously in the database.
+  enabled: true
+  # Number of kits shown per /kitstats top page.
+  command-page-size: 10
+
+api:
+  enabled: false
+  port: 8080
+  api-key: "change-me-to-a-secure-key"
+  rate-limit: 60
+  cors-origin: "*"
+
+# ═══════════════════════════════════════════════════════════════
+# CUSTOM MODEL DATA & FONT SUPPORT
+# ═══════════════════════════════════════════════════════════════
+# All GUI items in menus/*.yml and spawnitems.yml support:
+#   custom-model-data: <number>
+#
+# Example (in any menu YAML item section):
+#   my-item:
+#     material: PAPER
+#     display_name: '&6My Custom Item'
+#     custom-model-data: 10001
+#     slot: 4
+#
+# SCOREBOARD & TAB FONT SUPPORT:
+#   Use MiniMessage <font> tags in scoreboard.yml and tab.yml
+#   to display custom resource pack icons/characters:
+#     - '<font:mynamespace:myfont>\uE001</font> My Line'
+#   This requires a resource pack with the matching font defined.
+# ═══════════════════════════════════════════════════════════════
+
+
+
+# DONT USE IT OR REGRET IT ITS IN BETA MODE AND NOT READY FOR PRODUCTION
+# ═══════════════════════════════════════════════════════════════
+# CROSS-SERVER SYSTEM (Limbo)
+# Set enabled: true to activate multi-server mode.
+# Requires Redis and MySQL when enabled.
+# When disabled, the plugin works in single-server local mode using H2.
+# ═══════════════════════════════════════════════════════════════
+cross_server:
+  enabled: false
+
+  server-name: "lobby-1"
+  server-type: LOBBY  # LOBBY, ARENA, TOURNAMENT, EVENT
+
+  redis:
+    host: "localhost"
+    port: 6379
+    password: ""
+    timeout: 3000
+    max-pool-size: 16
+    channel-prefix: "flixcore"
+
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "flixcore"
+    username: "root"
+    password: ""
+    max-pool-size: 15
+    min-idle: 3
+
+  heartbeat:
+    interval: 5
+    timeout: 15
+
+  transfer:
+    # Transfers use Velocity's backend plugin messaging connect request.
+    # Keep server-name values identical to the server names in velocity.toml.
+    # host/port are still published in heartbeats for monitoring, but are not used for player transfer.
+    host: ""
+    port: 25565
+    retry-on-failure: true
+    retry-delay: 2
+    max-retries: 3
+    timeout: 10
+
+  match-transfer:
+    # Large groups receive additional time for sequential proxy connections.
+    arrival-base-timeout-seconds: 10
+    arrival-per-player-seconds: 2
+    arrival-max-timeout-seconds: 120
+
+  fallback:
+    enabled: true
+    lobby-priority: []
+
+  global-tab:
+    enabled: true
+    update-interval: 3
+
+  friends:
+    cross-server-messaging: true
+    join-notifications: true
+    switch-notifications: true
+
+  monitoring:
+    enabled: true
+    permission: "flixcore.monitor"

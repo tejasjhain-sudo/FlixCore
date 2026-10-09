@@ -1,0 +1,115 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&6&lSelect a Kit'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+  navigation:
+    previous:
+      slot: 18
+      material: ARROW
+      display-name: '&ePrevious Page'
+      lore:
+        - '&7Page %menu_page%/%menu_total_pages%'
+    next:
+      slot: 26
+      material: ARROW
+      display-name: '&aNext Page'
+      lore:
+        - '&7Page %menu_page%/%menu_total_pages%'
+kits:
+  nodebuff:
+    kitid: 'tank'
+    display-name: '&6%kit%'
+    material: DIAMOND_SWORD
+    slot: 10
+    lore:
+      - '&7Classic NoDebuff kit'
+      - '&7with speed and strength'
+      - ''
+      - '&eClick to select'
+  
+  debuff:
+    kitid: 'Debuff'
+    display-name: '&6%kit%'
+    material: IRON_SWORD
+    slot: 11
+    lore:
+      - '&7Debuff kit with'
+      - '&7debuff potions'
+      - ''
+      - '&eClick to select'
+  
+  gapple:
+    kitid: 'Gapple'
+    display-name: '&6%kit%'
+    material: GOLDEN_APPLE
+    slot: 12
+    lore:
+      - '&7Golden apple kit'
+      - '&7with armor and gapples'
+      - ''
+      - '&eClick to select'
+  
+  soup:
+    kitid: 'Soup'
+    display-name: '&6%kit%'
+    material: MUSHROOM_STEW
+    slot: 13
+    lore:
+      - '&7Soup kit'
+      - '&7heal with mushroom stew'
+      - ''
+      - '&eClick to select'
+  
+  sumo:
+    kitid: 'Sumo'
+    display-name: '&6%kit%'
+    material: STICK
+    slot: 14
+    lore:
+      - '&7Sumo wrestling'
+      - '&7knock opponents off'
+      - ''
+      - '&eClick to select'
+  
+  builduhc:
+    kitid: 'BuildUHC'
+    display-name: '&6%kit%'
+    material: COBBLESTONE
+    slot: 15
+    lore:
+      - '&7UHC with building'
+      - '&7craft and build'
+      - ''
+      - '&eClick to select'
+  
+  combo:
+    kitid: 'Combo'
+    display-name: '&6%kit%'
+    material: FISHING_ROD
+    slot: 16
+    lore:
+      - '&7Combo practice'
+      - '&7rod and sword'
+      - ''
+      - '&eClick to select'
+  
+  random:
+    kitid: 'random'
+    display-name: '&d&lRandom Kit'
+    material: NETHER_STAR
+    slot: 22
+    lore:
+      - '&d&lRandom Kit'
+      - '&7A random kit will be'
+      - '&7selected for the duel'
+      - ''
+      - '&eClick to select'
+

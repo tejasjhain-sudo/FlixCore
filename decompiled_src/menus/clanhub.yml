@@ -1,0 +1,38 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&e&l%clan% &8Clan'
+  size: 27
+items:
+  members:
+    material: PLAYER_HEAD
+    slot: 11
+    display_name: '&e&lMembers'
+    lore:
+      - '&7Manage %members% clan members'
+      - '&7Your rank: &f%rank%'
+    action: members
+  settings:
+    material: COMPARATOR
+    slot: 13
+    display_name: '&e&lSettings'
+    lore:
+      - '&7Tag: &f%tag%'
+      - '&7FFA friendly fire: &f%ff%'
+    action: settings
+  relations:
+    material: WRITABLE_BOOK
+    slot: 15
+    display_name: '&e&lRelations'
+    lore:
+      - '&7Manage allies, rivals and requests'
+    action: relations
+  close:
+    material: BARRIER
+    slot: 22
+    display_name: '&cClose'
+    action: close

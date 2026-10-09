@@ -1,0 +1,40 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&e&lClan Members'
+  size: 45
+member-slots:
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+items:
+  previous:
+    material: ARROW
+    slot: 36
+    display_name: '&ePrevious Page'
+    action: previous
+  back:
+    material: OAK_DOOR
+    slot: 40
+    display_name: '&cBack'
+    action: back
+  next:
+    material: ARROW
+    slot: 44
+    display_name: '&eNext Page'
+    action: next

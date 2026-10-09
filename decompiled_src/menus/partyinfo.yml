@@ -1,0 +1,157 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&9&lParty Info'
+  size: 54
+
+filler:
+  enabled: true
+  material: GRAY_STAINED_GLASS_PANE
+  display-name: ' '
+
+roles:
+  leader: '&6Leader'
+  member: '&7Member'
+
+status:
+  online: '&aOnline'
+  offline: '&cOffline'
+
+leader:
+  slot: 4
+  display-name: '&6&l%player%'
+  lore:
+    - ''
+    - '&7Role: %role%'
+    - '&7Status: %status%'
+    - '&7Party: &f%party_size%&7/&f%party_max%'
+    - ''
+    - '&eThis player owns the party.'
+
+members:
+  display-name: '&f%player%'
+  lore:
+    - ''
+    - '&7Role: %role%'
+    - '&7Status: %status%'
+    - ''
+  slots:
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+
+view-teams:
+  material: COMPASS
+  slot: 49
+  show-disabled: false
+  display-name: '&b&lView Teams'
+  lore:
+    - ''
+    - '&7Kit: &f%kit%'
+    - '&7Rounds: &f%rounds%'
+    - '&9Blue: &f%blue_size%'
+    - '&cRed: &f%red_size%'
+    - ''
+    - '&eClick to view teams'
+
+view-teams-disabled:
+  material: BARRIER
+  slot: 49
+  display-name: '&cNo Teams Setup'
+  lore:
+    - ''
+    - '&7No split teams are currently selected.'
+
+close:
+  material: BARRIER
+  slot: 53
+  display-name: '&c&lClose'
+  lore:
+    - '&7Close this menu.'
+
+teams:
+  gui:
+    title: '&9&lParty Teams'
+    size: 54
+
+  filler:
+    enabled: true
+    material: GRAY_STAINED_GLASS_PANE
+    display-name: ' '
+
+  blue:
+    slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25]
+    head:
+      display-name: '&9%player%'
+      lore:
+        - ''
+        - '&7Team: &9Blue'
+        - '&7Role: %role%'
+        - '&7Status: %status%'
+
+  red:
+    slots: [28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+    head:
+      display-name: '&c%player%'
+      lore:
+        - ''
+        - '&7Team: &cRed'
+        - '&7Role: %role%'
+        - '&7Status: %status%'
+
+  items:
+    blue-header:
+      material: BLUE_STAINED_GLASS_PANE
+      slot: 1
+      display-name: '&9&lBlue Team'
+      lore:
+        - '&7Players: &f%blue_size%'
+    red-header:
+      material: RED_STAINED_GLASS_PANE
+      slot: 46
+      display-name: '&c&lRed Team'
+      lore:
+        - '&7Players: &f%red_size%'
+
+  back:
+    material: ARROW
+    slot: 45
+    display-name: '&c&lBack'
+    lore:
+      - '&7Return to party info.'
+
+  close:
+    material: BARRIER
+    slot: 53
+    display-name: '&c&lClose'
+    lore:
+      - '&7Close this menu.'

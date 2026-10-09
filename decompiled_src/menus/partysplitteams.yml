@@ -1,0 +1,79 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lTeam Battle'
+  size: 54
+
+red-slots: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17]
+blue-slots: [28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44]
+
+heads:
+  red:
+    display-name: '&c⚑ %player%'
+    lore:
+      - '&7Team: &cRed'
+      - ''
+      - '&eClick to move to Blue Team'
+  blue:
+    display-name: '&9⚑ %player%'
+    lore:
+      - '&7Team: &9Blue'
+      - ''
+      - '&eClick to move to Red Team'
+
+items:
+  red-team:
+    material: RED_STAINED_GLASS_PANE
+    slot: 0
+    display_name: '&c⚑ Red Team'
+    lore:
+      - '&7Players: &f%red_size%'
+  red-team-bottom:
+    material: RED_STAINED_GLASS_PANE
+    slot: 9
+    display_name: '&c⚑ Red Team'
+    lore:
+      - '&7Players: &f%red_size%'
+  blue-team:
+    material: BLUE_STAINED_GLASS_PANE
+    slot: 27
+    display_name: '&9⚑ Blue Team'
+    lore:
+      - '&7Players: &f%blue_size%'
+  blue-team-bottom:
+    material: BLUE_STAINED_GLASS_PANE
+    slot: 36
+    display_name: '&9⚑ Blue Team'
+    lore:
+      - '&7Players: &f%blue_size%'
+  start:
+    material: GOAT_HORN
+    slot: 18
+    display_name: '&b⚔ Select Kit / Start &7(&f%players% Players&7)'
+    lore:
+      - '&7Kit: &f%kit%'
+      - '&7Rounds: &f%rounds%'
+      - ''
+      - '&9Blue: &f%blue_size% &7players'
+      - '&cRed: &f%red_size% &7players'
+      - ''
+      - '&eClick to select kit or start'
+  shuffle:
+    material: COMPASS
+    slot: 22
+    display_name: '&e⟳ Shuffle Teams'
+    lore:
+      - '&7Randomly balance all party members'
+      - '&7between Blue and Red.'
+      - ''
+      - '&eClick to shuffle'
+  back:
+    material: BARRIER
+    slot: 26
+    display_name: '&c← Back'
+    lore:
+      - '&7Return to party settings'

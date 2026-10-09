@@ -1,0 +1,149 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+# =====================================================================
+# Armor Trim Material Menu
+# =====================================================================
+# Each material entry supports an optional `permission:` key. When a
+# player does not have the permission they will see the locked
+# display_name / lore_no_permission and the click is rejected.
+#
+# If `permission` is omitted (or empty) FlixCore will fall back to the
+# default node:
+#   flixcore.trim.material.<key>     (e.g. flixcore.trim.material.iron)
+#
+# Set it to an empty string ("") to disable the permission check entirely
+# for that material.
+# =====================================================================
+gui:
+  title: '&5&lSelect Trim Material'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+materials:
+  quartz:
+    material: QUARTZ
+    slot: 10
+    permission: 'flixcore.trim.material.quartz'
+    display_name: '&f&lQuartz'
+    lore:
+      - ''
+      - '&7White colored trim'
+      - ''
+      - '&eClick to select!'
+
+  iron:
+    material: IRON_INGOT
+    slot: 11
+    display_name: '&7&lIron'
+    lore:
+      - ''
+      - '&7Silver colored trim'
+      - ''
+      - '&eClick to select!'
+
+  netherite:
+    material: NETHERITE_INGOT
+    slot: 12
+    display_name: '&8&lNetherite'
+    lore:
+      - ''
+      - '&7Dark gray colored trim'
+      - ''
+      - '&eClick to select!'
+
+  redstone:
+    material: REDSTONE
+    slot: 13
+    display_name: '&c&lRedstone'
+    lore:
+      - ''
+      - '&7Red colored trim'
+      - ''
+      - '&eClick to select!'
+
+  copper:
+    material: COPPER_INGOT
+    slot: 14
+    display_name: '&6&lCopper'
+    lore:
+      - ''
+      - '&7Orange colored trim'
+      - ''
+      - '&eClick to select!'
+
+  gold:
+    material: GOLD_INGOT
+    slot: 15
+    display_name: '&e&lGold'
+    lore:
+      - ''
+      - '&7Gold colored trim'
+      - ''
+      - '&eClick to select!'
+
+  emerald:
+    material: EMERALD
+    slot: 16
+    display_name: '&a&lEmerald'
+    lore:
+      - ''
+      - '&7Green colored trim'
+      - ''
+      - '&eClick to select!'
+
+  diamond:
+    material: DIAMOND
+    slot: 19
+    display_name: '&b&lDiamond'
+    lore:
+      - ''
+      - '&7Cyan colored trim'
+      - ''
+      - '&eClick to select!'
+
+  lapis:
+    material: LAPIS_LAZULI
+    slot: 20
+    display_name: '&9&lLapis Lazuli'
+    lore:
+      - ''
+      - '&7Blue colored trim'
+      - ''
+      - '&eClick to select!'
+
+  amethyst:
+    material: AMETHYST_SHARD
+    slot: 21
+    display_name: '&d&lAmethyst'
+    lore:
+      - ''
+      - '&7Purple colored trim'
+      - ''
+      - '&eClick to select!'
+
+  resin:
+    material: RESIN_BRICK
+    slot: 22
+    display_name: '&6&lResin'
+    lore:
+      - ''
+      - '&7Amber colored trim'
+      - ''
+      - '&eClick to select!'
+
+buttons:
+  back:
+    material: ARROW
+    slot: 18
+    display_name: '&c&lBack'
+    lore:
+      - ''
+      - '&7Return to pattern selection'
+      - ''
+      - '&cClick to go back!'

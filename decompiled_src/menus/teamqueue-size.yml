@@ -1,0 +1,47 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "<gradient:#4da6ff:#ff4d4d>Choose Team Size</gradient>"
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+  navigation:
+    close:
+      enabled: true
+      slot: 22
+      material: BARRIER
+      display-name: "<red>Close"
+
+items:
+  2v2:
+    material: IRON_SWORD
+    slot: 11
+    display-name: "<aqua>2v2"
+    lore:
+      - "<gray>Two players on each team."
+      - ""
+      - "<yellow>Click to continue"
+    action: "team-size:2"
+  3v3:
+    material: DIAMOND_SWORD
+    slot: 13
+    display-name: "<aqua>3v3"
+    lore:
+      - "<gray>Three players on each team."
+      - ""
+      - "<yellow>Click to continue"
+    action: "team-size:3"
+  4v4:
+    material: NETHERITE_SWORD
+    slot: 15
+    display-name: "<aqua>4v4"
+    lore:
+      - "<gray>Four players on each team."
+      - ""
+      - "<yellow>Click to continue"
+    action: "team-size:4"

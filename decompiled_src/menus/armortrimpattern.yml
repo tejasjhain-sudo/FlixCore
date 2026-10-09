@@ -1,0 +1,219 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+# =====================================================================
+# Armor Trim Pattern Menu
+# =====================================================================
+# Each pattern entry supports an optional `permission:` key. When a player
+# does not have the permission they will see the locked display_name /
+# lore_no_permission and the click is rejected.
+#
+# If `permission` is omitted (or empty) FlixCore will fall back to the
+# default node:
+#     flixcore.trim.pattern.<key>     (e.g. flixcore.trim.pattern.coast)
+#
+# Set it to an empty string ("") to disable the permission check entirely
+# for that pattern.
+# =====================================================================
+gui:
+  title: '&5&lSelect Trim Pattern'
+  size: 45
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+patterns:
+  coast:
+    material: COAST_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 10
+    permission: 'flixcore.trim.pattern.coast'
+    display_name: '&b&lCoast'
+    lore:
+      - ''
+      - '&7Apply Coast trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  dune:
+    material: DUNE_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 11
+    display_name: '&e&lDune'
+    lore:
+      - ''
+      - '&7Apply Dune trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  eye:
+    material: EYE_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 12
+    display_name: '&5&lEye'
+    lore:
+      - ''
+      - '&7Apply Eye trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  host:
+    material: HOST_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 13
+    display_name: '&d&lHost'
+    lore:
+      - ''
+      - '&7Apply Host trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  raiser:
+    material: RAISER_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 14
+    display_name: '&6&lRaiser'
+    lore:
+      - ''
+      - '&7Apply Raiser trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  rib:
+    material: RIB_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 15
+    display_name: '&4&lRib'
+    lore:
+      - ''
+      - '&7Apply Rib trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  sentry:
+    material: SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 16
+    display_name: '&2&lSentry'
+    lore:
+      - ''
+      - '&7Apply Sentry trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  shaper:
+    material: SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 19
+    display_name: '&a&lShaper'
+    lore:
+      - ''
+      - '&7Apply Shaper trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  silence:
+    material: SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 20
+    display_name: '&8&lSilence'
+    lore:
+      - ''
+      - '&7Apply Silence trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  snout:
+    material: SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 21
+    display_name: '&c&lSnout'
+    lore:
+      - ''
+      - '&7Apply Snout trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  spire:
+    material: SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 22
+    display_name: '&9&lSpire'
+    lore:
+      - ''
+      - '&7Apply Spire trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  tide:
+    material: TIDE_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 23
+    display_name: '&3&lTide'
+    lore:
+      - ''
+      - '&7Apply Tide trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  vex:
+    material: VEX_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 24
+    display_name: '&7&lVex'
+    lore:
+      - ''
+      - '&7Apply Vex trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  ward:
+    material: WARD_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 25
+    display_name: '&1&lWard'
+    lore:
+      - ''
+      - '&7Apply Ward trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  wayfinder:
+    material: WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 28
+    display_name: '&6&lWayfinder'
+    lore:
+      - ''
+      - '&7Apply Wayfinder trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  wild:
+    material: WILD_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 29
+    display_name: '&a&lWild'
+    lore:
+      - ''
+      - '&7Apply Wild trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  bolt:
+    material: BOLT_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 30
+    display_name: '&e&lBolt'
+    lore:
+      - ''
+      - '&7Apply Bolt trim pattern'
+      - ''
+      - '&eClick to select!'
+
+  flow:
+    material: FLOW_ARMOR_TRIM_SMITHING_TEMPLATE
+    slot: 31
+    display_name: '&b&lFlow'
+    lore:
+      - ''
+      - '&7Apply Flow trim pattern'
+      - ''
+      - '&eClick to select!'
+
+buttons:
+  back:
+    material: ARROW
+    slot: 36
+    display_name: '&c&lBack'
+    lore:
+      - ''
+      - '&7Return to armor selection'
+      - ''
+      - '&cClick to go back!'

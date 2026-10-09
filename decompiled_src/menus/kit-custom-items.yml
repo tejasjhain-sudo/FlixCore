@@ -1,0 +1,86 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&b&lCustom Items: &f{kit} &7({page}/{pages})'
+  size: 54
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+item-slots:
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  display_name: ' '
+
+previous-page:
+  material: ARROW
+  slot: 45
+  display_name: '&e&lPrevious Page'
+  lore:
+    - ''
+    - '&7Go to the previous page.'
+
+back:
+  material: BARRIER
+  slot: 49
+  display_name: '&c&lBack'
+  lore:
+    - ''
+    - '&7Return to the kit editor menu.'
+
+refill-button:
+  enabled: true
+  material: CHEST
+  slot: 50
+  display_name: '&b&lRefill Custom Items'
+  lore:
+    - ''
+    - '&7Restore the custom item pool'
+    - '&7inside this menu.'
+    - ''
+    - '&bClick to refill!'
+
+trash-button:
+  material: LAVA_BUCKET
+  slot: 51
+  display_name: '&c&lTrash'
+  lore:
+    - ''
+    - '&7Click this while holding an item'
+    - '&7to destroy that item.'
+    - ''
+    - '&cThis cannot be undone!'
+
+next-page:
+  material: ARROW
+  slot: 53
+  display_name: '&e&lNext Page'
+  lore:
+    - ''
+    - '&7Go to the next page.'

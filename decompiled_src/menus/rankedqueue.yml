@@ -1,0 +1,126 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "&6&lRanked Queue"
+  size: 54
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+  navigation:
+    previous:
+      slot: 45
+      material: ARROW
+      display-name: "&ePrevious Page"
+      lore:
+        - "&7Page %menu_page%/%menu_total_pages%"
+    next:
+      slot: 53
+      material: ARROW
+      display-name: "&aNext Page"
+      lore:
+        - "&7Page %menu_page%/%menu_total_pages%"
+
+items:
+  'tiertank':
+    enabled: true
+    material: DIAMOND_SWORD
+    update: true
+    slot: 10
+    display_name: '&#41A7FATier Tank'
+    lore:
+      - '&8Ranked Queue'
+      - ''
+      - '&fClick to play ranked with'
+      - '&fTier Tank Kit'
+      - ''
+      - '&#41A7FA ● &fIn Queue: &#41A7FA%flixcore_in_queue_count_tiertank%'
+      - '&#41A7FA ● &fIn Fight: &#41A7FA%flixcore_in_fight_count_tiertank%'
+      - ''
+      - '&#41A7FAClick to join ranked queue!'
+    click_commands:
+      - '[player] queue tiertank'
+      - '[close]'
+
+  'tiernethpot':
+    enabled: true
+    material: NETHERITE_SWORD
+    update: true
+    slot: 11
+    display_name: '&#7C2CF3Tier Nethpot'
+    lore:
+      - '&8Ranked Queue'
+      - ''
+      - '&fClick to play ranked with'
+      - '&fTier Nethpot Kit'
+      - ''
+      - '&#7C2CF3 ● &fIn Queue: &#7C2CF3%flixcore_in_queue_count_tiernethpot%'
+      - '&#7C2CF3 ● &fIn Fight: &#7C2CF3%flixcore_in_fight_count_tiernethpot%'
+      - ''
+      - '&#7C2CF3Click to join ranked queue!'
+    click_commands:
+      - '[player] queue tiernethpot'
+      - '[close]'
+
+  'tiergapple':
+    enabled: true
+    material: GOLDEN_APPLE
+    update: true
+    slot: 12
+    display_name: '&#FA6F11Tier Gapple'
+    lore:
+      - '&8Ranked Queue'
+      - ''
+      - '&fClick to play ranked with'
+      - '&fTier Gapple Kit'
+      - ''
+      - '&#FA6F11 ● &fIn Queue: &#FA6F11%flixcore_in_queue_count_tiergapple%'
+      - '&#FA6F11 ● &fIn Fight: &#FA6F11%flixcore_in_fight_count_tiergapple%'
+      - ''
+      - '&#FA6F11Click to join ranked queue!'
+    click_commands:
+      - '[player] queue tiergapple'
+      - '[close]'
+
+  'tiersumo':
+    enabled: true
+    material: SLIME_BALL
+    update: true
+    slot: 13
+    display_name: '&#AEFC7FTier Sumo'
+    lore:
+      - '&8Ranked Queue'
+      - ''
+      - '&fClick to play ranked with'
+      - '&fTier Sumo Kit'
+      - ''
+      - '&#AEFC7F ● &fIn Queue: &#AEFC7F%flixcore_in_queue_count_tiersumo%'
+      - '&#AEFC7F ● &fIn Fight: &#AEFC7F%flixcore_in_fight_count_tiersumo%'
+      - ''
+      - '&#AEFC7FClick to join ranked queue!'
+    click_commands:
+      - '[player] queue tiersumo'
+      - '[close]'
+
+  'tiercombo':
+    enabled: true
+    material: FISHING_ROD
+    update: true
+    slot: 14
+    display_name: '&#FD5AB2Tier Combo'
+    lore:
+      - '&8Ranked Queue'
+      - ''
+      - '&fClick to play ranked with'
+      - '&fTier Combo Kit'
+      - ''
+      - '&#FD5AB2 ● &fIn Queue: &#FD5AB2%flixcore_in_queue_count_tiercombo%'
+      - '&#FD5AB2 ● &fIn Fight: &#FD5AB2%flixcore_in_fight_count_tiercombo%'
+      - ''
+      - '&#FD5AB2Click to join ranked queue!'
+    click_commands:
+      - '[player] queue tiercombo'
+      - '[close]'

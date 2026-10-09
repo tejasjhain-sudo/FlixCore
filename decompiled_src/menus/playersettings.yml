@@ -1,0 +1,411 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+#####################################################################
+# Player Settings Menu
+#
+# Text formatting:
+# - Supports MiniMessage tags in all GUI and dialog text:
+#   <gradient>, <rainbow>, <hover>, <click>, <keybind>, <translatable>,
+#   <font>, <sprite>, <head>, <shadow>, hex colors like <#55ff55>, etc.
+# - Legacy color codes still work too: &a, &c, &#55ff55.
+#
+# Choose how /settings opens:
+# settings.open-mode: gui     -> classic inventory GUI
+# settings.open-mode: dialog  -> Paper dialog menu, falls back to GUI if unavailable
+#
+# Dialog support:
+# - Cached from this file on reload.
+# - Uses the same items below as the GUI.
+# - Toggle, open_gui, close, and decoration item types are supported.
+# - decoration items are not shown as dialog actions.
+#
+# Dialog placeholders:
+# %player%, %player_name%, %setting_key%, %setting_name%,
+# %sprite%, %status%, %status_text%, %status_color%, %status_symbol%,
+# %status_with_color%
+# PlaceholderAPI is also supported.
+#
+# Dialog layout/design:
+# - Item buttons are shown in the same order as the "items:" section.
+# - dialog.action-columns controls how many button columns Paper uses.
+# - dialog.button-width controls default button width.
+# - Each item can override width with items.<item>.dialog.width.
+# - Each item can fully change its button text with items.<item>.dialog.text.
+# - Each item can set items.<item>.dialog.sprite. If omitted, the item material
+#   is used as the sprite. Use shorthand like diamond_sword, item/diamond_sword,
+#   or the full <sprite:items:item/diamond_sword> tag.
+# - Tooltip text can be one string or a YAML list of lines:
+#     dialog:
+#       tooltip_enabled:
+#         - '&aLine 1'
+#         - '&7Line 2'
+#
+# Per-item dialog keys:
+# dialog.sprite
+# dialog.text
+# dialog.tooltip_enabled
+# dialog.tooltip_disabled
+# dialog.tooltip
+# dialog.width
+#
+# Status text is fully editable in dialog.status below.
+# Example: change "Enabled" to "ON", "Active", "Yes", etc.
+# Set dialog.status.tooltip-line to '' if you do not want a separate
+# status line at the top of each tooltip.
+#####################################################################
+
+settings:
+  # gui or dialog
+  open-mode: dialog
+
+dialog:
+  enabled: true
+  title: '&6Player Settings'
+  body:
+    - '&7Manage your personal settings.'
+    - '&7Click a button below to toggle or open a menu.'
+  action-columns: 2
+  button-width: 180
+  status:
+    tooltip-line: '%status_with_color%'
+    enabled:
+      text: 'ON'
+      color: '&a'
+      symbol: 'ON'
+    disabled:
+      text: 'OFF'
+      color: '&c'
+      symbol: 'OFF'
+  close:
+    text: '&cClose'
+    tooltip: '&7Close settings.'
+
+gui:
+  title: '&6Player Settings'
+  size: 45
+
+items:
+  scoreboard-toggle:
+    type: toggle
+    material: ITEM_FRAME
+    slot: 12
+    default: true
+    display_name: '&bScoreboard'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Scoreboard is visible'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Scoreboard is hidden'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Scoreboard: {status}'
+    dialog:
+      sprite: item_frame
+      text: '%sprite% &fScoreboard &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Scoreboard is visible. Click to hide it.'
+      tooltip_disabled: '&7Scoreboard is hidden. Click to show it.'
+
+  duel-request:
+    type: toggle
+    material: DIAMOND_SWORD
+    slot: 14
+    default: true
+    display_name: '&cDuel Requests'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Players can send you duel requests'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Players cannot send you duel requests'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Duel Requests: {status}'
+    dialog:
+      sprite: netherite_sword
+      text: '%sprite% &fDuel Requests &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Players can send you duel requests.'
+      tooltip_disabled: '&7Players cannot send you duel requests.'
+
+  party-broadcast:
+    type: toggle
+    material: BELL
+    slot: 16
+    default: true
+    display_name: '&6Party Broadcast'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7You will see party broadcast messages'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Party broadcast messages are hidden'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Party Broadcast: {status}'
+    dialog:
+      sprite: bell
+      text: '%sprite% &fParty Broadcast &7➥ %status_color%%status%'
+      tooltip_enabled: '&7You will see party broadcast messages.'
+      tooltip_disabled: '&7Party broadcast messages are hidden.'
+
+  auto-gg:
+    type: toggle
+    material: PAPER
+    slot: 28
+    default: false
+    display_name: '&aAuto GG'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Automatically sends GG messages'
+      - '&7when you win a duel'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7No automatic GG messages'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Auto GG: {status}'
+    dialog:
+      sprite: paper
+      text: '%sprite% &fAuto GG &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Automatically sends GG messages when you win.'
+      tooltip_disabled: '&7No automatic GG messages.'
+
+  party-invite:
+    type: toggle
+    material: PLAYER_HEAD
+    slot: 30
+    default: true
+    display_name: '&dParty Invites'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Players can send you party invites'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Players cannot send you party invites'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Party Invites: {status}'
+    dialog:
+      sprite: painting
+      text: '%sprite% &fParty Invites &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Players can send you party invites.'
+      tooltip_disabled: '&7Players cannot send you party invites.'
+
+  auto-requeue:
+    type: toggle
+    material: REPEATER
+    slot: 32
+    default: false
+    display_name: '&bAuto Requeue'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Automatically rejoin queue'
+      - '&7after your duel ends'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7You will not auto-rejoin queue'
+      - '&7after your duel ends'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Auto Requeue: {status}'
+    dialog:
+      sprite: repeater
+      text: '%sprite% &fAuto Requeue &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Automatically rejoin queue after duel ends.'
+      tooltip_disabled: '&7You will not auto-rejoin queue after duel ends.'
+
+  focus-mode:
+    type: toggle
+    material: SPYGLASS
+    slot: 10
+    default: false
+    display_name: '&eFocus Mode'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Opponent names are hidden'
+      - '&7during duels.'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Opponent names are shown'
+      - '&7during duels.'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Focus Mode: {status}'
+    dialog:
+      sprite: spyglass
+      text: '%sprite% &fFocus Mode &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Opponent names are hidden during duels.'
+      tooltip_disabled: '&7Opponent names are shown during duels.'
+
+  open-challenge-broadcast:
+    type: toggle
+    material: OAK_SIGN
+    slot: 36
+    default: true
+    display_name: '&eOpen Challenge Broadcasts'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7You will see public'
+      - '&7open challenge broadcasts.'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Open challenge broadcasts'
+      - '&7are hidden from your chat.'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Open Challenge Broadcasts: {status}'
+    dialog:
+      sprite: oak_sign
+      text: '%sprite% &fOpen Challenges &7➥ %status_color%%status%'
+      tooltip_enabled: '&7You will see public open challenge broadcasts.'
+      tooltip_disabled: '&7Open challenge broadcasts are hidden.'
+
+  duel-score-actionbar:
+    type: toggle
+    material: PLAYER_HEAD
+    slot: 38
+    default: true
+    display_name: '&bDuel Score Action Bar'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Round scores are shown'
+      - '&7during your duels.'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Round scores are hidden'
+      - '&7during your duels.'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Duel Score Action Bar: {status}'
+    dialog:
+      sprite: goat_horn
+      text: '%sprite% &fDuel Score &7➥ %status_color%%status%'
+      tooltip_enabled: '&7Round scores are shown during your duels.'
+      tooltip_disabled: '&7Round scores are hidden during your duels.'
+
+  friend-join-notifier:
+    type: toggle
+    material: EMERALD
+    slot: 34
+    default: true
+    display_name: '&aFriend Join Notifier'
+    lore_enabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7You are notified when friends join.'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: %status_with_color%'
+      - ''
+      - '&7Friend join notifications are hidden.'
+      - ''
+      - '&eClick to toggle'
+    on_command: ''
+    off_command: ''
+    toggle_message: '&7Friend Join Notifier: {status}'
+    dialog:
+      sprite: emerald
+      text: '%sprite% &fFriend Joins &7➥ %status_color%%status%'
+      tooltip_enabled: '&7You are notified when friends join.'
+      tooltip_disabled: '&7Friend join notifications are hidden.'
+
+  close:
+    type: close
+    material: BARRIER
+    slot: 40
+    display_name: '&cClose'
+    lore:
+      - ''
+      - '&7Click to close'
+    dialog:
+      sprite: barrier
+      text: '%sprite% &cClose'
+      tooltip: '&7Close settings.'
+
+auto_gg_messages:
+  - "gg"
+  - "good game"
+  - "get better"
+  - "ez"
+  - "nice try"
+  - "wp"
+  - "well played"

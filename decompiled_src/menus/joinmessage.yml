@@ -1,0 +1,106 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+# Player-selectable join announcements.
+# message supports legacy colors, MiniMessage, PlaceholderAPI, %player%,
+# %player_uuid%, and %server%. Every definition is cached on load/reload.
+# Set to false to disable custom join messages completely and show Minecraft's
+# normal vanilla join message.
+enabled: true
+
+gui:
+  title: '&8&lJoin Messages'
+  size: 27
+
+messages:
+  default:
+    slot: 10
+    material: PAPER
+    display_name: '&f&lDefault Join'
+    permission: ''
+    lore:
+      - '&7Use the normal FlixCore join message.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Use the normal FlixCore join message.'
+      - ''
+      - '&aSelected'
+    # This is the default message shown when no cosmetic join message is selected.
+    message:
+      - '&a+ &6%player% &7Connected'
+
+  royal:
+    slot: 11
+    material: GOLDEN_HELMET
+    display_name: '&6&lRoyal Arrival'
+    permission: 'flixcore.joinmessage.royal'
+    lore:
+      - '&7Announce a royal arrival.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Announce a royal arrival.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<gold><bold>♛</bold> <yellow>%player%</yellow> <gray>has arrived on <white>%server%</white>!'
+
+  lightning:
+    slot: 12
+    material: LIGHTNING_ROD
+    display_name: '&b&lLightning Arrival'
+    permission: 'flixcore.joinmessage.lightning'
+    lore:
+      - '&7Enter with an electric announcement.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Enter with an electric announcement.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<aqua>⚡ <white>%player%</white> <gray>struck <white>%server%</white>!'
+
+  fire:
+    slot: 14
+    material: BLAZE_POWDER
+    display_name: '&c&lBlazing Arrival'
+    permission: 'flixcore.joinmessage.fire'
+    lore:
+      - '&7Join in a blaze of glory.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Join in a blaze of glory.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<red>🔥 <gold>%player%</gold> <yellow>blazed into <white>%server%</white>!'
+
+  shadow:
+    slot: 15
+    material: ECHO_SHARD
+    display_name: '&5&lShadow Arrival'
+    permission: 'flixcore.joinmessage.shadow'
+    lore:
+      - '&7Emerge silently from the shadows.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Emerge silently from the shadows.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<dark_purple>✦ <light_purple>%player%</light_purple> <gray>emerged from the shadows...'

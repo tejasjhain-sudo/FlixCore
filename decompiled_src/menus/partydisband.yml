@@ -1,0 +1,45 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&c&lDisband Party?'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+items:
+  confirm:
+    material: LIME_WOOL
+    slot: 11
+    display_name: '&a&lCONFIRM'
+    lore:
+      - '&7Click to disband your party'
+      - ''
+      - '&cThis action cannot be undone!'
+    action: 'confirm'
+
+  cancel:
+    material: RED_WOOL
+    slot: 15
+    display_name: '&c&lCANCEL'
+    lore:
+      - '&7Click to cancel'
+      - ''
+      - '&aKeep your party active'
+    action: 'cancel'
+
+  info:
+    material: PAPER
+    slot: 4
+    display_name: '&e&lParty Info'
+    lore:
+      - '&7Are you sure you want to'
+      - '&7disband your party?'
+      - ''
+      - '&fMembers: &e<member_count>'
+      - ''
+      - '&cAll members will be removed!'

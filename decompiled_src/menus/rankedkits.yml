@@ -1,0 +1,71 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "&6&lSelect Ranked Kit"
+  size: 54
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+filler:
+  enabled: true
+  material: BLACK_STAINED_GLASS_PANE
+  name: " "
+
+back:
+  slot: 49
+  material: BARRIER
+  name: "&c&lBack"
+  lore:
+    - "&7Click to go back"
+
+kits:
+  tank:
+    slot: 10
+    material: SPLASH_POTION
+    name: "&6&lNodebuff"
+    lore:
+      - "&7Ranked Nodebuff Kit"
+      - ""
+      - "&eClick to select!"
+
+  gapple:
+    slot: 11
+    material: GOLDEN_APPLE
+    name: "&6&lGapple"
+    lore:
+      - "&7Ranked Gapple Kit"
+      - ""
+      - "&eClick to select!"
+
+  sumo:
+    slot: 12
+    material: BARRIER
+    name: "&6&lSumo"
+    lore:
+      - "&7Ranked Sumo Kit"
+      - ""
+      - "&eClick to select!"
+
+  boxing:
+    slot: 13
+    material: IRON_SWORD
+    name: "&6&lBoxing"
+    lore:
+      - "&7Ranked Boxing Kit"
+      - ""
+      - "&eClick to select!"
+
+  combo:
+    slot: 14
+    material: DIAMOND_SWORD
+    name: "&6&lCombo"
+    lore:
+      - "&7Ranked Combo Kit"
+      - ""
+      - "&eClick to select!"
+      

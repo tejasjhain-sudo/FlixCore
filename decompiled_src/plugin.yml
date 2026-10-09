@@ -1,0 +1,526 @@
+name: FlixCore
+version: '4.7.0'
+main: org.lime.swiftCore.SwiftCore
+api-version: '1.21'
+load: POSTWORLD
+authors: [ Lime ]
+softdepend: [ PlaceholderAPI, FastAsyncWorldEdit, packetevents, LuckPerms, Vault, PlayerPoints ]
+libraries:
+  - com.zaxxer:HikariCP:5.1.0
+  - com.h2database:h2:2.2.224
+  - com.github.ben-manes.caffeine:caffeine:3.1.8
+  - redis.clients:jedis:5.1.0
+  - org.apache.commons:commons-pool2:2.12.0
+commands:
+  kit:
+    description: Manage practice kits
+    usage: /kit <create|edit|delete|list|give|clearlayouts> [name]
+    aliases: [ kits ]
+  queue:
+    description: Join a kit queue
+    usage: /queue <kitname>
+    aliases: [ q ]
+  leavequeue:
+    description: Leave the current queue
+    usage: /leavequeue
+    aliases: [ lq ]
+  arena:
+    description: Manage arenas
+    usage: /arena <create|delete|list|info|pos1|pos2|centre|corner1|corner2> [name]
+  duel:
+    description: Challenge players to duels
+    usage: /duel <player|accept>
+    aliases: [ 1v1 ]
+  flixcore:
+    description: FlixCore admin commands
+    usage: /flixcore <reload> [config]
+    aliases: [ fc ]
+  setlobby:
+    description: Set the lobby spawn location
+    usage: /setlobby
+  ffa:
+    description: Join an FFA arena
+    usage: /ffa <mode> [arena-instance] or /ffa <arenaname> [positionname]
+  leaveffa:
+    description: Leave the FFA arena
+    usage: /leaveffa
+    aliases: [ spawn ]
+  spectator:
+    description: Stop spectating
+    usage: /spectator leave
+    aliases: [ spec ]
+  spectate:
+    description: Spectate a player in duel or FFA
+    usage: /spectate [player]
+  p:
+    description: Party system commands
+    usage: /p <create|invite|join|leave|kick|disband|accept|chat|owner|settings|manage|info>
+    aliases: [ party ]
+  party:
+    description: Party system commands
+    usage: /party <create|invite|join|leave|kick|disband|accept|chat|owner|settings|manage|info>
+  settings:
+    description: Player settings menu
+    usage: /settings [visible|scoreboard|duelrequest|partybroadcast|openchallengebroadcast|autogg|partyinvite] [on|off]
+  ranked:
+    description: Join ranked queue and view stats
+    usage: /ranked <kitname|stats|leave>
+  unranked:
+    description: Join an unranked queue
+    usage: /unranked [kitname]
+    aliases: [ ur ]
+  teamqueue:
+    description: Open the solo and party team queue menu
+    usage: /teamqueue [leave]
+    aliases: [ tq ]
+  surrender:
+    description: Surrender the current duel
+    usage: /surrender
+    aliases: [ ff, forfeit, leave ]
+  killeffect:
+    description: Open kill effects selection menu
+    usage: /killeffect
+    aliases: [ ke, killeffects ]
+  joinmessage:
+    description: Open join message selection menu
+    usage: /joinmessage
+    aliases: [ jm, joinmessages ]
+  leavemessage:
+    description: Open leave message selection menu
+    usage: /leavemessage
+    aliases: [ lm, leavemessages ]
+  killsound:
+    description: Open kill sound selection menu
+    usage: /killsound
+    aliases: [ ks, killsounds ]
+  parkour:
+    description: Setup parkour checkpoints for arenas
+    usage: /parkour <arena> <checkpoint1|checkpoint2|clear|list>
+  spawnitems:
+    description: Manage spawn items
+    usage: /spawnitems <give|reload>
+  migrate:
+    description: Migrate data from other plugins
+    usage: /migrate <strikepractice>
+  deathanimation:
+    description: Open death animation selection menu
+    usage: /deathanimation
+    aliases: [ da, deatheffect ]
+  traileffect:
+    description: Open trail effect selection menu
+    usage: /traileffect
+    aliases: [ trail, trails, traileffects ]
+  tournament:
+    description: Tournament system commands
+    usage: /tournament <host|join|leave|start|stop|status> [args]
+    aliases: [ tourney ]
+  event:
+    description: Hosted event commands
+    usage: /event <host|join|leave|start|cancel|info> [args]
+  clan:
+    description: Clan system commands
+    usage: /clan <create|disband|invite|cancel|join|leave|kick|info|list|chat|rename|changeleader|desc|promote|demote|ff|modtag|ally|rival|settings|nickname|gui|setpoints|delete> [args]
+  day:
+    description: Set your client time to day
+    usage: /day
+  night:
+    description: Set your client time to night
+    usage: /night
+  sunset:
+    description: Set your client time to sunset
+    usage: /sunset
+  openparty:
+    description: Browse open parties
+    usage: /openparty
+    aliases: [ findparty, parties ]
+  matchhistory:
+    description: View match history
+    usage: /matchhistory [player]
+    aliases: [ matches, mh ]
+  friend:
+    description: Friend system commands
+    usage: /friend <add|remove|accept|deny|list|message|toggle-notifications|toggle-requests>
+    aliases: [ f, friends ]
+  bot:
+    description: Duel a fresh PracticeBot with a chosen kit
+    usage: /bot <name> <kit>
+  openchallenge:
+    description: Broadcast an open duel challenge for a kit
+    usage: /openchallenge <kitname>
+    aliases: [ oc ]
+  kitstats:
+    description: View online kit usage and global kit match statistics
+    usage: /kitstats <online|top|info|backfill>
+    aliases: [ kstats, kitusage ]
+  fwand:
+    description: Configure per-arena FenceV2 animation bounds
+    usage: /fwand <arena>
+  cwand:
+    description: Configure the Chicken Hunt spawn region for an arena
+    usage: /cwand <arena>
+    permission: swiftcore.chickenhunt.admin
+
+permissions:
+  # ─── Admin / Staff ───
+  swiftcore.admin:
+    description: Allows admin commands (/flixcore, /kit create/give/rules, /spawnitems, /setlobby, /migrate)
+    default: op
+  swiftcore.arena:
+    description: Allows arena management (/arena)
+    default: op
+  swiftcore.fence.setup:
+    description: Allows configuring per-arena FenceV2 bounds
+    default: op
+  swiftcore.chickenhunt.admin:
+    description: Allows configuring the optional Chicken Hunt addon
+    default: op
+
+  # ─── Kit ───
+  swiftcore.kit.create:
+    description: Allows creating kits
+    default: op
+  swiftcore.kit.edit:
+    description: Allows editing kit layouts
+    default: true
+  swiftcore.kit.delete:
+    description: Allows deleting kits
+    default: op
+  swiftcore.kit.give:
+    description: Allows giving kits to players
+    default: op
+
+  # ─── Queue / Duel ───
+  swiftcore.queue.use:
+    description: Allows using queue system
+    default: true
+  swiftcore.duel:
+    description: Allows sending duel requests
+    default: true
+  swiftcore.bot:
+    description: Allows duelling a PracticeBot via /bot <name> <kit>
+    default: true
+  swiftcore.openchallenge:
+    description: Allows creating open challenges
+    default: true
+
+  # ─── Ranked ───
+  swiftcore.ranked.stats.others:
+    description: Allows viewing other players ranked stats
+    default: op
+  swiftcore.kitstats.view:
+    description: Allows viewing kit statistics
+    default: true
+  swiftcore.kitstats.admin:
+    description: Allows running kit statistics maintenance commands
+    default: op
+
+  # ─── Party ───
+  swiftcore.party.use:
+    description: Allows using party system
+    default: true
+  swiftcore.party.broadcast:
+    description: Allows broadcasting party invites
+    default: op
+  swiftcore.party.size:
+    description: Allows changing party size
+    default: op
+
+  # ─── Kill Effects (per-effect permissions set in killeffects.yml) ───
+  swiftcore.killeffect.lightning:
+    description: Allows using lightning kill effect
+    default: op
+  swiftcore.killeffect.explosion:
+    description: Allows using explosion kill effect
+    default: op
+  swiftcore.killeffect.firework:
+    description: Allows using firework kill effect
+    default: true
+  swiftcore.killeffect.flame:
+    description: Allows using flame kill effect
+    default: op
+  swiftcore.killeffect.hearts:
+    description: Allows using hearts kill effect
+    default: true
+
+  # ─── Join / Leave Messages ───
+  swiftcore.joinmessage.*:
+    description: Allows using all custom join messages
+    default: op
+    children:
+      swiftcore.joinmessage.royal: true
+      swiftcore.joinmessage.lightning: true
+      swiftcore.joinmessage.fire: true
+      swiftcore.joinmessage.shadow: true
+  swiftcore.leavemessage.*:
+    description: Allows using all custom leave messages
+    default: op
+    children:
+      swiftcore.leavemessage.royal: true
+      swiftcore.leavemessage.lightning: true
+      swiftcore.leavemessage.fire: true
+      swiftcore.leavemessage.shadow: true
+
+  # ─── Death Animations ───
+  swiftcore.deathanimation.blood:
+    description: Allows using blood death animation
+    default: true
+  swiftcore.deathanimation.explosion:
+    description: Allows using explosion death animation
+    default: true
+  swiftcore.deathanimation.enderman:
+    description: Allows using enderman death animation
+    default: true
+  swiftcore.deathanimation.lightning:
+    description: Allows using lightning death animation
+    default: op
+  swiftcore.deathanimation.soulrise:
+    description: Allows using soul rise death animation
+    default: op
+  swiftcore.deathanimation.totem:
+    description: Allows using totem death animation
+    default: true
+  swiftcore.deathanimation.firework:
+    description: Allows using firework death animation
+    default: true
+  swiftcore.deathanimation.voidcollapse:
+    description: Allows using void collapse death animation
+    default: op
+
+  # ─── Trail Effects ───
+  swiftcore.trail.*:
+    description: Allows using all trail effects
+    default: op
+
+  # ─── Armor Trims (per-trim permissions set in armortrimpattern.yml / armortrimmaterial.yml) ───
+  swiftcore.armortrim:
+    description: Allows accessing the armor trim editor
+    default: true
+  swiftcore.shieldcustomizer:
+    description: Allows accessing the shield customizer in the kit editor
+    default: true
+  swiftcore.trim.pattern.*:
+    description: Allows using all trim patterns
+    default: op
+  swiftcore.trim.material.*:
+    description: Allows using all trim materials
+    default: op
+
+  # ─── Tournament / Events ───
+  swiftcore.tournament.host:
+    description: Allows hosting tournaments
+    default: op
+  swiftcore.tournament.join:
+    description: Allows joining tournaments
+    default: true
+  swiftcore.event.host:
+    description: Allows hosting events
+    default: op
+  swiftcore.event.join:
+    description: Allows joining events
+    default: true
+
+  # ─── Match History ───
+  swiftcore.matchhistory:
+    description: Allows viewing match history
+    default: true
+
+  # ─── Clans ───
+  swiftcore.clan.admin:
+    description: Allows clan admin commands (setpoints, delete)
+    default: op
+
+  # ─── Parkour ───
+  swiftcore.parkour.setup:
+    description: Allows setting up parkour checkpoints
+    default: op
+
+  # ─── Cross-Server Monitor ───
+  swiftcore.monitor:
+    description: Allows using /flixcore monitor command
+    default: op
+
+  # ─── FlixCore Aliases ───
+  flixcore.admin:
+    description: Alias for swiftcore.admin
+    children:
+      swiftcore.admin: true
+  flixcore.arena:
+    description: Alias for swiftcore.arena
+    children:
+      swiftcore.arena: true
+  flixcore.fence.setup:
+    description: Alias for swiftcore.fence.setup
+    children:
+      swiftcore.fence.setup: true
+  flixcore.chickenhunt.admin:
+    description: Alias for swiftcore.chickenhunt.admin
+    children:
+      swiftcore.chickenhunt.admin: true
+  flixcore.kit.create:
+    description: Alias for swiftcore.kit.create
+    children:
+      swiftcore.kit.create: true
+  flixcore.kit.edit:
+    description: Alias for swiftcore.kit.edit
+    children:
+      swiftcore.kit.edit: true
+  flixcore.kit.delete:
+    description: Alias for swiftcore.kit.delete
+    children:
+      swiftcore.kit.delete: true
+  flixcore.kit.give:
+    description: Alias for swiftcore.kit.give
+    children:
+      swiftcore.kit.give: true
+  flixcore.queue.use:
+    description: Alias for swiftcore.queue.use
+    children:
+      swiftcore.queue.use: true
+  flixcore.duel:
+    description: Alias for swiftcore.duel
+    children:
+      swiftcore.duel: true
+  flixcore.bot:
+    description: Alias for swiftcore.bot
+    children:
+      swiftcore.bot: true
+  flixcore.openchallenge:
+    description: Alias for swiftcore.openchallenge
+    children:
+      swiftcore.openchallenge: true
+  flixcore.ranked.stats.others:
+    description: Alias for swiftcore.ranked.stats.others
+    children:
+      swiftcore.ranked.stats.others: true
+  flixcore.kitstats.view:
+    description: Alias for swiftcore.kitstats.view
+    children:
+      swiftcore.kitstats.view: true
+  flixcore.kitstats.admin:
+    description: Alias for swiftcore.kitstats.admin
+    children:
+      swiftcore.kitstats.admin: true
+  flixcore.party.use:
+    description: Alias for swiftcore.party.use
+    children:
+      swiftcore.party.use: true
+  flixcore.party.broadcast:
+    description: Alias for swiftcore.party.broadcast
+    children:
+      swiftcore.party.broadcast: true
+  flixcore.party.size:
+    description: Alias for swiftcore.party.size
+    children:
+      swiftcore.party.size: true
+  flixcore.killeffect.lightning:
+    description: Alias for swiftcore.killeffect.lightning
+    children:
+      swiftcore.killeffect.lightning: true
+  flixcore.killeffect.explosion:
+    description: Alias for swiftcore.killeffect.explosion
+    children:
+      swiftcore.killeffect.explosion: true
+  flixcore.killeffect.firework:
+    description: Alias for swiftcore.killeffect.firework
+    children:
+      swiftcore.killeffect.firework: true
+  flixcore.killeffect.flame:
+    description: Alias for swiftcore.killeffect.flame
+    children:
+      swiftcore.killeffect.flame: true
+  flixcore.killeffect.hearts:
+    description: Alias for swiftcore.killeffect.hearts
+    children:
+      swiftcore.killeffect.hearts: true
+  flixcore.joinmessage.*:
+    description: Alias for swiftcore.joinmessage.*
+    children:
+      swiftcore.joinmessage.*: true
+  flixcore.leavemessage.*:
+    description: Alias for swiftcore.leavemessage.*
+    children:
+      swiftcore.leavemessage.*: true
+  flixcore.deathanimation.blood:
+    description: Alias for swiftcore.deathanimation.blood
+    children:
+      swiftcore.deathanimation.blood: true
+  flixcore.deathanimation.explosion:
+    description: Alias for swiftcore.deathanimation.explosion
+    children:
+      swiftcore.deathanimation.explosion: true
+  flixcore.deathanimation.enderman:
+    description: Alias for swiftcore.deathanimation.enderman
+    children:
+      swiftcore.deathanimation.enderman: true
+  flixcore.deathanimation.lightning:
+    description: Alias for swiftcore.deathanimation.lightning
+    children:
+      swiftcore.deathanimation.lightning: true
+  flixcore.deathanimation.soulrise:
+    description: Alias for swiftcore.deathanimation.soulrise
+    children:
+      swiftcore.deathanimation.soulrise: true
+  flixcore.deathanimation.totem:
+    description: Alias for swiftcore.deathanimation.totem
+    children:
+      swiftcore.deathanimation.totem: true
+  flixcore.deathanimation.firework:
+    description: Alias for swiftcore.deathanimation.firework
+    children:
+      swiftcore.deathanimation.firework: true
+  flixcore.deathanimation.voidcollapse:
+    description: Alias for swiftcore.deathanimation.voidcollapse
+    children:
+      swiftcore.deathanimation.voidcollapse: true
+  flixcore.trail.*:
+    description: Alias for swiftcore.trail.*
+    children:
+      swiftcore.trail.*: true
+  flixcore.armortrim:
+    description: Alias for swiftcore.armortrim
+    children:
+      swiftcore.armortrim: true
+  flixcore.shieldcustomizer:
+    description: Alias for swiftcore.shieldcustomizer
+    children:
+      swiftcore.shieldcustomizer: true
+  flixcore.trim.pattern.*:
+    description: Alias for swiftcore.trim.pattern.*
+    children:
+      swiftcore.trim.pattern.*: true
+  flixcore.trim.material.*:
+    description: Alias for swiftcore.trim.material.*
+    children:
+      swiftcore.trim.material.*: true
+  flixcore.tournament.host:
+    description: Alias for swiftcore.tournament.host
+    children:
+      swiftcore.tournament.host: true
+  flixcore.tournament.join:
+    description: Alias for swiftcore.tournament.join
+    children:
+      swiftcore.tournament.join: true
+  flixcore.event.host:
+    description: Alias for swiftcore.event.host
+    children:
+      swiftcore.event.host: true
+  flixcore.event.join:
+    description: Alias for swiftcore.event.join
+    children:
+      swiftcore.event.join: true
+  flixcore.matchhistory:
+    description: Alias for swiftcore.matchhistory
+    children:
+      swiftcore.matchhistory: true
+  flixcore.clan.admin:
+    description: Alias for swiftcore.clan.admin
+    children:
+      swiftcore.clan.admin: true
+  flixcore.parkour.setup:
+    description: Alias for swiftcore.parkour.setup
+    children:
+      swiftcore.parkour.setup: true
+  flixcore.monitor:
+    description: Alias for swiftcore.monitor
+    children:
+      swiftcore.monitor: true

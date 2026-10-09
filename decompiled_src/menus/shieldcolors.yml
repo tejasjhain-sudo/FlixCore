@@ -1,0 +1,55 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lSelect Color'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+    - HIDE_DESTROYS
+    - HIDE_PLACED_ON
+
+# Reusable color item template. Supports %color%, %color_key%, and optional
+# custom-model-data. The generated items are cached until plugin reload.
+items:
+  color:
+    material: '%color_key%_DYE'
+    display_name: '&f&l%color%'
+    lore:
+      - ''
+      - '&7Click to select &f%color% &7color.'
+
+# Slot ordering for the 16 dye colors (left-to-right, top-to-bottom).
+# These slots will be filled with the matching <color>_DYE item.
+color_slots:
+  WHITE: 1
+  ORANGE: 2
+  MAGENTA: 3
+  LIGHT_BLUE: 4
+  YELLOW: 5
+  LIME: 6
+  PINK: 7
+  GRAY: 8
+  LIGHT_GRAY: 10
+  CYAN: 11
+  PURPLE: 12
+  BLUE: 13
+  BROWN: 14
+  GREEN: 15
+  RED: 16
+  BLACK: 17
+
+buttons:
+  back:
+    material: REDSTONE
+    slot: 22
+    display_name: '&c&l\u00D7 BACK'
+    lore:
+      - ''
+      - '&7Return to the shield editor.'
+      - ''
+      - '&e\u25B6 CLICK to Go Back'

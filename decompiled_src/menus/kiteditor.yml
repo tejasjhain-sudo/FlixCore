@@ -1,0 +1,80 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&6&lKit Editor: &e{kitname}'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+buttons:
+  reset:
+    material: YELLOW_STAINED_GLASS_PANE
+    slot: 10
+    display_name: '&e&lReset Kit'
+    lore:
+      - ''
+      - '&7Click to reset to the default kit'
+      - '&7This will discard your custom layout'
+      - ''
+      - '&eClick to reset!'
+
+  trim:
+    material: SMITHING_TABLE
+    slot: 12
+    display_name: '&5&lArmor Trim'
+    lore:
+      - ''
+      - '&7Click to customize armor trims'
+      - '&7Requires: &dflixcore.armortrim'
+      - ''
+      - '&5Click to trim!'
+
+  shield:
+    material: SHIELD
+    slot: 13
+    display_name: '&5&lShield Customizer'
+    lore:
+      - ''
+      - '&7Click to design your shield with'
+      - '&7banner patterns and colors.'
+      - '&7Requires: &dflixcore.shieldcustomizer'
+      - ''
+      - '&5Click to customize!'
+
+  custom-items:
+    material: CHEST
+    slot: 8
+    display_name: '&b&lCustom Items'
+    lore:
+      - ''
+      - '&7Browse custom items enabled'
+      - '&7for this kit.'
+      - ''
+      - '&bClick to browse!'
+
+  save:
+    material: EMERALD_BLOCK
+    slot: 14
+    display_name: '&a&lSave Kit'
+    lore:
+      - ''
+      - '&7Click to save your kit layout'
+      - '&7Items will be saved for future use'
+      - ''
+      - '&aClick to save!'
+
+  leave:
+    material: REDSTONE_BLOCK
+    slot: 16
+    display_name: '&c&lLeave Editor'
+    lore:
+      - ''
+      - '&7Exit without saving changes'
+      - '&7Your current layout will be lost'
+      - ''
+      - '&cClick to leave!'

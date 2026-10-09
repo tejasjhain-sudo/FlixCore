@@ -1,0 +1,106 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+# Player-selectable leave announcements.
+# message supports legacy colors, MiniMessage, PlaceholderAPI, %player%,
+# %player_uuid%, and %server%. Every definition is cached on load/reload.
+# Set to false to disable custom leave messages completely and show Minecraft's
+# normal vanilla leave message.
+enabled: true
+
+gui:
+  title: '&8&lLeave Messages'
+  size: 27
+
+messages:
+  default:
+    slot: 10
+    material: PAPER
+    display_name: '&f&lDefault Leave'
+    permission: ''
+    lore:
+      - '&7Use the normal FlixCore leave message.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Use the normal FlixCore leave message.'
+      - ''
+      - '&aSelected'
+    # This is the default message shown when no cosmetic leave message is selected.
+    message:
+      - '&c- &6%player% &7Disconnected'
+
+  royal:
+    slot: 11
+    material: GOLDEN_BOOTS
+    display_name: '&6&lRoyal Farewell'
+    permission: 'flixcore.leavemessage.royal'
+    lore:
+      - '&7Depart with royal ceremony.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Depart with royal ceremony.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<gold><bold>♛</bold> <yellow>%player%</yellow> <gray>has departed from <white>%server%</white>.'
+
+  lightning:
+    slot: 12
+    material: LIGHTNING_ROD
+    display_name: '&b&lLightning Exit'
+    permission: 'flixcore.leavemessage.lightning'
+    lore:
+      - '&7Disappear in a flash.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Disappear in a flash.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<aqua>⚡ <white>%player%</white> <gray>vanished from <white>%server%</white>!'
+
+  fire:
+    slot: 14
+    material: CAMPFIRE
+    display_name: '&c&lBlazing Exit'
+    permission: 'flixcore.leavemessage.fire'
+    lore:
+      - '&7Leave only ashes behind.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Leave only ashes behind.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<red>🔥 <gold>%player%</gold> <yellow>left <white>%server%</white> in ashes!'
+
+  shadow:
+    slot: 15
+    material: ECHO_SHARD
+    display_name: '&5&lShadow Exit'
+    permission: 'flixcore.leavemessage.shadow'
+    lore:
+      - '&7Fade back into the shadows.'
+      - ''
+      - '&eClick to select'
+    lore_selected:
+      - '&7Fade back into the shadows.'
+      - ''
+      - '&aSelected'
+    lore_no_permission:
+      - '&cYou do not have permission.'
+    message:
+      - '<dark_purple>✦ <light_purple>%player%</light_purple> <gray>faded into the shadows...'

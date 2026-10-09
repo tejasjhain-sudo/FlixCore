@@ -1,0 +1,199 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+#####################################################################
+# Party Settings Menu
+#
+# Text formatting:
+# - GUI and dialog text support MiniMessage and legacy & color codes.
+# - Supported examples: <gradient>, <rainbow>, <sprite>, <head>,
+#   <shadow>, <hover>, hex colors such as <#55ff55>, and more.
+#
+# Opening mode:
+# settings.open-mode: gui     -> inventory menu
+# settings.open-mode: dialog  -> Paper dialog, with GUI fallback
+#
+# Dialog placeholders:
+# %player%, %player_name%, %owner%, %party_size%, %max_size%,
+# %max_allowed%, %setting_key%, %setting_name%, %sprite%,
+# %status%, %status_text%, %status_color%, %status_symbol%,
+# %status_with_color%
+# PlaceholderAPI is also supported.
+#
+# Per-item dialog keys:
+# dialog.sprite
+# dialog.text
+# dialog.tooltip
+# dialog.tooltip_enabled
+# dialog.tooltip_disabled
+# dialog.width
+#
+# Party size additionally supports:
+# dialog.decrease-text
+# dialog.decrease-tooltip
+# dialog.increase-text
+# dialog.increase-tooltip
+#
+# A sprite can be shorthand (diamond_sword), a path
+# (item/diamond_sword), or a full <sprite:items:item/...> tag.
+# If omitted, the item's material is used automatically.
+#####################################################################
+
+settings:
+  # gui or dialog
+  open-mode: dialog
+
+dialog:
+  enabled: true
+  title: '&5Party Settings'
+  body:
+    - '&7Manage settings for &f%owner%&7''s party.'
+    - '&7Members: &f%party_size%&7/&f%max_size%'
+  action-columns: 2
+  button-width: 180
+  status:
+    tooltip-line: '%status_with_color%'
+    enabled:
+      text: 'Enabled'
+      color: '&a'
+      symbol: 'ON'
+    disabled:
+      text: 'Disabled'
+      color: '&c'
+      symbol: 'OFF'
+  close:
+    text: '<sprite:items:item/barrier> &cClose'
+    tooltip: '&7Close party settings.'
+
+gui:
+  title: '&5Party Settings'
+  size: 27
+
+items:
+  public-toggle:
+    material: ENDER_EYE
+    slot: 11
+    display_name: '&ePublic Mode'
+    lore_public:
+      - ''
+      - '&7Status: &aPublic'
+      - ''
+      - '&7Anyone can join your party'
+      - '&7using &f/p join <your name>'
+      - ''
+      - '&eClick to toggle'
+    lore_private:
+      - ''
+      - '&7Status: &cPrivate'
+      - ''
+      - '&7Only invited players'
+      - '&7can join your party'
+      - ''
+      - '&eClick to toggle'
+    dialog:
+      sprite: ender_eye
+      text: '%sprite% &fPublic Mode &7➥ %status_with_color%'
+      tooltip_enabled: '&7Anyone can join your party.'
+      tooltip_disabled: '&7Only invited players can join your party.'
+
+  size-limit:
+    material: PLAYER_HEAD
+    slot: 13
+    display_name: '&bParty Size'
+    lore:
+      - ''
+      - '&7Max Members: &f{maxsize}'
+      - ''
+      - '&aLeft Click: &f+2 members'
+      - '&cRight Click: &f-2 members'
+      - ''
+      - '&7Min: 2 | Max: %max_allowed%'
+    dialog:
+      sprite: red_candle
+      width: 180
+      decrease-text: '%sprite% &c-2 &7Party Size: &f%max_size%'
+      decrease-tooltip: '&7Decrease the maximum party size by 2.'
+      increase-text: '%sprite% &a+2 &7Party Size: &f%max_size%'
+      increase-tooltip: '&7Increase the maximum party size by 2. Your limit is %max_allowed%.'
+
+  broadcast-toggle:
+    material: BELL
+    slot: 15
+    display_name: '&6Broadcast Mode'
+    lore_enabled:
+      - ''
+      - '&7Status: &aEnabled'
+      - ''
+      - '&7Your party invite is broadcast'
+      - '&7to all players periodically'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: &cDisabled'
+      - ''
+      - '&7Party invites are not'
+      - '&7broadcast to other players'
+      - ''
+      - '&eClick to toggle'
+    dialog:
+      sprite: bell
+      text: '%sprite% &fBroadcast Mode &7➥ %status_with_color%'
+      tooltip_enabled: '&7Your public party is broadcast periodically.'
+      tooltip_disabled: '&7Your party is not broadcast to other players.'
+
+  imbalance-toggle:
+    material: COMPARATOR
+    slot: 17
+    display_name: '&dAllow Imbalance'
+    lore_enabled:
+      - ''
+      - '&7Status: &aEnabled'
+      - ''
+      - '&7Teams do not need to be'
+      - '&7equal size (e.g. 3v1)'
+      - ''
+      - '&eClick to toggle'
+    lore_disabled:
+      - ''
+      - '&7Status: &cDisabled'
+      - ''
+      - '&7Teams must have equal'
+      - '&7number of players'
+      - ''
+      - '&eClick to toggle'
+    dialog:
+      sprite: comparator
+      text: '%sprite% &fAllow Imbalance &7➥ %status_with_color%'
+      tooltip_enabled: '&7Party teams may have different sizes.'
+      tooltip_disabled: '&7Party teams must have equal sizes.'
+
+  split-teams:
+    material: RED_BANNER
+    slot: 18
+    display_name: '&bSplit Teams'
+    lore:
+      - ''
+      - '&7Choose your preferred team'
+      - '&7before selecting a split kit.'
+      - ''
+      - '&eClick to choose teams'
+    dialog:
+      sprite: painting
+      text: '%sprite% &bSplit Teams'
+      tooltip: '&7Choose preferred teams before selecting a split kit.'
+
+  close:
+    material: BARRIER
+    slot: 22
+    display_name: '&cClose'
+    lore:
+      - ''
+      - '&7Click to close'
+    dialog:
+      sprite: barrier
+      text: '%sprite% &cClose'
+      tooltip: '&7Close party settings.'

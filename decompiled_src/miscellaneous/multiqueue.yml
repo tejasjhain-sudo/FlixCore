@@ -1,0 +1,24 @@
+# When disabled, selecting another kit switches queues exactly like legacy behavior.
+enabled: false
+# Distributed claim lifetime used to prevent duplicate cross-server matches.
+match-claim-seconds: 60
+
+unranked:
+  enabled: true
+  # 0 means unlimited.
+  max-queues: 0
+
+ranked:
+  enabled: true
+  # 0 means unlimited.
+  max-queues: 0
+
+display:
+  # Supports legacy colors.
+  # Queue join/actionbar templates can use %kit%, %queues%, %queue_count%,
+  # %players%, and %in_queue%. Match-found templates additionally support
+  # %opponent%, %kit_sprite%, %queue_sprite%, and %sprite%.
+  separator: '&7, '
+  entry-format: '&f%kit%'
+  max-shown: 3
+  overflow-format: '&7, more...'

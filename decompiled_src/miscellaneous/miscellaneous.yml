@@ -1,0 +1,52 @@
+open-challenge:
+  # Master toggle for /openchallenge.
+  enabled: true
+
+  # Permission required to create an open challenge.
+  permission: "flixcore.openchallenge"
+
+  # Optional permission required to accept open challenges. Leave empty to allow everyone.
+  accept-permission: ""
+
+  # Challenge lifetime and creator cooldown in seconds.
+  expire-seconds: 60
+
+  # Broadcast again while nobody has accepted. Stops after accepted or expired.
+  rebroadcast-seconds: 30
+
+  # Duel rounds used when the challenge is accepted.
+  rounds: 1
+
+  # Whether random kit groups can be used in /openchallenge.
+  allow-random-kits: true
+
+# High-priority score display shown for the entire lifetime of every duel,
+# including match-found delays, countdowns, and time between rounds.
+duel-score-actionbar:
+  enabled: true
+
+  # The display is intentionally resent at this short interval so it overrides
+  # other action bars while a player is in a duel. Minimum: 1 tick.
+  refresh-interval-ticks: 5
+
+  # Rendering order:
+  # 1. FlixCore placeholders below are replaced for each viewer.
+  # 2. Arbitrary PlaceholderAPI placeholders are expanded for that viewer.
+  # 3. The result is parsed as MiniMessage (legacy & colors also work).
+  #
+  # All MiniMessage tags are supported, including player heads. Examples:
+  #   <head:%player_name%>
+  #   <head:%opponent_name%>
+  #   %player_head% and %opponent_head%
+  #
+  # Built-in placeholders:
+  # %player_name%, %opponent_name%, %player_head%, %opponent_head%,
+  # %player_score%, %opponent_score%, %current_round%, %total_rounds%,
+  # %required_wins%, %kit%, %arena%, %duration%, %ranked%
+  #
+  # Per-kit toggles use the kit id. Kits not listed use default-kit-enabled.
+  default-kit-enabled: true
+  kits:
+    bridge: true
+    nethpot: true
+  message: '%player_head% <white>%player_name% <green>%player_score% <gray>- <red>%opponent_score% %opponent_head% <white>%opponent_name%'

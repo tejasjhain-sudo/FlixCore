@@ -1,0 +1,69 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lSelect Armor to Trim'
+  size: 27
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+
+buttons:
+  helmet:
+    slot: 10
+    display_name: '&f&lHelmet'
+    lore:
+      - ''
+      - '&7Click to add trim to helmet'
+      - ''
+      - '&eClick to select!'
+
+  chestplate:
+    slot: 12
+    display_name: '&f&lChestplate'
+    lore:
+      - ''
+      - '&7Click to add trim to chestplate'
+      - ''
+      - '&eClick to select!'
+
+  leggings:
+    slot: 14
+    display_name: '&f&lLeggings'
+    lore:
+      - ''
+      - '&7Click to add trim to leggings'
+      - ''
+      - '&eClick to select!'
+
+  boots:
+    slot: 16
+    display_name: '&f&lBoots'
+    lore:
+      - ''
+      - '&7Click to add trim to boots'
+      - ''
+      - '&eClick to select!'
+
+  done:
+    material: LIME_DYE
+    slot: 22
+    display_name: '&a&lDone'
+    lore:
+      - ''
+      - '&7Return to Kit Editor'
+      - ''
+      - '&aClick to finish!'
+
+  back:
+    material: ARROW
+    slot: 18
+    display_name: '&c&lBack'
+    lore:
+      - ''
+      - '&7Return to Kit Editor'
+      - ''
+      - '&cClick to go back!'

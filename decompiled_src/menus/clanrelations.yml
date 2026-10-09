@@ -1,0 +1,29 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&e&lClan Relations'
+  size: 27
+items:
+  allies:
+    material: LIME_BANNER
+    slot: 11
+    display_name: '&aAllies'
+    lore:
+      - '&7View active allies and requests'
+    action: ally-list
+  rivals:
+    material: RED_BANNER
+    slot: 15
+    display_name: '&cRivals'
+    lore:
+      - '&7View active rivals and requests'
+    action: rival-list
+  back:
+    material: OAK_DOOR
+    slot: 22
+    display_name: '&cBack'
+    action: back

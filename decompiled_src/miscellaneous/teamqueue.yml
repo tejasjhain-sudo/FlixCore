@@ -1,0 +1,26 @@
+enabled: true
+
+team-sizes:
+  - 2
+  - 3
+  - 4
+
+# How frequently network queue counts may be refreshed for menus/placeholders.
+count-cache-millis: 1000
+
+rounds: 1
+first-to: false
+
+actionbar:
+  enabled: true
+  message: "<gold>Team Queue <dark_gray>• <yellow>%team_size%v%team_size% %mode% <dark_gray>• <white>%kit% <dark_gray>• <gray>%time% <dark_gray>• <aqua>%players% waiting"
+
+messages:
+  joined: "<green>Joined the <yellow>%team_size%v%team_size% %mode%</yellow> queue for %kit%."
+  left: "<yellow>Left the team queue."
+  matched: "<green>Team match found for <yellow>%kit%</yellow>!"
+  invalid-party: "<red>Your party must contain exactly %team_size% online players, and you must be its leader."
+  solo-in-party: "<red>Leave your party before joining a solo team queue."
+  party-locked: "<red>Party membership cannot change while the party is in a team queue."
+  already-queued: "<red>You or a party member are already queued or busy."
+  unavailable: "<red>That team queue is currently unavailable."

@@ -1,0 +1,110 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lParty Split - Select Kit'
+  size: 54
+  navigation:
+    previous:
+      slot: 45
+      material: ARROW
+      display-name: '&ePrevious Page'
+      lore:
+        - '&7Page %menu_page%/%menu_total_pages%'
+    next:
+      slot: 53
+      material: ARROW
+      display-name: '&aNext Page'
+      lore:
+        - '&7Page %menu_page%/%menu_total_pages%'
+  
+kits:
+  tank:
+    kitid: 'tank'
+    display-name: '&eTank'
+    material: DIAMOND_SWORD
+    slot: 10
+    lore:
+      - '&7Tank kit for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+  
+  debuff:
+    kitid: 'Debuff'
+    display-name: '&eDebuff'
+    material: IRON_SWORD
+    slot: 11
+    lore:
+      - '&7Debuff kit for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+  
+  gapple:
+    kitid: 'Gapple'
+    display-name: '&eGapple'
+    material: GOLDEN_APPLE
+    slot: 12
+    lore:
+      - '&7Gapple kit for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+  
+  soup:
+    kitid: 'Soup'
+    display-name: '&eSoup'
+    material: MUSHROOM_STEW
+    slot: 13
+    lore:
+      - '&7Soup kit for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+  
+  sumo:
+    kitid: 'Sumo'
+    display-name: '&eSumo'
+    material: STICK
+    slot: 14
+    lore:
+      - '&7Sumo wrestling for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+  
+  builduhc:
+    kitid: 'BuildUHC'
+    display-name: '&eBuildUHC'
+    material: COBBLESTONE
+    slot: 15
+    lore:
+      - '&7BuildUHC kit for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+  
+  combo:
+    kitid: 'Combo'
+    display-name: '&eCombo'
+    material: FISHING_ROD
+    slot: 16
+    lore:
+      - '&7Combo kit for Split'
+      - '&7Party splits into 2 teams'
+      - ''
+      - '&eClick to start'
+
+items:
+  back:
+    material: ARROW
+    slot: 49
+    display_name: '&c&lBack'
+    lore:
+      - ''
+      - '&7Return to party management'
+

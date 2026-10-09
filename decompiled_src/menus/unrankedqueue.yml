@@ -1,0 +1,476 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: "<shadow:#000000aa><gradient:#ff7a18:#af002d:#319197>Queue Menu</gradient></shadow>"
+  size: 54
+  item-attributes:
+    - HIDE_ADDITIONAL_TOOLTIP
+    - HIDE_ATTRIBUTES
+  navigation:
+    previous:
+      slot: 45
+      material: ARROW
+      display-name: "<yellow>Previous Page"
+      lore:
+        - "<gray>Page <white>%menu_page%</white>/<white>%menu_total_pages%</white>"
+    next:
+      slot: 53
+      material: ARROW
+      display-name: "<green>Next Page"
+      lore:
+        - "<gray>Page <white>%menu_page%</white>/<white>%menu_total_pages%</white>"
+    category:
+      all:
+        slot: 47
+        material: COMPASS
+        display-name: "<sprite:items:item/compass> <aqua>All Kits"
+        lore:
+          - "<gray>Browse every queue kit."
+      pvp:
+        slot: 49
+        material: DIAMOND_SWORD
+        display-name: "<sprite:items:item/diamond_sword> <red>PvP Kits"
+        lore:
+          - "<gray>Pot, crystal, sword, and combat kits."
+      special:
+        slot: 51
+        material: NETHER_STAR
+        display-name: "<sprite:items:item/nether_star> <light_purple>Special Kits"
+        lore:
+          - "<gray>Fun, movement, and minigame queues."
+  categories:
+    all:
+      title: "<shadow:#000000aa><gradient:#ff7a18:#af002d:#319197>All Queue Kits</gradient></shadow>"
+      pages:
+        0:
+          items:
+            randomqueue: &randomqueue
+              kit: randomkit
+              material: BARREL
+              dynamic_amount: "%flixcore_in_fight_count_randomkit%"
+              slot: 4
+              display-name: "<sprite:items:item/barrel> <red>♻ Random Queue"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play with a"
+                - "<red>random kit"
+                - ""
+                - "<red>● <white>In Queue: <red>%flixcore_in_queue_count_randomkit%"
+                - "<red>● <white>In Fight: <red>%flixcore_in_fight_count_randomkit%"
+                - ""
+                - "<red>Click to join queue!"
+            tank: &tank
+              kit: tank
+              material: DIAMOND_SWORD
+              slot: 10
+              display-name: "<sprite:items:item/diamond_sword> <#41A7FA>Tank"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#41A7FA>Tank"
+                - ""
+                - "<#41A7FA>● <white>In Queue: <#41A7FA>%flixcore_in_queue_count_tank%"
+                - "<#41A7FA>● <white>In Fight: <#41A7FA>%flixcore_in_fight_count_tank%"
+                - ""
+                - "<#41A7FA>Click to join queue!"
+            axe: &axe
+              kit: axeandshield
+              material: DIAMOND_AXE
+              slot: 11
+              display-name: "<sprite:items:item/diamond_axe> <#7FFA41>Axe PvP"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#7FFA41>Axe PvP"
+                - ""
+                - "<#7FFA41>● <white>In Queue: <#7FFA41>%flixcore_in_queue_count_axeandshield%"
+                - "<#7FFA41>● <white>In Fight: <#7FFA41>%flixcore_in_fight_count_axeandshield%"
+                - ""
+                - "<#7FFA41>Click to join queue!"
+            nethpot: &nethpot
+              kit: nethpot
+              material: NETHERITE_SWORD
+              slot: 12
+              display-name: "<sprite:items:item/netherite_sword> <#7C2CF3>Nethpot"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#7C2CF3>Nethpot"
+                - ""
+                - "<#7C2CF3>● <white>In Queue: <#7C2CF3>%flixcore_in_queue_count_nethpot%"
+                - "<#7C2CF3>● <white>In Fight: <#7C2CF3>%flixcore_in_fight_count_nethpot%"
+                - ""
+                - "<#7C2CF3>Click to join queue!"
+            manhunt: &manhunt
+              kit: manhunt
+              material: MINECART
+              slot: 13
+              display-name: "<sprite:items:item/minecart> <#F37D2C>Manhunt"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#F37D2C>Manhunt"
+                - ""
+                - "<#F37D2C>● <white>In Queue: <#F37D2C>%flixcore_in_queue_count_manhunt%"
+                - "<#F37D2C>● <white>In Fight: <#F37D2C>%flixcore_in_fight_count_manhunt%"
+                - ""
+                - "<#F37D2C>Click to join queue!"
+            cartpvp: &cartpvp
+              kit: cartpvp
+              material: TNT_MINECART
+              slot: 14
+              display-name: "<sprite:items:item/tnt_minecart> <#F32C2C>Cart PvP"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#F32C2C>Cart PvP"
+                - ""
+                - "<#F32C2C>● <white>In Queue: <#F32C2C>%flixcore_in_queue_count_cartpvp%"
+                - "<#F32C2C>● <white>In Fight: <#F32C2C>%flixcore_in_fight_count_cartpvp%"
+                - ""
+                - "<#F32C2C>Click to join queue!"
+            doorpvp: &doorpvp
+              kit: doorpvp
+              material: IRON_DOOR
+              slot: 15
+              display-name: "<sprite:items:item/iron_door> <#F5C23E>Door PvP"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#F5C23E>Door PvP"
+                - ""
+                - "<#F5C23E>● <white>In Queue: <#F5C23E>%flixcore_in_queue_count_doorpvp%"
+                - "<#F5C23E>● <white>In Fight: <#F5C23E>%flixcore_in_fight_count_doorpvp%"
+                - ""
+                - "<#F5C23E>Click to join queue!"
+            opduels: &opduels
+              kit: opduels
+              material: GOLDEN_APPLE
+              slot: 16
+              display-name: "<sprite:items:item/golden_apple> <#FA6F11>OP Duels"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FA6F11>OP Duels"
+                - ""
+                - "<#FA6F11>● <white>In Queue: <#FA6F11>%flixcore_in_queue_count_opduels%"
+                - "<#FA6F11>● <white>In Fight: <#FA6F11>%flixcore_in_fight_count_opduels%"
+                - ""
+                - "<#FA6F11>Click to join queue!"
+            smpkit: &smpkit
+              kit: smpkit
+              material: COBWEB
+              slot: 19
+              display-name: "<sprite:items:item/cobweb> <#FA114A>SMP Kit"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FA114A>SMP Kit"
+                - ""
+                - "<#FA114A>● <white>In Queue: <#FA114A>%flixcore_in_queue_count_smpkit%"
+                - "<#FA114A>● <white>In Fight: <#FA114A>%flixcore_in_fight_count_smpkit%"
+                - ""
+                - "<#FA114A>Click to join queue!"
+            builduhc: &builduhc
+              kit: builduhc
+              material: LAVA_BUCKET
+              slot: 20
+              display-name: "<sprite:items:item/lava_bucket> <#FA5D11>Build UHC"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FA5D11>Build UHC"
+                - ""
+                - "<#FA5D11>● <white>In Queue: <#FA5D11>%flixcore_in_queue_count_builduhc%"
+                - "<#FA5D11>● <white>In Fight: <#FA5D11>%flixcore_in_fight_count_builduhc%"
+                - ""
+                - "<#FA5D11>Click to join queue!"
+            diapot: &diapot
+              kit: diamondpot
+              material: DIAMOND_SWORD
+              slot: 21
+              display-name: "<sprite:items:item/diamond_sword> <#11A5FA>Diamond Pot"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#11A5FA>Diamond Pot"
+                - ""
+                - "<#11A5FA>● <white>In Queue: <#11A5FA>%flixcore_in_queue_count_diamondpot%"
+                - "<#11A5FA>● <white>In Fight: <#11A5FA>%flixcore_in_fight_count_diamondpot%"
+                - ""
+                - "<#11A5FA>Click to join queue!"
+            fireball: &fireball
+              kit: fireball
+              material: FIRE_CHARGE
+              slot: 22
+              display-name: "<sprite:items:item/fire_charge> <#9863E7>Fireball"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#9863E7>Fireball"
+                - ""
+                - "<#9863E7>● <white>In Queue: <#9863E7>%flixcore_in_queue_count_fireball%"
+                - "<#9863E7>● <white>In Fight: <#9863E7>%flixcore_in_fight_count_fireball%"
+                - ""
+                - "<#9863E7>Click to join queue!"
+            bowpvp: &bowpvp
+              kit: bowpvp
+              material: BOW
+              slot: 23
+              display-name: "<sprite:items:item/bow> <#FD5AB2>Bow PvP"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FD5AB2>Bow PvP"
+                - ""
+                - "<#FD5AB2>● <white>In Queue: <#FD5AB2>%flixcore_in_queue_count_bowpvp%"
+                - "<#FD5AB2>● <white>In Fight: <#FD5AB2>%flixcore_in_fight_count_bowpvp%"
+                - ""
+                - "<#FD5AB2>Click to join queue!"
+            spleef: &spleef
+              kit: spleef
+              material: DIAMOND_SHOVEL
+              slot: 24
+              display-name: "<sprite:items:item/diamond_shovel> <#51B2FF>Spleef"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#51B2FF>Spleef"
+                - ""
+                - "<#51B2FF>● <white>In Queue: <#51B2FF>%flixcore_in_queue_count_spleef%"
+                - "<#51B2FF>● <white>In Fight: <#51B2FF>%flixcore_in_fight_count_spleef%"
+                - ""
+                - "<#51B2FF>Click to join queue!"
+            bridge: &bridge
+              kit: thebridge
+              material: BLUE_TERRACOTTA
+              slot: 25
+              display-name: "<sprite:items:item/blue_terracotta> <#F56334>The Bridge"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#F56334>The Bridge"
+                - ""
+                - "<#F56334>● <white>In Queue: <#F56334>%flixcore_in_queue_count_thebridge%"
+                - "<#F56334>● <white>In Fight: <#F56334>%flixcore_in_fight_count_thebridge%"
+                - ""
+                - "<#F56334>Click to join queue!"
+        1:
+          items:
+            oneshot: &oneshot
+              kit: oneshot
+              material: ARROW
+              dynamic_amount: "%flixcore_in_fight_count_oneshot%"
+              slot: 10
+              display-name: "<sprite:items:item/arrow> <#7DBCEF>OneShot"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#7DBCEF>OneShot"
+                - ""
+                - "<#7DBCEF>● <white>In Queue: <#7DBCEF>%flixcore_in_queue_count_oneshot%"
+                - "<#7DBCEF>● <white>In Fight: <#7DBCEF>%flixcore_in_fight_count_oneshot%"
+                - ""
+                - "<#7DBCEF>Click to join queue!"
+            onetap: &onetap
+              kit: onetap
+              material: BLAZE_ROD
+              dynamic_amount: "%flixcore_in_fight_count_onetap%"
+              slot: 11
+              display-name: "<sprite:items:item/blaze_rod> <#BF9AF6>OneTap"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#BF9AF6>OneTap"
+                - ""
+                - "<#BF9AF6>● <white>In Queue: <#BF9AF6>%flixcore_in_queue_count_onetap%"
+                - "<#BF9AF6>● <white>In Fight: <#BF9AF6>%flixcore_in_fight_count_onetap%"
+                - ""
+                - "<#BF9AF6>Click to join queue!"
+            creeper: &creeper
+              kit: creeper
+              material: CREEPER_HEAD
+              dynamic_amount: "%flixcore_in_fight_count_creeper%"
+              slot: 12
+              display-name: "<sprite:items:item/creeper_head> <#92FF64>Creeper PvP"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#92FF64>Creeper PvP"
+                - ""
+                - "<#92FF64>● <white>In Queue: <#92FF64>%flixcore_in_queue_count_creeper%"
+                - "<#92FF64>● <white>In Fight: <#92FF64>%flixcore_in_fight_count_creeper%"
+                - ""
+                - "<#92FF64>Click to join queue!"
+            totembreaker: &totembreaker
+              kit: totembreak
+              material: TOTEM_OF_UNDYING
+              dynamic_amount: "%flixcore_in_fight_count_totembreak%"
+              slot: 13
+              display-name: "<sprite:items:item/totem_of_undying> <#FCD87F>Totem Breaker"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FCD87F>Totem Breaker"
+                - ""
+                - "<#FCD87F>● <white>In Queue: <#FCD87F>%flixcore_in_queue_count_totembreak%"
+                - "<#FCD87F>● <white>In Fight: <#FCD87F>%flixcore_in_fight_count_totembreak%"
+                - ""
+                - "<#FCD87F>Click to join queue!"
+            sumo: &sumo
+              kit: sumo
+              material: SLIME_BALL
+              dynamic_amount: "%flixcore_in_fight_count_sumo%"
+              slot: 14
+              display-name: "<sprite:items:item/slime_ball> <#AEFC7F>Sumo"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#AEFC7F>Sumo"
+                - ""
+                - "<#AEFC7F>● <white>In Queue: <#AEFC7F>%flixcore_in_queue_count_sumo%"
+                - "<#AEFC7F>● <white>In Fight: <#AEFC7F>%flixcore_in_fight_count_sumo%"
+                - ""
+                - "<#AEFC7F>Click to join queue!"
+            resistence: &resistence
+              kit: resistence
+              material: IRON_CHESTPLATE
+              dynamic_amount: "%flixcore_in_fight_count_resistence%"
+              slot: 15
+              display-name: "<sprite:items:item/iron_chestplate> <#FD76BF>Resistence"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FD76BF>Resistence"
+                - ""
+                - "<#FD76BF>● <white>In Queue: <#FD76BF>%flixcore_in_queue_count_resistence%"
+                - "<#FD76BF>● <white>In Fight: <#FD76BF>%flixcore_in_fight_count_resistence%"
+                - ""
+                - "<#FD76BF>Click to join queue!"
+            hoplite: &hoplite
+              kit: hoplite
+              material: PIGLIN_HEAD
+              dynamic_amount: "%flixcore_in_fight_count_hoplite%"
+              slot: 16
+              display-name: "<sprite:items:item/piglin_head> <#FF9D3F>Hoplite"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FF9D3F>Hoplite"
+                - ""
+                - "<#FF9D3F>● <white>In Queue: <#FF9D3F>%flixcore_in_queue_count_hoplite%"
+                - "<#FF9D3F>● <white>In Fight: <#FF9D3F>%flixcore_in_fight_count_hoplite%"
+                - ""
+                - "<#FF9D3F>Click to join queue!"
+            clasiccrystal: &clasiccrystal
+              kit: clasiccpvp
+              material: END_CRYSTAL
+              slot: 20
+              display-name: "<sprite:items:item/end_crystal> <#FF53B0>Classic Crystal"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FF53B0>Classic Crystal"
+                - ""
+                - "<#E43A96>● <white>In Queue: <#E43A96>%flixcore_in_queue_count_clasiccpvp%"
+                - "<#E43A96>● <white>In Fight: <#E43A96>%flixcore_in_fight_count_clasiccpvp%"
+                - ""
+                - "<#E43A96>Click to join queue!"
+            crystalffa: &crystalffa
+              kit: cpvpffa
+              material: GRASS_BLOCK
+              slot: 21
+              display-name: "<sprite:items:item/grass_block> <#9863E7>Crystal FFA"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#9863E7>Crystal FFA"
+                - ""
+                - "<#9863E7>● <white>In Queue: <#9863E7>%flixcore_in_queue_count_cpvpffa%"
+                - "<#9863E7>● <white>In Fight: <#9863E7>%flixcore_in_fight_count_cpvpffa%"
+                - ""
+                - "<#9863E7>Click to join queue!"
+            crystalflat: &crystalflat
+              kit: cpvpflat
+              material: NETHERITE_BLOCK
+              slot: 22
+              display-name: "<sprite:items:item/netherite_block> <#9863E7>Crystal Flat"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#9863E7>Crystal Flat"
+                - ""
+                - "<#9863E7>● <white>In Queue: <#9863E7>%flixcore_in_queue_count_cpvpflat%"
+                - "<#9863E7>● <white>In Fight: <#9863E7>%flixcore_in_fight_count_cpvpflat%"
+                - ""
+                - "<#9863E7>Click to join queue!"
+            lifesteal: &lifesteal
+              kit: lifesteal
+              material: RED_DYE
+              slot: 23
+              display-name: "<sprite:items:item/red_dye> <#FF2424>Lifesteal"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#FF2424>Lifesteal"
+                - ""
+                - "<#FF2424>● <white>In Queue: <#FF2424>%flixcore_in_queue_count_lifesteal%"
+                - "<#FF2424>● <white>In Fight: <#FF2424>%flixcore_in_fight_count_lifesteal%"
+                - ""
+                - "<#FF2424>Click to join queue!"
+            macepvp: &macepvp
+              kit: macepvp
+              material: MACE
+              slot: 24
+              display-name: "<sprite:items:item/mace> <#5442FF>Mace PvP"
+              lore:
+                - "<dark_gray>2v2 Queue"
+                - ""
+                - "<white>Click to play <#5442FF>Mace PvP"
+                - ""
+                - "<#5442FF>● <white>In Queue: <#5442FF>%flixcore_in_queue_count_macepvp%"
+                - "<#5442FF>● <white>In Fight: <#5442FF>%flixcore_in_fight_count_macepvp%"
+                - ""
+                - "<#5442FF>Click to join queue!"
+    pvp:
+      title: "<shadow:#000000aa><red>PvP Queue Kits</red></shadow>"
+      pages:
+        0:
+          items:
+            tank: *tank
+            axe: *axe
+            nethpot: *nethpot
+            opduels: *opduels
+            smpkit: *smpkit
+            builduhc: *builduhc
+            diapot: *diapot
+            bowpvp: *bowpvp
+            clasiccrystal: *clasiccrystal
+            crystalffa: *crystalffa
+            crystalflat: *crystalflat
+            lifesteal: *lifesteal
+            macepvp: *macepvp
+            totembreaker: *totembreaker
+            resistence: *resistence
+            hoplite: *hoplite
+    special:
+      title: "<shadow:#000000aa><light_purple>Special Queue Kits</light_purple></shadow>"
+      pages:
+        0:
+          items:
+            randomqueue: *randomqueue
+            manhunt: *manhunt
+            cartpvp: *cartpvp
+            doorpvp: *doorpvp
+            fireball: *fireball
+            spleef: *spleef
+            bridge: *bridge
+            oneshot: *oneshot
+            onetap: *onetap
+            creeper: *creeper
+            sumo: *sumo

@@ -1,0 +1,174 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&5&lParty Management'
+  size: 27
+
+items:
+  party-ffa:
+    material: DIAMOND_SWORD
+    slot: 11
+    display_name: '&6&lParty FFA'
+    lore:
+      - ''
+      - '&7Free-for-all battle!'
+      - '&7All members fight each other'
+      - ''
+      - '&fMembers: &e{size}'
+      - ''
+      - '&eClick to select kit'
+
+  party-split:
+    material: IRON_SWORD
+    slot: 13
+    display_name: '&b&lParty Split'
+    lore:
+      - ''
+      - '&7Team vs Team!'
+      - '&7Split party into 2 teams'
+      - ''
+      - '&9Team 1: &f{team1} &7members'
+      - '&cTeam 2: &f{team2} &7members'
+      - ''
+      - '&eClick to select kit'
+
+  party-vs:
+    material: GOLDEN_SWORD
+    slot: 15
+    display_name: '&d&lParty vs Party'
+    lore:
+      - ''
+      - '&7Challenge another party!'
+      - '&7Your party vs their party'
+      - ''
+      - '&fYour Members: &e{size}'
+      - ''
+      - '&eClick to challenge a party'
+
+  invite-friends:
+    material: PLAYER_HEAD
+    slot: 16
+    display_name: '&a&l+ Invite Friends'
+    lore:
+      - ''
+      - '&7Directly invite your friends to the party!'
+      - ''
+      - '&eClick to open'
+
+  close:
+    material: BARRIER
+    slot: 22
+    display_name: '&c&lClose'
+    lore:
+      - ''
+      - '&7Click to close'
+
+invite-friends:
+  gui:
+    title: '&9&lInvite Friends &8(&a%included%&8/&f%eligible%&8)'
+    size: 54
+    item-attributes:
+      - HIDE_ADDITIONAL_TOOLTIP
+      - HIDE_ATTRIBUTES
+
+  filler:
+    enabled: true
+    material: GRAY_STAINED_GLASS_PANE
+    display_name: ' '
+    custom-model-data: -1
+
+  friend-item:
+    slots:
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+    included:
+      material: PLAYER_HEAD
+      display-name: '&a%player%'
+      lore:
+        - ''
+        - '&aIncluded in the invitation'
+        - '&7Party: &f%party_size%&7/&f%party_max%'
+        - ''
+        - '&eClick to exclude'
+      custom-model-data: -1
+    excluded:
+      material: RED_STAINED_GLASS_PANE
+      display-name: '&c%player% &7(Excluded)'
+      lore:
+        - ''
+        - '&cThis friend will not be invited.'
+        - ''
+        - '&eClick to include again'
+      custom-model-data: -1
+
+  empty:
+    slot: 22
+    material: BARRIER
+    display_name: '&cNo friends to invite'
+    lore:
+      - ''
+      - '&7No online inviteable friends were found.'
+
+  back:
+    material: ARROW
+    slot: 45
+    display_name: '&cBack'
+    lore:
+      - '&7Return to party management.'
+
+  previous:
+    material: ARROW
+    slot: 48
+    display_name: '&ePrevious Page'
+    lore:
+      - '&7Go back one page.'
+
+  close:
+    material: BARRIER
+    slot: 49
+    display_name: '&cClose'
+    lore:
+      - '&7Close this menu.'
+
+  next:
+    material: ARROW
+    slot: 50
+    display_name: '&eNext Page'
+    lore:
+      - '&7Go forward one page.'
+
+  confirm:
+    material: LIME_DYE
+    slot: 53
+    display_name: '&a&lConfirm Invitations'
+    lore:
+      - ''
+      - '&7Included: &a%included%'
+      - '&7Excluded: &c%excluded%'
+      - '&7Online friends: &f%eligible%'
+      - ''
+      - '&eClick to send party invites'
+    custom-model-data: -1

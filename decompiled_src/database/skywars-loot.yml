@@ -1,0 +1,46 @@
+skywars-loot:
+  enabled: true
+  scan-radius: 10
+
+  tier1:
+    min-items: 2
+    max-items: 4
+    items:
+      - "IRON_SWORD"
+      - "BREAD:5"
+      - "LEATHER_CHESTPLATE"
+      - "LEATHER_LEGGINGS"
+      - "LEATHER_BOOTS"
+      - "ARROW:8"
+      - "COBBLESTONE:16"
+      - "OAK_PLANKS:8"
+      - "COOKED_BEEF:3"
+
+  tier2:
+    min-items: 4
+    max-items: 7
+    items:
+      - "GOLDEN_APPLE:2"
+      - "ENDER_PEARL:2"
+      - "DIAMOND_SWORD"
+      - "DIAMOND_CHESTPLATE"
+      - "DIAMOND_LEGGINGS"
+      - "DIAMOND_BOOTS"
+      - "BOW"
+      - "ARROW:16"
+      - "COBBLESTONE:32"
+      - material: IRON_SWORD
+        enchantments:
+          SHARPNESS: 2
+          UNBREAKING: 1
+      - material: BOW
+        enchantments:
+          POWER: 2
+          INFINITY: 1
+      - material: DIAMOND_CHESTPLATE
+        enchantments:
+          PROTECTION: 2
+
+  projectile-knockback:
+    strength: 0.5
+    y-force: 0.3

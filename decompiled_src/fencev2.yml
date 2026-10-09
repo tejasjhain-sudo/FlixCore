@@ -1,0 +1,136 @@
+# Fence Animation Configuration (v2)
+# This animation shows cage walls that rise up and then close down
+
+enabled: true
+
+setup-wand:
+  material: "WOODEN_AXE"
+  name: "&6FenceV2 Arena Wand"
+  lore:
+    - "&eLeft click &7the bottom opposite corner"
+    - "&eRight click &7the top opposite corner"
+  custom-model-data: -1
+  glow: true
+
+size:
+  # horizontal size of each wall (number of columns)
+  width: 3
+  # vertical size of each wall (number of rows)
+  height: 4
+
+# Wall configuration - which sides to spawn
+walls:
+  # Only front wall rises (true) or all walls rise together (false)
+  front-only-rise: true
+  
+  # Front wall (always spawns)
+  red-block: "RED_STAINED_GLASS"
+  blue-block: "BLUE_STAINED_GLASS"
+  
+  # Top/ceiling blocks
+  top-block: true
+  red-top-block: "RED_STAINED_GLASS"
+  blue-top-block: "BLUE_STAINED_GLASS"
+  
+  # Left and right side walls
+  side-blocks: true
+  red-side-block: "RED_STAINED_GLASS"
+  blue-side-block: "BLUE_STAINED_GLASS"
+  
+  # Back wall
+  back-side-block: true
+  red-back-block: "RED_STAINED_GLASS"
+  blue-back-block: "BLUE_STAINED_GLASS"
+
+  # After the close animation finishes, keep the wall as real blocks
+  # instead of removing them. Only applies when close_animation is true.
+  front-persist: false
+  top-persist: false
+  side-persist: false
+  back-persist: false
+
+animation:
+  # ticks taken to move the wall UP or DOWN
+  duration: 20
+  # delay before wall starts moving up (gives players time to load/orient)
+  delay_before_move: 20
+  # how many blocks the wall visually moves up
+  move_up_by: 3.0
+  # ticks the wall stays open before closing
+  hold_duration: 40
+  # Enable or disable the closing animation.
+  #  true  -> walls slide back down smoothly (with closing sound)
+  #  false -> walls simply disappear at the end of hold_duration (no slide, no closing sound)
+  close_animation: true
+
+barrier:
+  # spawns temporary barrier blocks during animation
+  # prevents players from walking through early
+  # barriers are removed only when animation fully completes
+  enabled: true
+
+# Distance from player spawn to each wall
+distance:
+  # front wall distance (in front of player)
+  front: 3
+  # left/right side walls distance
+  sides: 3
+  # back wall distance (behind player)
+  back: 3
+
+wall:
+  # radius around wall center where players get checked
+  eject_radius: 5.0
+  # how far forward players are teleported when wall closes
+  eject_forward: 4.0
+
+# Kits that should NOT use fence animation
+disabled-kits:
+  - sumo
+  - boxing
+
+# Ready-up: players can hit the fence barrier to skip countdown
+# All messages are shown as action bars
+ready-up:
+  enabled: true
+  message: "&a✔ You are ready! Waiting for opponent..."
+  opponent-ready-message: "&e⚡ Your opponent is ready!"
+  both-ready-message: "&a⚔ Both players ready! Starting now!"
+
+# Sound configuration
+# Use minecraft namespace format: minecraft:block.grindstone.use
+# Or Bukkit Sound enum format: BLOCK_GRINDSTONE_USE
+sounds:
+  # played repeatedly while the wall is moving UP
+  wall_opening:
+    enabled: true
+    key: minecraft:block.grindstone.use
+    source: master
+    volume: 1.0
+    pitch: 0.2
+    interval: 18
+
+  # played ONCE when the wall reaches the top
+  wall_opened:
+    enabled: true
+    key: minecraft:block.vault.open_shutter
+    source: master
+    volume: 1.2
+    pitch: 0.8
+
+  # played repeatedly while the wall is moving DOWN
+  wall_closing:
+    enabled: true
+    key: minecraft:block.grindstone.use
+    source: master
+    volume: 1.0
+    pitch: 0.2
+    interval: 18
+
+  # played ONCE when the wall fully closes
+  wall_closed:
+    enabled: true
+    key: minecraft:block.vault.open_shutter
+    source: master
+    volume: 1.2
+    pitch: 0.8

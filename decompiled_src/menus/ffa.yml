@@ -1,0 +1,284 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+#####################################################################
+# FFA GUI
+# Opens with: /ffa or /ffa gui
+# Reload with: /flixcore reload ffa
+#
+# This is ONE YAML file with multiple categories.
+# Use [openmenu] <category> or [opencategory] <category> to switch views.
+#
+# Supported item keys:
+# material, amount, slot, slots, display_name, lore, custom-model-data,
+# glow, item_flags, enchantments, click_commands
+#
+# Supported commands:
+# [sound] SOUND_NAME [volume] [pitch] (volume/pitch default to 1.0)
+# [player] command without slash
+# [console] command without slash
+# [close]
+# [openmenu] category_id
+# [opencategory] category_id
+#
+# Joining FFA from GUI:
+# [player] ffa join <arena> [position|-] [kit]
+# Examples:
+# [player] ffa join nethpot - nethpot
+# [player] ffa join arena1 spawn1 builduhc
+#
+# Supports PlaceholderAPI and these built-in placeholders:
+# %player%, %player_name%, %server_online%, %menu_category%
+# %flixcore_ffa_players_<arena>%, %ffa_players_<arena>%
+#####################################################################
+
+menu_title: '&8FFA'
+size: 27
+update_interval: 1
+default_category: early_game
+
+# Applied to every item unless the item adds more flags.
+item_flags:
+  - HIDE_ATTRIBUTES
+  - HIDE_ADDITIONAL_TOOLTIP
+
+categories:
+  early_game:
+    title: '&8FFA &7- &aEarly Game'
+    items:
+      early_game:
+        material: GOLDEN_APPLE
+        slot: 2
+        display_name: '&a&lEARLY GAME'
+        item_flags:
+          - HIDE_ENCHANTS
+        enchantments:
+          - 'MENDING;1'
+        lore:
+          - ''
+          - '&7Kits suited for early game'
+          - '&7combat and practice.'
+          - ''
+          - '&a* SELECTED'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+
+      late_game:
+        material: END_CRYSTAL
+        slot: 4
+        display_name: '&c&lLATE GAME'
+        lore:
+          - ''
+          - '&7Click to view high-tier'
+          - '&7late game combat.'
+          - ''
+          - '&c-> CLICK TO OPEN'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[openmenu] late_game'
+
+      fun_games:
+        material: SLIME_BALL
+        slot: 6
+        display_name: '&d&lFUN GAMES'
+        lore:
+          - ''
+          - '&7Click to view casual and fun'
+          - '&7mini-game style FFAs.'
+          - ''
+          - '&d-> CLICK TO OPEN'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[openmenu] fun_games'
+
+      nethpot:
+        material: NETHERITE_SWORD
+        slot: 20
+        display_name: '&cNethpot'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_nethpot%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join nethpot - nethpot'
+          - '[close]'
+
+      diapot:
+        material: DIAMOND_HELMET
+        slot: 21
+        display_name: '&cDiaPot'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_diapot%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join diapot - diapot'
+          - '[close]'
+
+      filler:
+        material: GRAY_STAINED_GLASS_PANE
+        slots: [0-1, 3, 5, 7-19, 22-26]
+        display_name: ' '
+
+  late_game:
+    title: '&8FFA &7- &cLate Game'
+    items:
+      early_game:
+        material: GOLDEN_APPLE
+        slot: 2
+        display_name: '&a&lEARLY GAME'
+        lore:
+          - ''
+          - '&7Click to view early game FFAs.'
+          - ''
+          - '&a-> CLICK TO OPEN'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[openmenu] early_game'
+
+      late_game:
+        material: END_CRYSTAL
+        slot: 4
+        display_name: '&c&lLATE GAME'
+        item_flags:
+          - HIDE_ENCHANTS
+        enchantments:
+          - 'MENDING;1'
+        lore:
+          - ''
+          - '&7High-tier/late game combat.'
+          - ''
+          - '&c* SELECTED'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+
+      fun_games:
+        material: SLIME_BALL
+        slot: 6
+        display_name: '&d&lFUN GAMES'
+        lore:
+          - ''
+          - '&7Click to view casual FFAs.'
+          - ''
+          - '&d-> CLICK TO OPEN'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[openmenu] fun_games'
+
+      nethpot:
+        material: NETHERITE_SWORD
+        slot: 20
+        display_name: '&cNethpot'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_nethpot%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join nethpot - nethpot'
+          - '[close]'
+
+      diapot:
+        material: DIAMOND_HELMET
+        slot: 21
+        display_name: '&cDiaPot'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_diapot%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join diapot - diapot'
+          - '[close]'
+
+      vanilla_crystal:
+        material: END_CRYSTAL
+        slot: 22
+        display_name: '&dVanilla Crystal'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_cpvplt%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join cpvplt - cpvplt'
+          - '[close]'
+
+      filler:
+        material: GRAY_STAINED_GLASS_PANE
+        slots: [0-1, 3, 5, 7-19, 23-26]
+        display_name: ' '
+
+  fun_games:
+    title: '&8FFA &7- &dFun Games'
+    items:
+      early_game:
+        material: GOLDEN_APPLE
+        slot: 2
+        display_name: '&a&lEARLY GAME'
+        lore:
+          - ''
+          - '&7Click to view early game FFAs.'
+          - ''
+          - '&a-> CLICK TO OPEN'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[openmenu] early_game'
+
+      late_game:
+        material: END_CRYSTAL
+        slot: 4
+        display_name: '&c&lLATE GAME'
+        lore:
+          - ''
+          - '&7Click to view late game FFAs.'
+          - ''
+          - '&c-> CLICK TO OPEN'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[openmenu] late_game'
+
+      fun_games:
+        material: SLIME_BALL
+        slot: 6
+        display_name: '&d&lFUN GAMES'
+        item_flags:
+          - HIDE_ENCHANTS
+        enchantments:
+          - 'MENDING;1'
+        lore:
+          - ''
+          - '&7Casual and fun mini-game FFAs.'
+          - ''
+          - '&d* SELECTED'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+
+      mace:
+        material: MACE
+        slot: 20
+        display_name: '&cMace'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_mace%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join mace - mace'
+          - '[close]'
+
+      spear:
+        material: TRIDENT
+        slot: 21
+        display_name: '&cSpear'
+        lore:
+          - '&7Players: &f%flixcore_ffa_players_spear%'
+          - '&7Click to join FFA'
+        click_commands:
+          - '[sound] UI_BUTTON_CLICK'
+          - '[player] ffa join spear - spear'
+          - '[close]'
+
+      filler:
+        material: GRAY_STAINED_GLASS_PANE
+        slots: [0-1, 3, 5, 7-19, 22-26]
+        display_name: ' '

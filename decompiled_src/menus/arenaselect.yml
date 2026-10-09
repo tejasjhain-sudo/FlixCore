@@ -1,0 +1,127 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  enabled: false
+  title: '&8Select Arena &7(%page%/%total_pages%)'
+  size: 54
+
+pagination:
+  enabled: true
+
+arena-item:
+  material: MAP
+  display-name: '&a%arena_display%'
+  lore:
+    - '&7Kit: &f%kit%'
+    - '&7Type: &f%type%'
+    - '&7Assigned: &f%assigned%'
+    - '&7Rounds: &f%rounds%'
+    - ''
+    - '&eClick to choose this arena.'
+  custom-model-data: -1
+  slots:
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+
+group-item:
+  material: MAP
+  display-name: '&a%group_display%'
+  lore:
+    - '&7Kit: &f%kit%'
+    - '&7Available: &f%available_count%&7/&f%arena_count%'
+    - '&7Rounds: &f%rounds%'
+    - ''
+    - '&eClick to view arenas in this group.'
+  custom-model-data: -1
+
+back-to-groups:
+  material: ARROW
+  display-name: '&eBack to Groups'
+  lore:
+    - '&7Return to arena groups.'
+  custom-model-data: -1
+
+close:
+  slot: 49
+  material: BARRIER
+  display-name: '&cClose'
+  lore:
+    - '&7Cancel arena selection.'
+  custom-model-data: -1
+
+previous-page:
+  slot: 48
+  material: ARROW
+  display-name: '&aPrevious Page'
+  lore:
+    - '&7Go to page &f%previous_page%&7/&f%total_pages%'
+    - '&7Available arenas: &f%total_arenas%'
+  custom-model-data: -1
+
+next-page:
+  slot: 50
+  material: ARROW
+  display-name: '&aNext Page'
+  lore:
+    - '&7Go to page &f%next_page%&7/&f%total_pages%'
+    - '&7Available arenas: &f%total_arenas%'
+  custom-model-data: -1
+
+# Optional arena category filters for duel arena selection.
+# Assign arenas with /arena category set <arena> <category>
+# Categories are independent from arena groups.
+categories:
+  enabled: false
+  default: all
+  items:
+    all:
+      slot: 0
+      material: COMPASS
+      display-name: '&aAll Arenas'
+      lore:
+        - '&7Show every available arena.'
+      custom-model-data: -1
+    random:
+      slot: 1
+      material: ENDER_CHEST
+      display-name: '&dRandom'
+      lore:
+        - '&7Show random-category arenas.'
+      custom-model-data: -1
+    classicsmall:
+      slot: 2
+      material: STONE_BRICKS
+      display-name: '&eClassic Small'
+      lore:
+        - '&7Show classic small arenas.'
+      custom-model-data: -1
+    openlarge:
+      slot: 3
+      material: GRASS_BLOCK
+      display-name: '&aOpen Large'
+      lore:
+        - '&7Show open large arenas.'
+      custom-model-data: -1

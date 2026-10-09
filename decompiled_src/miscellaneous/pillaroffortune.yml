@@ -1,0 +1,42 @@
+enabled: true
+min-players: 2
+
+items:
+  oak_planks:
+    material: OAK_PLANKS
+    min-amount: 16
+    max-amount: 32
+    weight: 10
+  cobblestone:
+    material: COBBLESTONE
+    min-amount: 16
+    max-amount: 32
+    weight: 10
+  cooked_beef:
+    material: COOKED_BEEF
+    min-amount: 4
+    max-amount: 8
+    weight: 5
+  stone_sword:
+    material: STONE_SWORD
+    amount: 1
+    weight: 3
+  bow:
+    material: BOW
+    amount: 1
+    weight: 2
+  arrow:
+    material: ARROW
+    min-amount: 8
+    max-amount: 16
+    weight: 4
+  snowball:
+    material: SNOWBALL
+    min-amount: 8
+    max-amount: 16
+    weight: 4
+  ender_pearl:
+    material: ENDER_PEARL
+    min-amount: 1
+    max-amount: 2
+    weight: 1

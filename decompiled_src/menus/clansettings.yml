@@ -1,0 +1,37 @@
+click-sound:
+  enabled: true
+  sound: UI_BUTTON_CLICK
+  volume: 1.0
+  pitch: 1.0
+
+gui:
+  title: '&e&lClan Settings'
+  size: 27
+items:
+  friendly-fire:
+    material: IRON_SWORD
+    slot: 11
+    display_name: '&eFFA Friendly Fire'
+    lore:
+      - '&7Current: &f%ff%'
+      - '&7Click to toggle'
+    action: toggle-ff
+  tag:
+    material: NAME_TAG
+    slot: 13
+    display_name: '&eClan Tag'
+    lore:
+      - '&7Current: &f%tag%'
+      - '&7Use /clan modtag <tag>'
+  description:
+    material: PAPER
+    slot: 15
+    display_name: '&eDescription'
+    lore:
+      - '&f%description%'
+      - '&7Use /clan desc <text>'
+  back:
+    material: OAK_DOOR
+    slot: 22
+    display_name: '&cBack'
+    action: back

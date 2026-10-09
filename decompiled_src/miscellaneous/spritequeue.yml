@@ -1,0 +1,70 @@
+enabled: true
+
+# Used when a kit has no specific entry. Leave empty to show nothing.
+default-sprite: ""
+
+# Default atlas for simple item names and sprite paths.
+default-atlas: "minecraft:items"
+
+# Use these placeholders in queue/match-found messages:
+# %kit_sprite%, %queue_sprite%, or %sprite%
+#
+# PlaceholderAPI placeholders for use anywhere PlaceholderAPI is parsed:
+# %flixcore_kit_sprite%              # current player's queue/match/event kit sprite
+# %flixcore_queue_sprite%            # same as above
+# %flixcore_sprite%                  # same as above
+# %flixcore_queue_kit_sprite%        # scoreboard/tab: sprite for the kit the player is queued in
+# %flixcore_queue_kit_sprites%       # multi-queue: all queued kit sprites
+# %flixcore_queued_kit_sprite%       # menu only: sprite when player is queued for that menu item's kit
+# %flixcore_kit_sprite_bridge%       # always shows that kit's sprite from kits: below
+# %flixcore_queue_kit_sprite_bridge% # shows sprite only when player is queued for bridge
+#
+# In queue menus, use %flixcore_queue_kit_sprite% on an item with kit: bridge
+# and it automatically uses that item's kit sprite from the kits: section below.
+#
+# Supported formats:
+#   crystal: "end_crystal"                       # becomes <sprite:items:item/end_crystal>
+#   nodebuff: "item/potion"                      # becomes <sprite:items:item/potion>
+#   sword:
+#     atlas: "minecraft:items"
+#     sprite: "item/diamond_sword"
+#   custom: '<sprite:items:item/emerald>'
+#   customhead: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6..."  # HeadDatabase base64 texture
+#   customhead: "head_database:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6..."
+#   customhead:
+#     type: head_database
+#     texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6..."
+# HeadDatabase values render as custom player heads in queue/match action bars,
+# scoreboard, tab, and PlaceholderAPI (%flixcore_kit_sprite_<kit>%).
+# Normal and ranked names are linked automatically:
+# configuring "bedwars" also applies to "tierbedwars" (and vice versa).
+kits:
+  nodebuff: "potion"
+  crystal: "end_crystal"
+  tank: "diamond_sword"
+  axe: "diamond_axe"
+  builduhc: "lava_bucket"
+  cpvpht: "golden_apple"
+  cpvplt: "end_crystal"
+  diapot: "diamond_helmet"
+  macelt: "mace"
+  nethpot: "netherite_sword"
+  smpkit: "shield"
+  sword: "diamond_sword"
+  tridentuhc: "trident"
+  bedwars: "white_bed"
+  thebridge: "green_terracotta"
+  blockdecay: "bamboo_block"
+  spear: "netherite_spear"
+  creeper: "creeper_head"
+  tails: "egg"
+  bedboom: "bedrock"
+  tnttag: "tnt"
+  hunt: "cyan_dye"
+  bow: "bow"
+  spleef: "diamond_shovel"
+  bridge: "blue_terracotta"
+  clasiccrystal: "end_crystal"
+  fireball: "fireball"
+  bowpvp: "bow"
+  randomkit: "random_kit"

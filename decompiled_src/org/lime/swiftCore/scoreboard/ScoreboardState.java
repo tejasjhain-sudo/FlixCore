@@ -1,0 +1,28 @@
+package org.lime.swiftCore.scoreboard;
+
+public enum ScoreboardState {
+   DEFAULT,
+   DUEL,
+   QUEUE,
+   FFA,
+   KIT_EDITING,
+   PARTY,
+   PARTY_FFA,
+   PARTY_SPLIT,
+   PARTY_VS,
+   SPECTATING,
+   GLOBAL,
+   DUEL_BLOCK_DECAY,
+   DUEL_FLOWER_CROWN,
+   DUEL_TNT_TAG,
+   DUEL_BEDWARS,
+   PARTY_BLOCK_DECAY,
+   PARTY_FLOWER_CROWN,
+   PARTY_TNT_TAG,
+   PARTY_BEDWARS,
+   TOURNAMENT,
+   TOURNAMENT_WAITING,
+   EVENT,
+   EVENT_WAITING,
+   LOBBY_FRIENDS;
+}
