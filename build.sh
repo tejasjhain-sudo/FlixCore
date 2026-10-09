@@ -30,6 +30,7 @@ ASM_TREE_JAR="$M2_REPO/org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar"
 PAPER_JAR="$M2_REPO/io/papermc/paper/paper-api/1.21.1-R0.1-SNAPSHOT/paper-api-1.21.1-R0.1-SNAPSHOT.jar"
 PAPI_JAR="$M2_REPO/me/clip/placeholderapi/2.11.7/placeholderapi-2.11.7.jar"
 ADVENTURE_JAR="$M2_REPO/net/kyori/adventure-api/4.17.0/adventure-api-4.17.0.jar"
+KEY_JAR="$M2_REPO/net/kyori/adventure-key/4.17.0/adventure-key-4.17.0.jar"
 BUNGEE_CHAT_JAR="$M2_REPO/net/md-5/bungeecord-chat/1.21-R0.2-deprecated+build.21/bungeecord-chat-1.21-R0.2-deprecated+build.21.jar"
 
 SOURCE_JAR=""
@@ -49,7 +50,7 @@ mkdir -p "$BUILD_DIR/classes"
 
 echo "[1/3] Compiling helper classes (dual placeholder expansion, updater & transformer)..."
 "$JAVAC" -cp "$SOURCE_JAR:$PAPI_JAR:$PAPER_JAR" -d "$BUILD_DIR/classes" "$DIR/decompiled_src/org/lime/swiftCore/o/d.java"
-"$JAVAC" -cp "$SOURCE_JAR:$PAPER_JAR:$ADVENTURE_JAR:$BUNGEE_CHAT_JAR" -d "$BUILD_DIR/classes" "$DIR/decompiled_src/org/lime/swiftCore/updater/FlixCoreUpdater.java"
+"$JAVAC" -cp "$SOURCE_JAR:$PAPER_JAR:$ADVENTURE_JAR:$KEY_JAR:$BUNGEE_CHAT_JAR" -d "$BUILD_DIR/classes" "$DIR/decompiled_src/org/lime/swiftCore/updater/FlixCoreUpdater.java"
 "$JAVAC" -cp "$ASM_JAR:$ASM_TREE_JAR" -d "$BUILD_DIR/classes" "$DIR/decompiled_src/src/main/java/FlixCoreTransformer.java"
 
 # Generate git-version.properties

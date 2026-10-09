@@ -132,6 +132,40 @@ public class FlixCoreUpdater implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+
+        // 1. If lobby is not configured yet on this server, automatically initialize it to the default world spawn!
+        try {
+            if (plugin instanceof org.lime.swiftCore.SwiftCore sc) {
+                org.lime.swiftCore.spawn.b lobbyMgr = sc.getLobbyManager();
+                if (lobbyMgr != null && !lobbyMgr.Ô000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000String()) {
+                    org.bukkit.World defaultWorld = Bukkit.getWorlds().isEmpty() ? null : Bukkit.getWorlds().get(0);
+                    if (defaultWorld != null) {
+                        org.bukkit.Location defSpawn = defaultWorld.getSpawnLocation().clone().add(0.5, 0.0, 0.5);
+                        lobbyMgr.o000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000super(defSpawn);
+                        sc.getLogger().info("Automatically initialized lobby location to world '" + defaultWorld.getName() + "' spawn. Run /setlobby anytime to update it.");
+                    }
+                }
+            }
+        } catch (Throwable ignored) {}
+
+        // 2. Ensure player gets spawn items if they don't have them (fail-safe for fresh servers)
+        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            if (!player.isOnline()) return;
+            try {
+                if (plugin instanceof org.lime.swiftCore.SwiftCore sc) {
+                    org.lime.swiftCore.spawn.SpawnItemsManager sim = sc.getSpawnItemsManager();
+                    if (sim != null && !sim.hasSpawnItems(player)) {
+                        // Check if in duel/match or ffa
+                        if ((sc.getDuelManager() == null || !sc.getDuelManager().isInMatch(player.getUniqueId()))
+                                && (sc.getFFAManager() == null || !sc.getFFAManager().isInFFA(player.getUniqueId()))) {
+                            sim.giveSpawnItems(player, "default", false, false);
+                        }
+                    }
+                }
+            } catch (Throwable ignored) {}
+        }, 15L);
+
+        // 3. Update alert for server admins
         if (player.hasPermission("flixcore.admin") || player.isOp()) {
             Bukkit.getScheduler().runTaskLater(plugin, () -> {
                 if (updateAvailable) {
