@@ -96,6 +96,39 @@ public class FlixCoreTransformer {
         return cw.toByteArray();
     }
 
+    public static byte[] patchArenaBounds(byte[] classBytes) throws Exception {
+        ClassReader cr = new ClassReader(classBytes);
+        ClassNode cn = new ClassNode();
+        cr.accept(cn, 0);
+
+        for (MethodNode mn : cn.methods) {
+            if (mn.name.startsWith("ô0000") && mn.desc.equals("(Lorg/bukkit/Location;)Z")) {
+                InsnList prefix = new InsnList();
+                LabelNode continueLabel = new LabelNode();
+
+                // if (ArenaSafetyHelper.isInsideOrNearArena(this, loc)) return true;
+                prefix.add(new VarInsnNode(Opcodes.ALOAD, 0)); // this
+                prefix.add(new VarInsnNode(Opcodes.ALOAD, 1)); // loc
+                prefix.add(new MethodInsnNode(Opcodes.INVOKESTATIC,
+                        "org/lime/swiftCore/arena/ArenaSafetyHelper",
+                        "isInsideOrNearArena",
+                        "(Lorg/lime/swiftCore/arena/d;Lorg/bukkit/Location;)Z",
+                        false));
+                prefix.add(new JumpInsnNode(Opcodes.IFEQ, continueLabel));
+                prefix.add(new InsnNode(Opcodes.ICONST_1));
+                prefix.add(new InsnNode(Opcodes.IRETURN));
+                prefix.add(continueLabel);
+
+                mn.instructions.insert(prefix);
+                System.out.println("Patched org.lime.swiftCore.arena.d boundary check with ArenaSafetyHelper!");
+            }
+        }
+
+        ClassWriter cw = createWriter();
+        cn.accept(cw);
+        return cw.toByteArray();
+    }
+
     public static byte[] patchBuyerInfo(byte[] classBytes) throws Exception {
         ClassReader cr = new ClassReader(classBytes);
         ClassNode cn = new ClassNode();
@@ -256,6 +289,10 @@ public class FlixCoreTransformer {
             byte[] b = patchSwiftCore(jarEntries.get("org/lime/swiftCore/SwiftCore.class"));
             jarEntries.put("org/lime/swiftCore/SwiftCore.class", b);
         }
+        if (jarEntries.containsKey("org/lime/swiftCore/arena/d.class")) {
+            byte[] b = patchArenaBounds(jarEntries.get("org/lime/swiftCore/arena/d.class"));
+            jarEntries.put("org/lime/swiftCore/arena/d.class", b);
+        }
 
         // Patch all classes for /swiftcore -> /flixcore references
         for (Map.Entry<String, byte[]> entry : new ArrayList<>(jarEntries.entrySet())) {
@@ -289,6 +326,16 @@ public class FlixCoreTransformer {
         if (updaterClass.exists()) {
             jarEntries.put("org/lime/swiftCore/updater/FlixCoreUpdater.class", Files.readAllBytes(updaterClass.toPath()));
             System.out.println("Included org/lime/swiftCore/updater/FlixCoreUpdater.class into jar!");
+        }
+
+        // Add ArenaSafetyHelper class
+        File safetyClass = new File(decompiledDir, "target/classes/org/lime/swiftCore/arena/ArenaSafetyHelper.class");
+        if (!safetyClass.exists()) {
+            safetyClass = new File(decompiledDir.getParentFile(), "target/classes/org/lime/swiftCore/arena/ArenaSafetyHelper.class");
+        }
+        if (safetyClass.exists()) {
+            jarEntries.put("org/lime/swiftCore/arena/ArenaSafetyHelper.class", Files.readAllBytes(safetyClass.toPath()));
+            System.out.println("Included org/lime/swiftCore/arena/ArenaSafetyHelper.class into jar!");
         }
 
         // Add PracticeBot stub classes

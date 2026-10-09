@@ -45,8 +45,12 @@ fi
 BUILD_DIR="$DIR/target"
 mkdir -p "$BUILD_DIR/classes"
 
-echo "[1/3] Compiling helper classes (dual placeholder expansion & transformer)..."
+ADV_KEY="$M2_REPO/net/kyori/adventure-key/4.17.0/adventure-key-4.17.0.jar"
+ADV_API="$M2_REPO/net/kyori/adventure-api/4.17.0/adventure-api-4.17.0.jar"
+
+echo "[1/3] Compiling helper classes (dual placeholder expansion, safety helper & transformer)..."
 "$JAVAC" -cp "$SOURCE_JAR:$PAPI_JAR:$PAPER_JAR" -d "$BUILD_DIR/classes" "$DIR/org/lime/swiftCore/o/d.java"
+"$JAVAC" -sourcepath "" -cp "$SOURCE_JAR:$PAPER_JAR:$ADV_KEY:$ADV_API" -d "$BUILD_DIR/classes" "$DIR/src/main/java/org/lime/swiftCore/arena/ArenaSafetyHelper.java"
 "$JAVAC" -cp "$ASM_JAR:$ASM_TREE_JAR" -d "$BUILD_DIR/classes" "$DIR/src/main/java/FlixCoreTransformer.java"
 
 echo "[2/3] Transforming bytecode and packaging FlixCore jar..."
@@ -55,9 +59,17 @@ echo "[2/3] Transforming bytecode and packaging FlixCore jar..."
 echo "[3/3] Finalizing output..."
 cp "$BUILD_DIR/FlixCore-4.7.0.jar" "$DIR/FlixCore-4.7.0.jar"
 cp "$BUILD_DIR/FlixCore-4.7.0.jar" "$PARENT_DIR/FlixCore-4.7.0.jar"
+cp "$BUILD_DIR/FlixCore-4.7.0.jar" "/Users/tejas/Desktop/FlixCore.jar"
+cp "$BUILD_DIR/FlixCore-4.7.0.jar" "/Users/tejas/Desktop/FlixCore-4.7.0.jar"
+if [ -d "$PARENT_DIR/test_server/plugins" ]; then
+    cp "$BUILD_DIR/FlixCore-4.7.0.jar" "$PARENT_DIR/test_server/plugins/FlixCore.jar"
+    cp "$BUILD_DIR/FlixCore-4.7.0.jar" "$PARENT_DIR/test_server/plugins/FlixCore-4.7.0.jar"
+fi
 
 echo "==========================================="
 echo "   BUILD SUCCESSFUL!"
 echo "   Output: $DIR/FlixCore-4.7.0.jar"
 echo "           $PARENT_DIR/FlixCore-4.7.0.jar"
+echo "           /Users/tejas/Desktop/FlixCore.jar"
+echo "           /Users/tejas/Desktop/FlixCore-4.7.0.jar"
 echo "==========================================="
