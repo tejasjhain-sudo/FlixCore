@@ -1,3 +1,6 @@
+*.jar
+*.class
+*.zip
 target/
 **/target/
 test_server/
