@@ -45,6 +45,17 @@ fi
 BUILD_DIR="$DIR/target"
 mkdir -p "$BUILD_DIR/classes"
 
+COMMIT=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "main")
+BUILD_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+cat <<EOF > "$DIR/git-version.properties"
+git.commit=$COMMIT
+git.branch=$BRANCH
+git.build_time=$BUILD_TIME
+git.version=4.7.0
+git.repo=https://github.com/tejasjhain-sudo/FlixCore
+EOF
+
 ADV_KEY="$M2_REPO/net/kyori/adventure-key/4.17.0/adventure-key-4.17.0.jar"
 ADV_API="$M2_REPO/net/kyori/adventure-api/4.17.0/adventure-api-4.17.0.jar"
 
@@ -63,7 +74,6 @@ cp "$BUILD_DIR/FlixCore-4.7.0.jar" "/Users/tejas/Desktop/FlixCore.jar"
 cp "$BUILD_DIR/FlixCore-4.7.0.jar" "/Users/tejas/Desktop/FlixCore-4.7.0.jar"
 if [ -d "$PARENT_DIR/test_server/plugins" ]; then
     cp "$BUILD_DIR/FlixCore-4.7.0.jar" "$PARENT_DIR/test_server/plugins/FlixCore.jar"
-    cp "$BUILD_DIR/FlixCore-4.7.0.jar" "$PARENT_DIR/test_server/plugins/FlixCore-4.7.0.jar"
 fi
 
 echo "==========================================="
