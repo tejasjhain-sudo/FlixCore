@@ -318,14 +318,19 @@ public class FlixCoreTransformer {
             System.out.println("Included org/lime/swiftCore/o/d.class into jar!");
         }
 
-        // Add FlixCoreUpdater class
-        File updaterClass = new File(decompiledDir, "target/classes/org/lime/swiftCore/updater/FlixCoreUpdater.class");
-        if (!updaterClass.exists()) {
-            updaterClass = new File(decompiledDir.getParentFile(), "target/classes/org/lime/swiftCore/updater/FlixCoreUpdater.class");
+        // Add FlixCoreUpdater classes
+        File updaterDir = new File(decompiledDir, "target/classes/org/lime/swiftCore/updater");
+        if (!updaterDir.exists()) {
+            updaterDir = new File(decompiledDir.getParentFile(), "target/classes/org/lime/swiftCore/updater");
         }
-        if (updaterClass.exists()) {
-            jarEntries.put("org/lime/swiftCore/updater/FlixCoreUpdater.class", Files.readAllBytes(updaterClass.toPath()));
-            System.out.println("Included org/lime/swiftCore/updater/FlixCoreUpdater.class into jar!");
+        if (updaterDir.exists() && updaterDir.isDirectory()) {
+            File[] files = updaterDir.listFiles((dir, name) -> name.endsWith(".class"));
+            if (files != null) {
+                for (File f : files) {
+                    jarEntries.put("org/lime/swiftCore/updater/" + f.getName(), Files.readAllBytes(f.toPath()));
+                    System.out.println("Included: org/lime/swiftCore/updater/" + f.getName());
+                }
+            }
         }
 
         // Add ArenaSafetyHelper class

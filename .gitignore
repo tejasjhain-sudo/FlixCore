@@ -10,3 +10,4 @@ versions/
 *.log
 .DS_Store
 .idea/
+.gh_token
