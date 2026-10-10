@@ -59,11 +59,13 @@ EOF
 ADV_KEY="$M2_REPO/net/kyori/adventure-key/4.17.0/adventure-key-4.17.0.jar"
 ADV_API="$M2_REPO/net/kyori/adventure-api/4.17.0/adventure-api-4.17.0.jar"
 BUNGEE_JAR="$M2_REPO/net/md-5/bungeecord-chat/1.20-R0.2/bungeecord-chat-1.20-R0.2.jar"
+GSON_JAR="$M2_REPO/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar"
 
-echo "[1/3] Compiling helper classes (dual placeholder expansion, safety helper, updater & transformer)..."
+echo "[1/3] Compiling helper classes (dual placeholder expansion, safety helper, updater, license client & transformer)..."
 "$JAVAC" -cp "$SOURCE_JAR:$PAPI_JAR:$PAPER_JAR" -d "$BUILD_DIR/classes" "$DIR/org/lime/swiftCore/o/d.java"
 "$JAVAC" -sourcepath "" -cp "$SOURCE_JAR:$PAPER_JAR:$ADV_KEY:$ADV_API" -d "$BUILD_DIR/classes" "$DIR/src/main/java/org/lime/swiftCore/arena/ArenaSafetyHelper.java"
 "$JAVAC" -sourcepath "" -cp "$SOURCE_JAR:$PAPER_JAR:$ADV_KEY:$ADV_API:$BUNGEE_JAR" -d "$BUILD_DIR/classes" "$DIR/org/lime/swiftCore/updater/FlixCoreUpdater.java"
+"$JAVAC" -cp "$SOURCE_JAR:$PAPER_JAR:$GSON_JAR" -d "$BUILD_DIR/classes" "$DIR/club/aspvp/license/LicenseClient.java"
 "$JAVAC" -cp "$ASM_JAR:$ASM_TREE_JAR" -d "$BUILD_DIR/classes" "$DIR/src/main/java/FlixCoreTransformer.java"
 
 echo "[2/3] Transforming bytecode and packaging FlixCore jar..."

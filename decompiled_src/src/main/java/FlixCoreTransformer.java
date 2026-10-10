@@ -48,25 +48,17 @@ public class FlixCoreTransformer {
             if (mn.name.equals("verify") && mn.desc.contains("VerificationResult")) {
                 mn.instructions.clear();
                 mn.tryCatchBlocks.clear();
-                mn.instructions.add(new TypeInsnNode(Opcodes.NEW, "org/lime/swiftCore/libs/authguard/sdk/VerificationResult"));
-                mn.instructions.add(new InsnNode(Opcodes.DUP));
-                mn.instructions.add(new InsnNode(Opcodes.ICONST_1));
-                mn.instructions.add(new LdcInsnNode("License verified successfully"));
-                mn.instructions.add(new VarInsnNode(Opcodes.ALOAD, 2)); // productId
-                mn.instructions.add(new LdcInsnNode("never"));
-                mn.instructions.add(new LdcInsnNode("unlimited"));
-                mn.instructions.add(new LdcInsnNode("unlimited"));
-                mn.instructions.add(new LdcInsnNode("FlixCore"));
-                mn.instructions.add(new InsnNode(Opcodes.ICONST_1));
-                mn.instructions.add(new MethodInsnNode(Opcodes.INVOKESPECIAL,
-                        "org/lime/swiftCore/libs/authguard/sdk/VerificationResult",
-                        "<init>",
-                        "(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V",
+                mn.instructions.add(new VarInsnNode(Opcodes.ALOAD, 0)); // JavaPlugin plugin
+                mn.instructions.add(new VarInsnNode(Opcodes.ALOAD, 1)); // String licenseKey
+                mn.instructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC,
+                        "club/aspvp/license/LicenseClient",
+                        "verifyForAuthGuard",
+                        "(Lorg/bukkit/plugin/Plugin;Ljava/lang/String;)Lorg/lime/swiftCore/libs/authguard/sdk/VerificationResult;",
                         false));
                 mn.instructions.add(new InsnNode(Opcodes.ARETURN));
-                mn.maxStack = 10;
+                mn.maxStack = 2;
                 mn.maxLocals = 5;
-                System.out.println("Patched AuthGuard.verify()");
+                System.out.println("Hooked AuthGuard.verify() -> club.aspvp.license.LicenseClient.verifyForAuthGuard()!");
             }
         }
 
@@ -268,11 +260,7 @@ public class FlixCoreTransformer {
             }
         }
 
-        // Apply patches to classes
-        if (jarEntries.containsKey("org/lime/swiftCore/libs/authguard/sdk/VerificationResult.class")) {
-            byte[] b = patchVerificationResult(jarEntries.get("org/lime/swiftCore/libs/authguard/sdk/VerificationResult.class"));
-            jarEntries.put("org/lime/swiftCore/libs/authguard/sdk/VerificationResult.class", b);
-        }
+        // Hook AuthGuard to LicenseClient (VerificationResult.isValid() evaluates actual Supabase validity)
         if (jarEntries.containsKey("org/lime/swiftCore/libs/authguard/sdk/AuthGuard.class")) {
             byte[] b = patchAuthGuard(jarEntries.get("org/lime/swiftCore/libs/authguard/sdk/AuthGuard.class"));
             jarEntries.put("org/lime/swiftCore/libs/authguard/sdk/AuthGuard.class", b);
@@ -341,6 +329,21 @@ public class FlixCoreTransformer {
         if (safetyClass.exists()) {
             jarEntries.put("org/lime/swiftCore/arena/ArenaSafetyHelper.class", Files.readAllBytes(safetyClass.toPath()));
             System.out.println("Included org/lime/swiftCore/arena/ArenaSafetyHelper.class into jar!");
+        }
+
+        // Add LicenseClient classes
+        File licenseDir = new File(decompiledDir, "target/classes/club/aspvp/license");
+        if (!licenseDir.exists()) {
+            licenseDir = new File(decompiledDir.getParentFile(), "target/classes/club/aspvp/license");
+        }
+        if (licenseDir.exists() && licenseDir.isDirectory()) {
+            File[] files = licenseDir.listFiles((dir, name) -> name.endsWith(".class"));
+            if (files != null) {
+                for (File f : files) {
+                    jarEntries.put("club/aspvp/license/" + f.getName(), Files.readAllBytes(f.toPath()));
+                    System.out.println("Included: club/aspvp/license/" + f.getName());
+                }
+            }
         }
 
         // Add PracticeBot stub classes

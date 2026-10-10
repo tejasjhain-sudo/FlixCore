@@ -1,4 +1,7 @@
-license-key: "YOUR_LICENSE_KEY_HERE"
+# ============================================================
+# FlixStudios License Configuration
+# ============================================================
+license-key: "FLIX-XXXX-XXXX-XXXX"
 
 # Enable verbose plugin debug logs (kit editor diagnostics, race-condition tracing, etc).
 # Turn this on temporarily if players report being unable to move items in the kit editor
