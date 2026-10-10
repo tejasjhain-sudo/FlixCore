@@ -95,24 +95,33 @@ if [ "$1" == "--release" ] || [ "$RELEASE" == "1" ]; then
     REPO="tejasjhain-sudo/FlixCore"
 
     RELEASE_DATA=$(curl -s -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$REPO/releases/tags/v4.7.0")
-    RELEASE_ID=$(echo "$RELEASE_DATA" | grep -m 1 '"id":' | awk '{print $2}' | tr -d ',')
+    RELEASE_ID=$(echo "$RELEASE_DATA" | python3 -c "import sys, json; print(json.load(sys.stdin).get('id', ''))" 2>/dev/null || true)
 
-    if [ -z "$RELEASE_ID" ] || [ "$RELEASE_ID" == "null" ]; then
+    if [ -z "$RELEASE_ID" ] || [ "$RELEASE_ID" == "None" ] || [ "$RELEASE_ID" == "null" ]; then
         echo "Creating release v4.7.0..."
         RELEASE_DATA=$(curl -s -X POST \
             -H "Authorization: token $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/$REPO/releases" \
             -d '{"tag_name":"v4.7.0","target_commitish":"main","name":"FlixCore v4.7.0","body":"Automated build release for FlixCore","draft":false,"prerelease":false}')
-        RELEASE_ID=$(echo "$RELEASE_DATA" | grep -m 1 '"id":' | awk '{print $2}' | tr -d ',')
+        RELEASE_ID=$(echo "$RELEASE_DATA" | python3 -c "import sys, json; print(json.load(sys.stdin).get('id', ''))" 2>/dev/null || true)
     fi
 
     echo "Release ID: $RELEASE_ID"
-    # Delete old asset if exists
-    ASSET_ID=$(curl -s -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$REPO/releases/$RELEASE_ID/assets" | grep -B 1 '"name": "FlixCore.jar"' | head -n 1 | awk '{print $2}' | tr -d ',')
-    if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
-        echo "Replacing existing release asset ($ASSET_ID)..."
-        curl -s -X DELETE -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID"
+
+    # Find existing FlixCore.jar asset ID and delete it
+    ASSETS_DATA=$(curl -s -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$REPO/releases/$RELEASE_ID/assets")
+    OLD_ASSET_ID=$(echo "$ASSETS_DATA" | python3 -c "
+import sys, json
+for a in json.load(sys.stdin):
+    if a.get('name') == 'FlixCore.jar':
+        print(a.get('id', ''))
+        break
+" 2>/dev/null || true)
+
+    if [ -n "$OLD_ASSET_ID" ] && [ "$OLD_ASSET_ID" != "None" ]; then
+        echo "Replacing existing release asset ID $OLD_ASSET_ID..."
+        curl -s -X DELETE -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$REPO/releases/assets/$OLD_ASSET_ID"
     fi
 
     echo "Uploading FlixCore.jar (Commit: $COMMIT)..."
@@ -122,7 +131,7 @@ if [ "$1" == "--release" ] || [ "$RELEASE" == "1" ]; then
         "https://uploads.github.com/repos/$REPO/releases/$RELEASE_ID/assets?name=FlixCore.jar" \
         --data-binary "@$BUILD_DIR/FlixCore-4.7.0.jar")
 
-    DOWNLOAD_URL=$(echo "$UPLOAD_RES" | grep '"browser_download_url":' | head -n 1 | cut -d '"' -f 4)
+    DOWNLOAD_URL=$(echo "$UPLOAD_RES" | python3 -c "import sys, json; print(json.load(sys.stdin).get('browser_download_url', ''))" 2>/dev/null || true)
     echo "Release published successfully!"
     echo "Download URL: $DOWNLOAD_URL"
 fi
